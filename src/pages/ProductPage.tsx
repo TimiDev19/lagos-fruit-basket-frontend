@@ -95,7 +95,7 @@ import React, { useEffect, useState } from "react";
 import { addToCart } from "@/store/audophileSlice";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { ShoppingBag01Icon } from "hugeicons-react";
+import { ArrowLeft01Icon, ArrowUpLeft01Icon, LinkBackwardIcon, ShoppingBag01Icon } from "hugeicons-react";
 
 type Product = {
   _id: string;
@@ -137,28 +137,28 @@ const ProductPage: React.FC = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-        try {
-            const res = await fetch("https://lagos-food-basket-backend.onrender.com/user");
-            const data = await res.json();
+      try {
+        const res = await fetch("https://lagos-food-basket-backend.onrender.com/user");
+        const data = await res.json();
 
-            const productArray = Array.isArray(data) ? data : [];
+        const productArray = Array.isArray(data) ? data : [];
 
-            // Shuffle products
-            const shuffled = [...productArray].sort(() => 0.5 - Math.random());
+        // Shuffle products
+        const shuffled = [...productArray].sort(() => 0.5 - Math.random());
 
-            // Take only 12
-            const randomProducts = shuffled.slice(0, 4);
+        // Take only 12
+        const randomProducts = shuffled.slice(0, 4);
 
-            setRedProducts(randomProducts);
+        setRedProducts(randomProducts);
 
-        } catch (error) {
-            console.error("Fetch error:", error);
-            setRedProducts([]);
-        }
+      } catch (error) {
+        console.error("Fetch error:", error);
+        setRedProducts([]);
+      }
     };
 
     fetchProducts();
-}, []);
+  }, []);
 
   // Find the specific product using the ID
   useEffect(() => {
@@ -186,16 +186,20 @@ const ProductPage: React.FC = () => {
 
   return (
     <>
-      <div className=' h-[90vh] w-[100vw] pt-[150px] px-[5%] flex items-center justify-between'>
-        <div className=" w-[50%] h-full flex flex-col items-center justify-start">
-          <div className="w-[172px] lg:w-[548px] h-[192px] lg:h-[393px] overflow-hidden mb-[10px]">
+      <div className=' lg:h-[90vh] w-[100vw] pt-[150px] px-[5%] flex max-sm:flex-col items-center justify-between'>
+        <div className=" max-sm:w-full w-[50%] h-full flex flex-col items-center justify-start max-sm:mb-[20px]">
+          <div className=" w-full lg:w-[548px]">
+            <Link to={"/"} className=" block flex items-center justify-center mb-[20px] h-[36px] w-[36px] bg-[#245236] rounded-full lg:hidden"><ArrowLeft01Icon className=' text-white' size={25} strokeWidth={1.5} /></Link>
+            <Link to={"/"} className=" block flex items-center justify-center mb-[20px] h-[48px] w-[133px] bg-[#245236] rounded-full text-white max-sm:hidden"><LinkBackwardIcon className=' text-white mr-[5px]' size={25} strokeWidth={1.5} /> Back</Link>
+          </div>
+          <div className="w-full lg:w-[548px] lg:h-[393px] overflow-hidden mb-[10px]">
             <img
               src={product.avatar || ""}
               alt={product.name || ""}
               className="w-full h-full object-cover duration-500 cursor-pointer rounded-xl"
             />
           </div>
-          <div className=" grid grid-cols-4 w-[548px] h-[122px]">
+          <div className=" grid grid-cols-4 max-sm:w-full w-[548px] h-[122px]">
             <div className="h-[122px] mr-1">
               <img
                 src={product.avatar || ""}
@@ -229,20 +233,20 @@ const ProductPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className=" w-[50%] h-full flex flex-col items-start justify-start">
-          <h1 className=" w-full text-[32px] mb-[10px] font-[500]">{product.name}</h1>
-          <p className=" text-[14px] text-[#868C98] w-[90%] mb-[10px]">{product.description}</p>
-          <h1 className=" text-[24px] text-[#245236] font-semibold">₦{product.price}</h1>
+        <div className=" max-sm:w-full w-[50%] h-full flex flex-col items-start justify-start max-sm:mb-[40px]">
+          <h1 className=" w-full max-sm:text-[24px] text-[32px] mb-[10px] font-[500]">{product.name}</h1>
+          <p className=" text-[14px] max-sm:text-[16px] font-[200] tracking-wide text-[#868C98] w-[90%] mb-[10px]">{product.description}</p>
+          <h1 className=" text-[24px] text-[#245236] lg:font-semibold">₦{product.price}</h1>
 
           <button
             onClick={handleAddToCart}
-            className=' mt-5 px-11 text-center bg-[#245236] rounded-full text-white text-s py-4 uppercase duration-500 hover:bg-transparent hover:border hover:border-[#245236] hover:text-[#245236] cursor-pointer'
+            className=' max-sm:w-full h-[49px] flex items-center justify-center mt-5 px-11 text-center bg-[#245236] rounded-full text-white text-s py-4 uppercase duration-500 hover:bg-transparent hover:border hover:border-[#245236] hover:text-[#245236] cursor-pointer'
           >
             + Add to cart
           </button>
         </div>
       </div>
-      <div  className=" w-full min-h-[30vh] px-[2.5%]">
+      <div className=" w-full min-h-[30vh] px-[2.5%]">
         <div className=" w-full flex items-center justify-between mb-[1vh]">
           <h1 className=" text-[28px] text-[#0A0D14]">SHOP</h1>
           <Link
