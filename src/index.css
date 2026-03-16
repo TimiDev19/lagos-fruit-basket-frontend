@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+  font-family: 'Inter', sans-serif;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,6 +51,33 @@
 .contact-bg {
   background-image: linear-gradient(rgba(4, 9, 30, 0.4), rgba(4, 9, 30, 0.4)),
     url('./assets/contact-bg.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.heo-bg {
+  background-image: url("./assets/hero.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mobile-bg {
+  background-image: url("./assets/mobile-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-bg {
+  background-image: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.7), /* darker at top */
+    rgba(0, 0, 0, 0.3)  /* lighter at bottom */
+  ),
+  url("./assets/hero.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

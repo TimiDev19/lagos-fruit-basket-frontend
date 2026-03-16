@@ -18,19 +18,44 @@ type Product = {
 const Shop = () => {
     const [products, setProducts] = useState<Product[]>([])
     const dispatch = useDispatch()
+    // useEffect(() => {
+    //     const fetchProducts = async () => {
+    //         try {
+    //             const res = await fetch("https://lagos-food-basket-backend.onrender.com/user");
+    //             const data = await res.json();
+    //             console.log("Fetched data:", data); // 🔹 important
+    //             setProducts(Array.isArray(data) ? data : []); // ✅ ensure it's an array
+    //         } catch (error) {
+    //             console.error("Fetch error:", error);
+    //             setProducts([]); // fallback to empty array
+    //         }
+    //     };
+
+    //     fetchProducts();
+    // }, []);
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const res = await fetch("https://lagos-food-basket-backend.onrender.com/user");
                 const data = await res.json();
-                console.log("Fetched data:", data); // 🔹 important
-                setProducts(Array.isArray(data) ? data : []); // ✅ ensure it's an array
+    
+                const productArray = Array.isArray(data) ? data : [];
+    
+                // Shuffle products
+                const shuffled = [...productArray].sort(() => 0.5 - Math.random());
+    
+                // Take only 12
+                const randomProducts = shuffled.slice(0, 12);
+    
+                setProducts(randomProducts);
+    
             } catch (error) {
                 console.error("Fetch error:", error);
-                setProducts([]); // fallback to empty array
+                setProducts([]);
             }
         };
-
+    
         fetchProducts();
     }, []);
 
@@ -47,15 +72,15 @@ const Shop = () => {
     };
 
     return (
-        <div id="" className=" w-full min-h-[100vh] px-[2.5%] pt-[150px]">
-            <div className=" w-full flex items-center justify-center mb-[5vh]">
+        <div id="shop" className=" w-full min-h-[100vh] px-[2.5%] pt-[150px]">
+            <div className=" w-full flex items-center justify-between mb-[5vh]">
                 <h1 className=" text-[28px] text-[#0A0D14]">SHOP</h1>
-                {/* <Link
-                    to={""}
+                <Link
+                    to={"/shop"}
                     className=" text-[14px] text-[#245236] font-semibold"
                 >
                     View all
-                </Link> */}
+                </Link>
             </div>
 
             <div className=" w-full grid grid-cols-2 lg:grid-cols-4">

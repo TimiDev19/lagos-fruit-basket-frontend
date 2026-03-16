@@ -25,14 +25,14 @@ import StickyButton from './components/StickyButton';
 
 function App() {
   return (
-    <div className=" font-urbanist">
+    <div className=" font-inter">
       <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Landingpage />} />
-          <Route path="/about" element={<Aboutpage />} />
+          {/* <Route path="/about" element={<Aboutpage />} /> */}
           <Route path="/shop" element={<Shop />} />
-          <Route
+          {/* <Route
             path="/dermalfillers"
             element={
               <FadeReveal>
@@ -103,7 +103,7 @@ function App() {
                 <Contact />
               </FadeReveal>
             }
-          />
+          /> */}
           <Route
             path="/product/:id"
             element={
@@ -129,10 +129,8 @@ function App() {
             }
           />
         </Routes>
-        <StickyButton
-          
-        />
-        <Footer />
+        <StickyButton/>
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

@@ -189,7 +189,7 @@ const CartModal = () => {
           Remove all
         </p>
       </div>
-      <div className="max-h-[17rem] pb-[1rem] overflow-scroll border-b-[1px] border-blue-500">
+      <div className="max-h-[17rem] pb-[1rem] overflow-scroll border-b-[1px] border-[#245236]">
         {cart.length === 0 ? (
           <p className="mt-[1rem] font-semibold italic">No Items In Cart 🤧</p>
         ) : (
@@ -207,7 +207,7 @@ const CartModal = () => {
       </div>
       <div className="flex justify-between items-center pt-[1rem]">
         <p className="opacity-50 text-[1rem]">TOTAL</p>
-        <p className="font-semibold text-[1.1rem] tracking-wider">{`£ ${totalCost.toFixed(2)}`}</p>
+        <p className="font-semibold text-[1.1rem] tracking-wider">{`₦ ${totalCost.toFixed(2)}`}</p>
       </div>
 
       <input
@@ -229,7 +229,7 @@ const CartModal = () => {
       {
         isOrdering ? (
           <button
-            className={`bg-blue-500 md:hover:bg-blue-400 w-full text-white text-[0.85rem] duration-150 py-[1rem] px-[2.3rem] font-semibold tracking-wider md:tracking-widest mt-[1rem] md:mt-[1.5rem] uppercase`}
+            className={`hover:bg-[#245236]/50 w-full text-white text-[0.85rem] duration-150 py-[1rem] px-[2.3rem] font-semibold tracking-wider md:tracking-widest mt-[1rem] md:mt-[1.5rem] uppercase`}
           >
             <div className="animate-spin h-5 w-5 mx-auto border-2 border-white rounded-full border-t-transparent"></div>
           </button>
@@ -238,7 +238,7 @@ const CartModal = () => {
           (
             <button
               onClick={makePayment}
-              className={`bg-blue-500 md:hover:bg-blue-400 w-full text-white text-[0.85rem] duration-150 py-[1rem] px-[2.3rem] font-semibold tracking-wider md:tracking-widest mt-[1rem] md:mt-[1.5rem] uppercase`}
+              className={`bg-[#245236] md:hover:bg-[#245236]/50 w-full text-white text-[0.85rem] duration-150 py-[1rem] px-[2.3rem] font-semibold tracking-wider md:tracking-widest mt-[1rem] md:mt-[1.5rem] uppercase`}
             >
               Checkout
             </button>
