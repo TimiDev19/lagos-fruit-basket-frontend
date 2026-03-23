@@ -96,6 +96,7 @@ import { addToCart } from "@/store/audophileSlice";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft01Icon, ArrowUpLeft01Icon, LinkBackwardIcon, ShoppingBag01Icon } from "hugeicons-react";
+import Footer from "@/components/Footer";
 
 type Product = {
   _id: string;
@@ -313,6 +314,7 @@ const ProductPage: React.FC = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

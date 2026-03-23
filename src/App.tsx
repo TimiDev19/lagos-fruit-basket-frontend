@@ -130,7 +130,6 @@ function App() {
           />
         </Routes>
         <StickyButton/>
-        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

@@ -8,6 +8,7 @@ import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
 import { ArrowRight01Icon, ShoppingBag01Icon } from "hugeicons-react";
 import Shop from '@/components/Shop';
+import Footer from '@/components/Footer';
 
 const Landingpage = () => {
   const bestSellingProducts = products.items.filter((item) => {
@@ -59,6 +60,7 @@ const Landingpage = () => {
 
       {/* SHOP */}
       <Shop />
+      <Footer />
     </div>
   );
 };
