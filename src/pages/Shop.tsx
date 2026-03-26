@@ -18,16 +18,19 @@ type Product = {
 
 const Shop = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setIsLoading(true)
         const res = await fetch(
           "https://lagos-food-basket-backend.onrender.com/user"
         );
         const data = await res.json();
         console.log("Fetched data:", data); // 🔹 important
         setProducts(Array.isArray(data) ? data : []); // ✅ ensure it's an array
+        setIsLoading(false)
       } catch (error) {
         console.error("Fetch error:", error);
         setProducts([]); // fallback to empty array
@@ -62,6 +65,161 @@ const Shop = () => {
                 </Link> */}
         </div>
 
+        {isLoading ? (
+        <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
+            <div
+              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
+            >
+              <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
+                <Link
+                  to={`#`}
+                  className=" cursor-pointer"
+                >
+                  <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
+                </Link>
+              </div>
+
+              <div className=" w-full flex items-center justify-between">
+                <div>
+                  <Link
+                    to={`#`}
+                    className=" text-[14px] lg:text-[16px] font-[500] text-transparent hover:underline duration-700 ease-in-out cursor-pointer"
+                  >
+                    product.name
+                  </Link>
+                  <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
+                    ₦product.price
+                  </h1>
+                </div>
+
+                {/* <div
+                  onClick={() => handleAddToCart(product)}
+                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
+                >
+                  <ShoppingBag01Icon
+                    className=" text-[#EFF901]"
+                    size={22}
+                    strokeWidth={1.5}
+                  />
+                </div> */}
+              </div>
+            </div>
+
+            <div
+              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
+            >
+              <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
+                <Link
+                  to={`#`}
+                  className=" cursor-pointer"
+                >
+                  <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
+                </Link>
+              </div>
+
+              <div className=" w-full flex items-center justify-between">
+                <div>
+                  <Link
+                    to={`#`}
+                    className=" text-[14px] lg:text-[16px] font-[500] text-transparent hover:underline duration-700 ease-in-out cursor-pointer"
+                  >
+                    product.name
+                  </Link>
+                  <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
+                    ₦product.price
+                  </h1>
+                </div>
+
+                {/* <div
+                  onClick={() => handleAddToCart(product)}
+                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
+                >
+                  <ShoppingBag01Icon
+                    className=" text-[#EFF901]"
+                    size={22}
+                    strokeWidth={1.5}
+                  />
+                </div> */}
+              </div>
+            </div>
+
+            <div
+              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
+            >
+              <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
+                <Link
+                  to={`#`}
+                  className=" cursor-pointer"
+                >
+                  <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
+                </Link>
+              </div>
+
+              <div className=" w-full flex items-center justify-between">
+                <div>
+                  <Link
+                    to={`#`}
+                    className=" text-[14px] lg:text-[16px] font-[500] text-transparent hover:underline duration-700 ease-in-out cursor-pointer"
+                  >
+                    product.name
+                  </Link>
+                  <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
+                    ₦product.price
+                  </h1>
+                </div>
+
+                {/* <div
+                  onClick={() => handleAddToCart(product)}
+                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
+                >
+                  <ShoppingBag01Icon
+                    className=" text-[#EFF901]"
+                    size={22}
+                    strokeWidth={1.5}
+                  />
+                </div> */}
+              </div>
+            </div>
+
+            <div
+              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
+            >
+              <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
+                <Link
+                  to={`#`}
+                  className=" cursor-pointer"
+                >
+                  <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
+                </Link>
+              </div>
+
+              <div className=" w-full flex items-center justify-between">
+                <div>
+                  <Link
+                    to={`#`}
+                    className=" text-[14px] lg:text-[16px] font-[500] text-transparent hover:underline duration-700 ease-in-out cursor-pointer"
+                  >
+                    product.name
+                  </Link>
+                  <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
+                    ₦product.price
+                  </h1>
+                </div>
+
+                {/* <div
+                  onClick={() => handleAddToCart(product)}
+                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
+                >
+                  <ShoppingBag01Icon
+                    className=" text-[#EFF901]"
+                    size={22}
+                    strokeWidth={1.5}
+                  />
+                </div> */}
+              </div>
+            </div>
+        </div>
+      ) : (
         <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
             <div key={product._id} className=" max-w-[40vw] lg:max-w-[20vw]">
@@ -131,6 +289,7 @@ const Shop = () => {
             </div>
           ))}
         </div>
+      )}
       </div>
       <Footer />
     </>
