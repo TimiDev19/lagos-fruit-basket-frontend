@@ -122,17 +122,17 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div className=" w-full h-[100vh] pt-[150px]">
+      <div className=" w-full block pt-[150px]">
         <h1 className=" text-center text-[#245236] text-[32px] mb-[20px]">
           About Us
         </h1>
 
-        <div className=" w-full h-[70vh] flex items-center justify-center max-sm:items-start px-[5%] space-x-[5%]">
-          <div className=" w-[40%] h-[70vh] flex items-start justify-center">
-            <div className=" w-full h-full hero-bg rounded-3xl"></div>
+        <div className=" w-full lg:h-[70vh] flex max-sm:flex-col items-center justify-center max-sm:items-start px-[5%] space-x-[5%]">
+          <div className=" max-sm:mb-[10vh] max-sm:w-full max-sm:h-[50vh] w-[40%] h-[70vh] flex items-start justify-center">
+            <div className=" w-full h-full about-lfb-bg rounded-3xl"></div>
           </div>
 
-          <div className=" w-[50%] h-[50vh] flex flex-col items-start justify-start">
+          <div className=" w-[50%] max-sm:w-full min-h-[50vh] flex flex-col items-start justify-start">
             <p className=" text-[16px] text-[#868C98] font-[300] mb-[20px]">
               Imagine the freshest, seasonal fruits bursting with flavor, all
               grown right here in Nigeria! <br /> <br /> At Lagos Fruit Basket,
@@ -189,24 +189,26 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh]">
-        <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
-          <h1 className=" text-[32px] text-white mb-[20px]">
-            Personalize Your Pick!
-          </h1>
-          <p className=" w-[50%] max-sm:w-full text-center text-white font-[300] mb-[20px]">
-            Want to create something truly unique? Let’s design the perfect
-            basket together. Whether you need a specific fruit mix or a special
-            theme, our gift curator is ready to help you bring your vision to
-            life.
-          </p>
-          <Link
-            target="_blank"
-            to={"https://wa.me/+2348135846502"}
-            className=" flex items-center justify-center text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"
-          >
-             Chat with our Gift Curator on WhatsApp
-          </Link>
+      <div className=" block">
+        <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh]">
+          <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
+            <h1 className=" text-[32px] text-white mb-[20px]">
+              Personalize Your Pick!
+            </h1>
+            <p className=" w-[50%] max-sm:w-full text-center text-white font-[300] mb-[20px]">
+              Want to create something truly unique? Let’s design the perfect
+              basket together. Whether you need a specific fruit mix or a
+              special theme, our gift curator is ready to help you bring your
+              vision to life.
+            </p>
+            <Link
+              target="_blank"
+              to={"https://wa.me/+2348135846502"}
+              className=" flex items-center justify-center text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"
+            >
+               Chat with our Gift Curator on WhatsApp
+            </Link>
+          </div>
         </div>
       </div>
 
