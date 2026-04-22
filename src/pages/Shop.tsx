@@ -126,7 +126,7 @@ const Shop = () => {
                     product.name
                   </Link>
                   <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
-                    ₦product.price
+                    ₦product.price.toLocaleString()
                   </h1>
                 </div>
 
@@ -164,7 +164,7 @@ const Shop = () => {
                     product.name
                   </Link>
                   <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
-                    ₦product.price
+                    ₦product.price.toLocaleString()
                   </h1>
                 </div>
 
@@ -202,7 +202,7 @@ const Shop = () => {
                     product.name
                   </Link>
                   <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
-                    ₦product.price
+                    ₦product.price.toLocaleString()
                   </h1>
                 </div>
 
@@ -222,7 +222,7 @@ const Shop = () => {
       ) : (
         <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
-            <div key={product._id} className=" max-w-[40vw] lg:max-w-[20vw]">
+            <div key={product._id} className=" max-w-[40vw] lg:max-w-[20vw] mb-[20px]">
               <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
                 <Link
                   to={`/product/${product._id}`}
@@ -267,7 +267,7 @@ const Shop = () => {
                     {product.name}
                   </Link>
                   <h1 className=" text-black font-[600] text-[18px] lg:text-[28px]">
-                    ₦{product.price}
+                    ₦{product.price.toLocaleString()}
                   </h1>
                 </div>
 

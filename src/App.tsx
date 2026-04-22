@@ -25,7 +25,7 @@ import StickyButton from './components/StickyButton';
 
 function App() {
   return (
-    <div className=" font-inter">
+    <div className=" font-inter scroll-smooth">
       <BrowserRouter>
         <Navbar />
         <Routes>

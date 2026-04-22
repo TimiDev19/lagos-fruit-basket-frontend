@@ -51,7 +51,7 @@ const Shop = () => {
         const shuffled = [...productArray].sort(() => 0.5 - Math.random());
 
         // Take only 12
-        const randomProducts = shuffled.slice(0, 12);
+        const randomProducts = shuffled.slice(0, 4);
 
         setProducts(randomProducts);
         setIsLoading(false);
@@ -78,9 +78,9 @@ const Shop = () => {
   };
 
   return (
-    <div id="shop" className=" w-full min-h-[100vh] px-[2.5%] pt-[150px] mb-[50px]">
+    <div id="shop" className=" w-full min-h-[100vh] px-[2.5%] pt-[150px] mb-[20px]">
       <div className=" w-full flex items-center justify-between mb-[5vh]">
-        <h1 className=" text-[28px] text-[#0A0D14]">SHOP</h1>
+        <h1 className=" text-[25px] text-[#0A0D14]">Signature Baskets</h1>
         <Link
           to={"/shop"}
           className=" text-[14px] text-[#245236] font-semibold"
@@ -290,7 +290,7 @@ const Shop = () => {
                     {product.name}
                   </Link>
                   <h1 className=" text-black font-[600] text-[18px] lg:text-[28px]">
-                    ₦{product.price}
+                    ₦{product.price.toLocaleString()}
                   </h1>
                 </div>
 
