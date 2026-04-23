@@ -37,7 +37,7 @@ const Landingpage = () => {
 
   return (
     <div className="h-[100vh] w-[100vw] scroll-smooth overflow-y-scroll">
-      <div className=" lg:h-[100vh] pt-[155px] w-full flex max-sm:flex-col items-center justify-between px-[5%] max-sm:mb-[10vh]">
+      <div id="hero" className=" lg:h-[100vh] pt-[155px] w-full flex max-sm:flex-col items-center justify-between px-[5%] max-sm:mb-[10vh]">
         <div className=" w-[45%] max-sm:w-full h-full flex items-start flex-col justify-center max-sm:mb-[30px]">
           <div className=" flex items-center justify-center bg-[#EFF901] h-[32px] px-4 rounded-full text-[14px] text-[#245236] mb-[20px]">
             Same Day Delivery Available
@@ -122,7 +122,7 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div className=" w-full block pt-[150px]">
+      <section id="about" className=" w-full block pt-[150px]">
         <h1 className=" text-center text-[#245236] text-[32px] mb-[20px]">
           About Us
         </h1>
@@ -154,7 +154,7 @@ const Landingpage = () => {
             </Link> */}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* SHOP */}
       <Shop />
@@ -189,7 +189,7 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div className=" block">
+      <div id="contact" className=" block">
         <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh]">
           <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
             <h1 className=" text-[32px] text-white mb-[20px]">

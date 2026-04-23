@@ -30,6 +30,7 @@ import {
   ShoppingBag01Icon,
   Upload01Icon,
 } from "hugeicons-react";
+import { smoothScrollToSection } from "./SmoothScrollToSection";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,6 +92,11 @@ const Navbar = () => {
               <Link
                 to={"/"}
                 className="relative group text-[16px] text-[#245236]"
+                onClick={() =>
+                  document
+                    .getElementById("hero")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Home
                 <span className="absolute left-1/2 bottom-0 w-0 h-[1px] bg-[#245236] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
@@ -99,22 +105,37 @@ const Navbar = () => {
               <Link
                 to={"/#aboutus"}
                 className="relative group text-[16px] text-[#245236]"
+                onClick={() =>
+                  document
+                    .getElementById("about")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 About Us
                 <span className="absolute left-1/2 bottom-0 w-0 h-[1px] bg-[#245236] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </Link>
 
               <Link
-                to={"/#contactus"}
+                to={"/#contact"}
                 className="relative group text-[16px] text-[#245236]"
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Contact Us
                 <span className="absolute left-1/2 bottom-0 w-0 h-[1px] bg-[#245236] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
               </Link>
 
               <Link
-                to={"/shop"}
+                to={"/#shop"}
                 className="relative group text-[16px] text-[#245236]"
+                onClick={() =>
+                  document
+                    .getElementById("shop")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Shop
                 <span className="absolute left-1/2 bottom-0 w-0 h-[1px] bg-[#245236] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>

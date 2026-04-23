@@ -101,8 +101,30 @@ const Footer = () => {
       <div className=" w-[20%] flex flex-col items-start justify-start text-[16px] h-full">
         <h1 className=" text-[#245236] font-semibold mb-[20px]">Links</h1>
         <ol>
-          <li className=" text-[#868C98] font-[300] mb-3">About Us</li>
-          <li className=" text-[#868C98] font-[300] mb-3">Contact</li>
+          <li className=" text-[#868C98] font-[300] mb-3">
+            <Link
+              to={"/"}
+              onClick={() =>
+                document
+                  .getElementById("about")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              About Us
+            </Link>
+          </li>
+          <li className=" text-[#868C98] font-[300] mb-3">
+            <Link
+              to={"/"}
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Contact
+            </Link>
+          </li>
         </ol>
       </div>
     </div>
