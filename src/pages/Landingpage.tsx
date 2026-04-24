@@ -163,7 +163,7 @@ const Landingpage = () => {
       <Shop />
 
       <div className=" block mb-[10vh]">
-        <div className=" w-full px-[5%] min-h-[100vh] lg:h-[40vh] flex max-sm:flex-col items-center justify-between mb-[20vh]">
+        <div className=" w-full px-[5%] max-sm:min-h-[100vh] lg:h-[40vh] flex max-sm:flex-col items-center justify-between mb-[20vh]">
           <div className=" max-sm:w-[100%] w-[43%] h-full flex flex-col items-start justify-between max-sm:justify-start max-sm:mb-[30px]">
             <h1 className=" text-[32px] text-[#245236]">
               Trusted by Industry Leaders
