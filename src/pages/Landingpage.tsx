@@ -194,8 +194,8 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div id="contact" className=" block">
-        <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh]">
+      <div id="contact" className=" block mt-[20vh]">
+        <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh] mt-[20vh]">
           <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
             <h1 className=" text-[32px] text-white mb-[20px]">
               Personalize Your Pick!
