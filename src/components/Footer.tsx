@@ -71,14 +71,22 @@ const Footer = () => {
         </p>
 
         <div className=" w-full flex items-center justify-start">
-          <Link to={"https://www.instagram.com/lagosfruitbasket/"} target="_blank" className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center">
+          <Link
+            to={"https://www.instagram.com/lagosfruitbasket/"}
+            target="_blank"
+            className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center"
+          >
             <InstagramIcon
               className=" text-[#245236]"
               size={22}
               strokeWidth={2}
             />
           </Link>
-          <Link to={"https://wa.me/+2348135846502"} target="_blank" className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center">
+          <Link
+            to={"https://wa.me/+2348135846502"}
+            target="_blank"
+            className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center"
+          >
             <WhatsappIcon
               className=" text-[#245236]"
               size={22}
@@ -91,17 +99,45 @@ const Footer = () => {
       <div className=" w-[20%] flex flex-col items-start justify-start text-[16px] h-full">
         <h1 className=" text-[#245236] font-semibold mb-[20px]">Shop</h1>
         <ol>
-          <li className=" text-[#868C98] font-[300] mb-3">Valentine Baskets</li>
-          <li className=" text-[#868C98] font-[300] mb-3">Christmas Baskets</li>
-          <li className=" text-[#868C98] font-[300] mb-3">Birthday Baskets</li>
-          <li className=" text-[#868C98] font-[300] mb-3">Corporate Baskets</li>
+          <li>
+            <Link
+              to={"/shop"}
+              className=" block hover:underline duration-500 text-[#868C98] font-[300] mb-3"
+            >
+              Valentine Baskets
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/shop"}
+              className=" block hover:underline duration-500 text-[#868C98] font-[300] mb-3"
+            >
+              Christmas Baskets
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/shop"}
+              className=" block hover:underline duration-500 text-[#868C98] font-[300] mb-3"
+            >
+              Birthday Baskets
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/shop"}
+              className=" block hover:underline duration-500 text-[#868C98] font-[300] mb-3"
+            >
+              Corporate Baskets
+            </Link>
+          </li>
         </ol>
       </div>
 
       <div className=" w-[20%] flex flex-col items-start justify-start text-[16px] h-full">
         <h1 className=" text-[#245236] font-semibold mb-[20px]">Links</h1>
         <ol>
-          <li className=" text-[#868C98] font-[300] mb-3">
+          <li className=" text-[#868C98] font-[300] hover:underline duration-500 mb-3">
             <Link
               to={"/"}
               onClick={() =>
@@ -113,7 +149,7 @@ const Footer = () => {
               About Us
             </Link>
           </li>
-          <li className=" text-[#868C98] font-[300] mb-3">
+          <li className=" text-[#868C98] font-[300] hover:underline duration-500 mb-3">
             <Link
               to={"/"}
               onClick={() =>
