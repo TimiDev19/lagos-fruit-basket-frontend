@@ -162,8 +162,8 @@ const Landingpage = () => {
       {/* SHOP */}
       <Shop />
 
-      <div className=" block mb-[10vh]">
-        <div className=" w-full px-[5%] max-sm:min-h-[100vh] h-[40vh] flex max-sm:flex-col items-center justify-between mb-[20vh]">
+      <div className=" block mb-[10vh] bg-red-500">
+        <div className=" w-full px-[5%] min-h-[100vh] lg:h-[40vh] flex max-sm:flex-col items-center justify-between mb-[20vh]">
           <div className=" max-sm:w-[100%] w-[43%] h-full flex flex-col items-start justify-between max-sm:justify-start max-sm:mb-[30px]">
             <h1 className=" text-[32px] text-[#245236]">
               Trusted by Industry Leaders
@@ -181,7 +181,7 @@ const Landingpage = () => {
             </h1>
           </div>
 
-          <div className=" max-sm:w-[100%] w-[40%] h-full flex flex-col items-center justify-between max-sm:justify-start max-sm:mb-[20vh]">
+          <div className=" max-sm:w-[100%] w-[40%] h-full flex flex-col items-center justify-between max-sm:justify-start">
             <div className=" flex items-center max-sm:flex-col justify-center mb-[20px]">
               <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323] lg:mr-[20px] max-sm:mb-[20px]"></div>
               <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323]"></div>
@@ -194,7 +194,7 @@ const Landingpage = () => {
         </div>
       </div>
 
-      {/* <div id="contact" className=" block mt-[20vh]">
+      <div id="contact" className=" block">
         <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh] mt-[20vh]">
           <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
             <h1 className=" text-[32px] text-white mb-[20px]">
@@ -215,7 +215,7 @@ const Landingpage = () => {
             </Link>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <Footer />
     </div>
