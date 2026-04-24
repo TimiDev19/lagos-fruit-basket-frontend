@@ -59,7 +59,7 @@ const Landingpage = () => {
           <div className=" w-full flex max-sm:flex-col max-sm:items-start items-center justify-start">
             <Link
               to={"/shop"}
-              className=" max-sm:mb-[20px] px-4 py-1 bg-[#245236] h-[40px] flex items-center justify-center font-light rounded-full text-white mr-[30px]"
+              className=" max-sm:mb-[20px] px-4 py-1 hover:bg-transparent hover:text-[#245236] duration-500 hover:border hover:border-[#245236] bg-[#245236] h-[40px] flex items-center justify-center font-light rounded-full text-white mr-[30px]"
             >
               Shop Baskets
             </Link>
@@ -67,7 +67,7 @@ const Landingpage = () => {
             <Link
               target="_blank"
               to={"https://wa.me/+2348135846502"}
-              className=" px-4 py-1 bg-transparent border border-[#245236] h-[40px] flex items-center justify-center font-light rounded-full text-[#245236] mr-[20px]"
+              className=" px-4 py-1 bg-transparent hover:bg-[#245236] hover:text-white duration-500 border border-[#245236] h-[40px] flex items-center justify-center font-light rounded-full text-[#245236] mr-[20px]"
             >
               Customize Your Basket
             </Link>
@@ -162,7 +162,7 @@ const Landingpage = () => {
       {/* SHOP */}
       <Shop />
 
-      <div className=" block mb-[10vh] bg-red-500">
+      <div className=" block mb-[10vh]">
         <div className=" w-full px-[5%] min-h-[100vh] lg:h-[40vh] flex max-sm:flex-col items-center justify-between mb-[20vh]">
           <div className=" max-sm:w-[100%] w-[43%] h-full flex flex-col items-start justify-between max-sm:justify-start max-sm:mb-[30px]">
             <h1 className=" text-[32px] text-[#245236]">

@@ -55,7 +55,7 @@ const Footer = () => {
     //     </h1>
     //   </div>
     // </div>
-    <div className=" bg-[#F5F5F5] h-[50vh] w-[100vw] px-[5%] py-[5%] flex items-center justify-start">
+    <div className=" bg-[#F5F5F5] h-[50vh] w-[100vw] px-[5%] py-[5%] flex items-center justify-start max-sm:justify-between">
       <div className=" w-[30%] flex flex-col items-start justify-center mr-[10%]">
         <div className=" mb-[20px]">
           <h1 className=" font-semibold text-xl flex items-center justify-center ">
@@ -71,20 +71,20 @@ const Footer = () => {
         </p>
 
         <div className=" w-full flex items-center justify-start">
-          <div className=" w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center">
+          <Link to={"https://www.instagram.com/lagosfruitbasket/"} target="_blank" className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center">
             <InstagramIcon
               className=" text-[#245236]"
               size={22}
               strokeWidth={2}
             />
-          </div>
-          <div className=" w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center">
+          </Link>
+          <Link to={"https://wa.me/+2348135846502"} target="_blank" className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#E0E5E2] rounded-full mr-[10px] flex items-center justify-center">
             <WhatsappIcon
               className=" text-[#245236]"
               size={22}
               strokeWidth={2}
             />
-          </div>
+          </Link>
         </div>
       </div>
 

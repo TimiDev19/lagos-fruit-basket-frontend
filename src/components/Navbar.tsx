@@ -67,14 +67,14 @@ const Navbar = () => {
             />{" "}
             +234 813 584 6502
           </h1>
-          <h1 className=" text-[14px] text-[#EFF901] flex items-center justify-center">
+          <Link to={"https://www.instagram.com/lagosfruitbasket/"} target="_blank" className=" hover:underline duration-500 text-[14px] text-[#EFF901] flex items-center justify-center">
             <InstagramIcon
               className=" text-[#EFF901] mr-2"
               size={18}
               strokeWidth={2}
             />
             @lagosfruitbasket
-          </h1>
+          </Link>
         </div>
         {/*  */}
 

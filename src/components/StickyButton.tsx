@@ -7,7 +7,7 @@ const StickyButton = () => {
       target="blank"
       to={"https://wa.me/+2348135846502"}
       className={`fixed bottom-4 right-4 
-        bg-green-600 text-white font-medium p-5 
+        bg-green-600 text-white h-[40px] w-[40px] flex items-center justify-center font-medium p-5 
         rounded-full shadow-lg hover:bg-green-700 
         transition-all duration-300 focus:outline-none`}
     >

@@ -83,7 +83,7 @@ const Shop = () => {
         <h1 className=" text-[25px] text-[#0A0D14]">Signature Baskets</h1>
         <Link
           to={"/shop"}
-          className=" text-[14px] text-[#245236] font-semibold"
+          className=" text-[14px] text-[#245236] font-semibold hover:underline duration-500"
         >
           View all
         </Link>
@@ -296,10 +296,10 @@ const Shop = () => {
 
                 <div
                   onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
+                  className=" cursor-pointer h-[24px] lg:h-[42px] hover:bg-transparent w-[24px] text-[#EFF901] hover:text-[#245236] duration-500 lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
                 >
                   <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
+                    className=" "
                     size={22}
                     strokeWidth={1.5}
                   />
