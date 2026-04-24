@@ -181,7 +181,7 @@ const Landingpage = () => {
             </h1>
           </div>
 
-          <div className=" max-sm:w-[100%] w-[40%] h-full flex flex-col items-center justify-between max-sm:justify-start">
+          <div className=" max-sm:w-[100%] w-[40%] h-full flex flex-col items-center justify-between max-sm:justify-start max-sm:mb-[20vh]">
             <div className=" flex items-center max-sm:flex-col justify-center mb-[20px]">
               <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323] lg:mr-[20px] max-sm:mb-[20px]"></div>
               <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323]"></div>
