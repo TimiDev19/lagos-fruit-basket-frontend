@@ -190,8 +190,8 @@ const ProductPage: React.FC = () => {
       <div className=' lg:h-[90vh] w-[100vw] pt-[150px] px-[5%] flex max-sm:flex-col items-center justify-between'>
         <div className=" max-sm:w-full w-[50%] h-full flex flex-col items-center justify-start max-sm:mb-[20px]">
           <div className=" w-full lg:w-[548px]">
-            <Link to={"/"} className=" block flex items-center justify-center mb-[20px] h-[36px] w-[36px] bg-[#245236] rounded-full lg:hidden"><ArrowLeft01Icon className=' text-white' size={25} strokeWidth={1.5} /></Link>
-            <Link to={"/"} className=" block flex items-center justify-center mb-[20px] h-[48px] w-[133px] bg-[#245236] rounded-full text-white max-sm:hidden"><LinkBackwardIcon className=' text-white mr-[5px]' size={25} strokeWidth={1.5} /> Back</Link>
+            <Link to={"/shop"} className=" block flex items-center justify-center mb-[20px] h-[36px] w-[36px] bg-[#245236] rounded-full lg:hidden"><ArrowLeft01Icon className=' text-white' size={25} strokeWidth={1.5} /></Link>
+            <Link to={"/shop"} className=" block flex items-center justify-center mb-[20px] h-[48px] w-[133px] bg-[#245236] rounded-full text-white max-sm:hidden"><LinkBackwardIcon className=' text-white mr-[5px]' size={25} strokeWidth={1.5} /> Back</Link>
           </div>
           <div className="w-full lg:w-[548px] lg:h-[393px] overflow-hidden mb-[10px]">
             <img
