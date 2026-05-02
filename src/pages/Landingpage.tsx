@@ -218,7 +218,7 @@ const Landingpage = () => {
 
             <button
               onClick={() => setPersonalizeOpen(true)}
-              className=" flex items-center justify-center text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"
+              className=" flex items-center justify-center hover:text-[#eef901] hover:border-[#eef901] hover:bg-transparent hover:border duration-500 text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"
             >
               Personalize your basket !
             </button>
