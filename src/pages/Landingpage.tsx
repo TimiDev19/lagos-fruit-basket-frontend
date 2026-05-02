@@ -5,12 +5,14 @@ import { FadeReveal } from "@/components/animations/FadeReveal";
 import "../index.css";
 import Typewriter from "typewriter-effect";
 import ScrollReveal from "scrollreveal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight01Icon, ShoppingBag01Icon } from "hugeicons-react";
 import Shop from "@/components/Shop";
 import Footer from "@/components/Footer";
+import PersonalizeModal from "@/modals/PersonalizeModal";
 
 const Landingpage = () => {
+  const [personaliseOpen, setPersonalizeOpen] = useState(false);
   const bestSellingProducts = products.items.filter((item) => {
     return item.featured === "yes";
   });
@@ -197,7 +199,7 @@ const Landingpage = () => {
       <div id="contact" className=" block">
         <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh] mt-[20vh]">
           <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
-            <h1 className=" text-[32px] text-white mb-[20px]">
+            <h1 className=" text-[32px] text-white mb-[20px] text-center">
               Personalize Your Pick!
             </h1>
             <p className=" w-[50%] max-sm:w-full text-center text-white font-[300] mb-[20px]">
@@ -206,18 +208,29 @@ const Landingpage = () => {
               special theme, our gift curator is ready to help you bring your
               vision to life.
             </p>
-            <Link
+            {/* <Link
               target="_blank"
               to={"https://wa.me/+2348135846502"}
               className=" flex items-center justify-center text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"
             >
                Chat with our Gift Curator on WhatsApp
-            </Link>
+            </Link> */}
+
+            <button
+              onClick={() => setPersonalizeOpen(true)}
+              className=" flex items-center justify-center text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"
+            >
+              Personalize your basket !
+            </button>
           </div>
         </div>
       </div>
 
       <Footer />
+
+      {personaliseOpen && (
+        <PersonalizeModal setPersonalizeOpen={setPersonalizeOpen} />
+      )}
     </div>
   );
 };

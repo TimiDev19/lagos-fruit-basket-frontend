@@ -47,7 +47,7 @@ const CartItem = ({
           <p className="font-semibold text-[1rem] tracking-wide items-start">
             {name}
           </p>
-          <p className="font-semibold text-[1rem] opacity-50">{`£ ${price.toLocaleString()}`}</p>
+          <p className="font-semibold text-[1rem] opacity-50">{`₦ ${price.toLocaleString()}`}</p>
         </div>
       </div>
       <div className="flex relative justify-between gap-[4rem] bg-[#F1F1F1] py-[0.5rem] px-[1.2rem] md:ml-[0.1rem] font-semibold text-[0.85rem] uppercase">

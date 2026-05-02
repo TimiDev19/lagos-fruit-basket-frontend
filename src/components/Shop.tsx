@@ -83,7 +83,7 @@ const Shop = () => {
         <h1 className=" text-[25px] text-[#0A0D14]">Signature Baskets</h1>
         <Link
           to={"/shop"}
-          className=" text-[14px] text-[#245236] font-semibold hover:underline duration-500"
+          className=" text-[20px] text-[#245236] font-semibold hover:no-underline underline ease-in-out duration-500"
         >
           View all
         </Link>
