@@ -10,6 +10,7 @@ import { ArrowRight01Icon, ShoppingBag01Icon } from "hugeicons-react";
 import Shop from "@/components/Shop";
 import Footer from "@/components/Footer";
 import PersonalizeModal from "@/modals/PersonalizeModal";
+import InfiniteCarousel from "@/components/InfiniteCarousel";
 
 const Landingpage = () => {
   const [personaliseOpen, setPersonalizeOpen] = useState(false);
@@ -84,15 +85,16 @@ const Landingpage = () => {
       <div className=" w-[100vw] h-[531px] relative bg-[#245236]">
         <div className=" absolute w-full h-full flex items-center justify-end">
           <div className=" h-full w-[850px] max-sm:hidden fruit-hero-bg"></div>
+          <div className=" h-full w-[850px] lg:hidden mobile-fruit-hero-bg"></div>
         </div>
 
         <div className=" absolute w-[50%] max-sm:w-full h-full z-[10] flex items-center justify-start max-sm:justify-center pl-[10%]">
           <div>
-            <h1 className=" text-white text-[60px] font-thin mb-[10px]">
+            <h1 className=" text-white text-[60px] lg:font-thin mb-[10px]">
               Freshness Delivered <br /> in a{" "}
               <span className=" text-[#EFF901]">Click!</span>
             </h1>
-            <p className=" text-[16px] text-white font-thin mb-[10px]">
+            <p className=" text-[16px] text-white lg:font-thin mb-[10px]">
               Send more than a gift, send a feeling. From vibrant fruit baskets
               to fresh juices and creamy parfaits, we hand-pick the best of
               Nigeria’s harvest and deliver it to your door.
@@ -207,37 +209,37 @@ const Landingpage = () => {
         </div>
       </section>
 
-      <div className=" block mb-[10vh]">
-        <div className=" w-full px-[5%] max-sm:min-h-[100vh] lg:h-[40vh] flex max-sm:flex-col items-center justify-between mb-[20vh]">
-          <div className=" max-sm:w-[100%] w-[43%] h-full flex flex-col items-start justify-between max-sm:justify-start max-sm:mb-[30px]">
-            <h1 className=" text-[32px] text-[#245236]">
+      <div className=" block">
+        <div className=" w-full px-[5%] min-h-[40vh] flex flex-col items-center justify-center mb-[10vh]">
+          <div className=" w-[100%] h-full flex flex-col items-center justify-center max-sm:justify-start max-sm:mb-[30px]">
+            <h1 className=" text-[32px] text-[#245236] mb-[10px]">
               Trusted by Industry Leaders
             </h1>
 
-            <p className=" text-[16px] text-[#868C98] font-light">
+            <p className=" text-[16px] text-[#868C98] font-light text-center mb-[10px]">
               From corporate giants to boutique brands, we’ve had the pleasure
-              of delivering freshness to some of the finest names in Nigeria.
-              Our commitment to quality and premium presentation is why top
-              organizations trust us with their gifting.
+              of delivering <br /> freshness to some of the finest names in
+              Nigeria
             </p>
-
+            <InfiniteCarousel />
             <h1 className=" text-[24px] text-[#245236]">
               Over <b>2,000</b> Baskets Delivered
             </h1>
           </div>
-
-          <div className=" max-sm:w-[100%] w-[40%] h-full flex flex-col items-center justify-between max-sm:justify-start">
-            <div className=" flex items-center max-sm:flex-col justify-center mb-[20px]">
-              <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323] lg:mr-[20px] max-sm:mb-[20px]"></div>
-              <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323]"></div>
-            </div>
-            <div className=" flex items-center max-sm:flex-col justify-center mb-[20px]">
-              <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323] lg:mr-[20px] max-sm:mb-[20px]"></div>
-              <div className=" w-[240px] max-sm:w-[80vw] h-[145px] bg-[#232323]"></div>
-            </div>
-          </div>
         </div>
       </div>
+
+      {/* <div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126832.27312311927!2d3.287038259481555!3d6.583527651199229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8337173b21953857%3A0xed0526be8b11896d!2sLagos%20Fruit%20Basket%20(Fruit%20Hamper%20Company%20in%20Lagos%2C%20Nigeria)!5e0!3m2!1sen!2sng!4v1777814194530!5m2!1sen!2sng"
+          width="600"
+          height="450"
+          // style="border:0;"
+          // allowfullscreen=""
+          loading="lazy"
+          // referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div> */}
 
       <div id="contact" className=" block pt-[138px]">
         <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh] mt-[20vh]">

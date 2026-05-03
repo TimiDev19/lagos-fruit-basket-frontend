@@ -231,7 +231,7 @@ const Shop = () => {
                   <img
                     src={product.avatar}
                     alt={product.name}
-                    className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer"
+                    className="w-full h-full object-cover rounded-t-xl hover:h-[110%] duration-500 cursor-pointer"
                     // onClick={() => {
                     //     const params = new URLSearchParams({
                     //         _id: product._id,
