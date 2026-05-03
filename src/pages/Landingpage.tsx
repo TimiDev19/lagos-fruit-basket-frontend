@@ -274,7 +274,7 @@ const Landingpage = () => {
       <Footer />
 
       {personaliseOpen && (
-        <PersonalizeModal setPersonalizeOpen={setPersonalizeOpen} />
+        <PersonalizeModal setPersonalizeOpen={setPersonalizeOpen} setIsTheBoardModalOpen={setPersonalizeOpen}/>
       )}
     </div>
   );
