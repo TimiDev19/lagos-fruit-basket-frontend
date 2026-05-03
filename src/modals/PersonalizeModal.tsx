@@ -1,14 +1,20 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { v4 as uuidv4, validate } from 'uuid'
-// import boardsSlice from '../redux/BoardsSlice'
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import React, { useState, Dispatch, SetStateAction } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const PersonalizeModal = ({ setPersonalizeOpen, setIsTheBoardModalOpen }) => {
+type PersonalizeModalProps = {
+  setPersonalizeOpen: Dispatch<SetStateAction<boolean>>;
+  setIsTheBoardModalOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+const PersonalizeModal = ({
+  setPersonalizeOpen,
+  setIsTheBoardModalOpen,
+}: PersonalizeModalProps) => {
   const dispatch = useDispatch();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [name, setName] = useState("");
+
 
   return (
     <div
