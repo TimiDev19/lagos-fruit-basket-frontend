@@ -59,7 +59,7 @@ const Navbar = () => {
     <>
       <div className=" z-50 fixed w-full">
         <div className=" h-[48px] w-[100vw] bg-[#245236] flex items-center justify-between px-[5%]">
-          <h1 className=" text-[12px] text-[#EFF901] flex items-center justify-start">
+          <h1 className=" text-[12px] text-[#EFF901] flex items-center justify-start max-sm:hidden">
             <Call02Icon
               className=" text-[#EFF901] mr-2"
               size={16}
@@ -67,6 +67,9 @@ const Navbar = () => {
             />{" "}
             +234 813 584 6502
           </h1>
+
+          <h1 className=" capitalize text-white text-[16px]">Same day delivery available</h1>
+
           <Link to={"https://www.instagram.com/lagosfruitbasket/"} target="_blank" className=" hover:underline duration-500 text-[14px] text-[#EFF901] flex items-center justify-center">
             <InstagramIcon
               className=" text-[#EFF901] mr-2"
@@ -76,7 +79,8 @@ const Navbar = () => {
             @lagosfruitbasket
           </Link>
         </div>
-        {/*  */}
+
+
 
         <div className=" w-full fixed border-b border-b-black/20">
           <div className="flex w-full h-[90px] items-center justify-between pxpx py-3 bg-white">

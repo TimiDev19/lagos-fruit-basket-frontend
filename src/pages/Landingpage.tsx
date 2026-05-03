@@ -38,8 +38,8 @@ const Landingpage = () => {
   }, []);
 
   return (
-    <div className="h-[100vh] w-[100vw] scroll-smooth overflow-y-scroll">
-      <div
+    <div className="h-[100vh] w-[100vw] scroll-smooth overflow-y-scroll pt-[138px]">
+      {/* <div
         id="hero"
         className=" lg:h-[100vh] pt-[155px] w-full flex max-sm:flex-col items-center justify-between px-[5%] max-sm:mb-[10vh]"
       >
@@ -79,9 +79,45 @@ const Landingpage = () => {
         <div className=" max-sm:w-[100%] w-[35%] h-full flex items-center justify-center">
           <div className=" w-full h-[55vh] rounded-3xl hero-bg shadow-xl"></div>
         </div>
+      </div> */}
+
+      <div className=" w-[100vw] h-[531px] relative bg-[#245236]">
+        <div className=" absolute w-full h-full flex items-center justify-end">
+          <div className=" h-full w-[850px] max-sm:hidden fruit-hero-bg"></div>
+        </div>
+
+        <div className=" absolute w-[50%] max-sm:w-full h-full z-[10] flex items-center justify-start max-sm:justify-center pl-[10%]">
+          <div>
+            <h1 className=" text-white text-[60px] font-thin mb-[10px]">
+              Freshness Delivered <br /> in a{" "}
+              <span className=" text-[#EFF901]">Click!</span>
+            </h1>
+            <p className=" text-[16px] text-white font-thin mb-[10px]">
+              Send more than a gift, send a feeling. From vibrant fruit baskets
+              to fresh juices and creamy parfaits, we hand-pick the best of
+              Nigeria’s harvest and deliver it to your door.
+            </p>
+            <div className=" w-full flex max-sm:flex-col max-sm:items-start items-center justify-start">
+              <Link
+                to={"/shop"}
+                className=" max-sm:mb-[20px] px-4 py-1 hover:bg-transparent text-[#245236] duration-500 hover:border hover:border-[#fff] bg-[#EFF901] h-[40px] flex items-center justify-center font-light rounded-full hover:text-white mr-[30px]"
+              >
+                Shop Baskets
+              </Link>
+
+              <Link
+                target="_blank"
+                to={"https://wa.me/+2348135846502"}
+                className=" px-4 py-1 bg-transparent hover:bg-[#EFF901] hover:text-[#245236] duration-500 border border-[#fff] hover:border-0 h-[40px] flex items-center justify-center font-light rounded-full text-[#fff] mr-[20px]"
+              >
+                Chat On Whatsapp
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className=" w-full h-[110px] bg-[#245236] flex items-center justify-between px-[5%]">
+      {/* <div className=" w-full h-[110px] bg-[#245236] flex items-center justify-between px-[5%]">
         <div className=" pr-[20px] border-r border-white w-[24%] flex items-center justify-center max-sm:pr-[10px] max-sm:mr-[10px] h-[50%]">
           <div className=" text-white">
             <h1 className=" font-semibold text-white text-[16px] max-sm:text-[12px]">
@@ -125,30 +161,40 @@ const Landingpage = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <section id="about" className=" w-full block pt-[150px]">
-        <h1 className=" text-center text-[#245236] text-[32px] mb-[20px]">
-          About Us
-        </h1>
+      {/* SHOP */}
+      <Shop />
 
-        <div className=" w-full lg:h-[70vh] flex max-sm:flex-col items-center justify-center max-sm:items-start px-[5%] space-x-[5%]">
+      <section id="about" className=" w-full block pt-[150px] mb-[10vh]">
+        <div className=" w-full lg:h-[70vh] flex max-sm:flex-col items-start justify-center max-sm:items-start px-[5%] space-x-[5%]">
           <div className=" max-sm:mb-[10vh] max-sm:w-full max-sm:h-[50vh] w-[40%] h-[70vh] flex items-start justify-center">
             <div className=" w-full h-full about-lfb-bg rounded-3xl"></div>
           </div>
 
           <div className=" w-[50%] max-sm:w-full min-h-[50vh] flex flex-col items-start justify-start">
-            <p className=" text-[16px] text-[#868C98] font-[300] mb-[20px]">
+            <h1 className=" text-center text-[#245236] text-[32px] mb-[20px]">
+              About Us
+            </h1>
+            <p className=" text-[16px] text-[#868C98] font-[300] mb-[20px] leading-[2.3]">
               Imagine the freshest, seasonal fruits bursting with flavor, all
-              grown right here in Nigeria! <br /> <br /> At Lagos Fruit Basket,
-              we believe that nature’s candy should be celebrated. We curate
-              these local delights and transform them into stunning, premium
-              fruit arrangements that are as beautiful as they are delicious.{" "}
-              <br /> <br /> We aren't just assembling fruit; we are elevating
-              the gifting experience in Lagos. Every single piece is
-              hand-selected for its peak ripeness and quality, then artfully
-              arranged by our team to create a gift that is both creative and
-              inviting.
+              grown right here in Nigeria! At Lagos Fruit Basket, we believe
+              that nature’s candy should be celebrated. We curate these local
+              delights and transform them into stunning, premium fruit
+              arrangements that are as beautiful as they are delicious. <br />
+              Whether you are looking to: <br />
+              Brighten someone’s day with a healthy, vibrant pick-me-up in
+              Lagos. <br />
+              Feature a show stopping centerpiece for your next event or party.{" "}
+              <br />
+              Send a thoughtful, nourishing gift for a special occasion anywhere
+              in Nigeria. <br />
+              We have something designed for everyone. From our signature
+              baskets to our newly launched refreshing juices, crisp salads, and
+              creamy parfaits, we offer a variety of sizes and themes <br />
+              Suitable for gifting, corporate events, personal celebrations, and
+              everything in between our baskets carry not just fruit, but
+              feeling.
             </p>
 
             {/* <Link
@@ -160,9 +206,6 @@ const Landingpage = () => {
           </div>
         </div>
       </section>
-
-      {/* SHOP */}
-      <Shop />
 
       <div className=" block mb-[10vh]">
         <div className=" w-full px-[5%] max-sm:min-h-[100vh] lg:h-[40vh] flex max-sm:flex-col items-center justify-between mb-[20vh]">
@@ -196,7 +239,7 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div id="contact" className=" block">
+      <div id="contact" className=" block pt-[138px]">
         <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh] mt-[20vh]">
           <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
             <h1 className=" text-[32px] text-white mb-[20px] text-center">

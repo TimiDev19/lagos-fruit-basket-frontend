@@ -51,7 +51,7 @@ const Shop = () => {
         const shuffled = [...productArray].sort(() => 0.5 - Math.random());
 
         // Take only 12
-        const randomProducts = shuffled.slice(0, 4);
+        const randomProducts = shuffled.slice(0, 8);
 
         setProducts(randomProducts);
         setIsLoading(false);
@@ -78,12 +78,12 @@ const Shop = () => {
   };
 
   return (
-    <div id="shop" className=" w-full min-h-[100vh] px-[2.5%] pt-[150px] mb-[20px]">
+    <div id="shop" className=" w-full min-h-[40vh] px-[2.5%] pt-[150px] mb-[20px]">
       <div className=" w-full flex items-center justify-between mb-[5vh]">
-        <h1 className=" text-[25px] text-[#0A0D14]">Signature Baskets</h1>
+        <h1 className=" text-[16px] text-[#245236] font-bold uppercase">explore our collection</h1>
         <Link
           to={"/shop"}
-          className=" text-[20px] text-[#245236] font-semibold hover:no-underline underline ease-in-out duration-500"
+          className=" text-[14px] text-white hover:text-[#245236] bg-[#245236] rounded-full hover:bg-transparent px-4 py-1 ease-in-out duration-500"
         >
           View all
         </Link>
@@ -245,7 +245,7 @@ const Shop = () => {
       ) : (
         <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
-            <div key={product._id} className=" max-w-[40vw] lg:max-w-[20vw]">
+            <div key={product._id} className=" max-w-[40vw] lg:max-w-[20vw] mb-[20px]">
               <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
                 <Link
                   to={`/product/${product._id}`}
@@ -254,7 +254,7 @@ const Shop = () => {
                   <img
                     src={product.avatar}
                     alt={product.name}
-                    className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer"
+                    className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer rounded-t-xl"
                     // onClick={() => {
                     //     const params = new URLSearchParams({
                     //         _id: product._id,
