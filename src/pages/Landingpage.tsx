@@ -11,6 +11,7 @@ import Shop from "@/components/Shop";
 import Footer from "@/components/Footer";
 import PersonalizeModal from "@/modals/PersonalizeModal";
 import InfiniteCarousel from "@/components/InfiniteCarousel";
+import CompanyLocationSection from "@/components/CompanyLocationSection";
 
 const Landingpage = () => {
   const [personaliseOpen, setPersonalizeOpen] = useState(false);
@@ -82,7 +83,7 @@ const Landingpage = () => {
         </div>
       </div> */}
 
-      <div className=" w-[100vw] h-[531px] relative bg-[#245236]">
+      <div id="hero" className=" w-[100vw] h-[531px] relative bg-[#245236]">
         <div className=" absolute w-full h-full flex items-center justify-end">
           <div className=" h-full w-[850px] max-sm:hidden fruit-hero-bg"></div>
           <div className=" h-full w-[850px] lg:hidden mobile-fruit-hero-bg"></div>
@@ -109,7 +110,7 @@ const Landingpage = () => {
 
               <Link
                 target="_blank"
-                to={"https://wa.me/+2348135846502"}
+                to={"https://wa.me/+2348024015795"}
                 className=" px-4 py-1 bg-transparent hover:bg-[#EFF901] hover:text-[#245236] duration-500 border border-[#fff] hover:border-0 h-[40px] flex items-center justify-center font-light rounded-full text-[#fff] mr-[20px]"
               >
                 Chat On Whatsapp
@@ -118,52 +119,6 @@ const Landingpage = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className=" w-full h-[110px] bg-[#245236] flex items-center justify-between px-[5%]">
-        <div className=" pr-[20px] border-r border-white w-[24%] flex items-center justify-center max-sm:pr-[10px] max-sm:mr-[10px] h-[50%]">
-          <div className=" text-white">
-            <h1 className=" font-semibold text-white text-[16px] max-sm:text-[12px]">
-              Same Day Delivery
-            </h1>
-            <p className=" font-thin text-[14px] max-sm:hidden">
-              Free shipping on all your order
-            </p>
-          </div>
-        </div>
-
-        <div className=" pr-[20px] border-r border-white w-[24%] flex items-center justify-center max-sm:pr-[10px] max-sm:mr-[10px] h-[50%]">
-          <div className=" text-white">
-            <h1 className=" font-semibold text-white text-[16px] max-sm:text-[12px]">
-              Freshly Sourced Daily
-            </h1>
-            <p className=" font-thin text-[14px] max-sm:hidden">
-              Direct from the local farm to packing
-            </p>
-          </div>
-        </div>
-
-        <div className=" pr-[20px] border-r border-white w-[24%] flex items-center justify-center max-sm:pr-[10px] max-sm:mr-[10px] h-[50%]">
-          <div className=" text-white">
-            <h1 className=" font-semibold text-white text-[16px] max-sm:text-[12px]">
-              Beautiful Packaging
-            </h1>
-            <p className=" font-thin text-[14px] max-sm:hidden">
-              Eco-friendly hand woven baskets
-            </p>
-          </div>
-        </div>
-
-        <div className=" pr-[20px] w-[24%] flex items-center justify-center max-sm:pr-[10px] max-sm:mr-[10px] h-[50%]">
-          <div className=" text-white">
-            <h1 className=" font-semibold text-white text-[16px] max-sm:text-[12px]">
-              Affordable & Premium
-            </h1>
-            <p className=" font-thin text-[14px] max-sm:hidden">
-              Wide options to select from
-            </p>
-          </div>
-        </div>
-      </div> */}
 
       {/* SHOP */}
       <Shop />
@@ -209,8 +164,8 @@ const Landingpage = () => {
         </div>
       </section>
 
-      <div className=" block">
-        <div className=" w-full px-[5%] min-h-[40vh] flex flex-col items-center justify-center mb-[10vh]">
+      <div className=" block  mb-[10vh]">
+        <div className=" w-full px-[5%] min-h-[40vh] flex flex-col items-center justify-center">
           <div className=" w-[100%] h-full flex flex-col items-center justify-center max-sm:justify-start max-sm:mb-[30px]">
             <h1 className=" text-[32px] text-[#245236] mb-[10px]">
               Trusted by Industry Leaders
@@ -229,11 +184,17 @@ const Landingpage = () => {
         </div>
       </div>
 
-      {/* <div>
+      <CompanyLocationSection />
+
+      {/* <div className=" w-[100vw] min-h-[50vh] flex flex-col items-center justify-center">
+        <h1 className=" text-[90px] font-[400] capitalize mb-[10px]">
+          Locate us
+        </h1>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126832.27312311927!2d3.287038259481555!3d6.583527651199229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8337173b21953857%3A0xed0526be8b11896d!2sLagos%20Fruit%20Basket%20(Fruit%20Hamper%20Company%20in%20Lagos%2C%20Nigeria)!5e0!3m2!1sen!2sng!4v1777814194530!5m2!1sen!2sng"
-          width="600"
-          height="450"
+          // width="600"
+          // height="450"
+          className=" w-full h-[80vh]"
           // style="border:0;"
           // allowfullscreen=""
           loading="lazy"
@@ -241,8 +202,8 @@ const Landingpage = () => {
         ></iframe>
       </div> */}
 
-      <div id="contact" className=" block pt-[138px]">
-        <div className=" h-[50vh] w-[100vw] flex items-center justify-center mb-[20vh] mt-[20vh]">
+      <div id="contact" className=" min-h-[50vh] block pt-[150px] mb-[10vh]">
+        <div className=" h-[50vh] w-[100vw] flex items-center justify-center">
           <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
             <h1 className=" text-[32px] text-white mb-[20px] text-center">
               Personalize Your Pick!
@@ -274,7 +235,10 @@ const Landingpage = () => {
       <Footer />
 
       {personaliseOpen && (
-        <PersonalizeModal setPersonalizeOpen={setPersonalizeOpen} setIsTheBoardModalOpen={setPersonalizeOpen}/>
+        <PersonalizeModal
+          setPersonalizeOpen={setPersonalizeOpen}
+          setIsTheBoardModalOpen={setPersonalizeOpen}
+        />
       )}
     </div>
   );

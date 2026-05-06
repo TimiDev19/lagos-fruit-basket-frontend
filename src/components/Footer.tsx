@@ -30,21 +30,21 @@ const Footer = () => {
             <Link
               to={"https://www.instagram.com/lagosfruitbasket/"}
               target="_blank"
-              className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#89A51B] rounded-full mr-[10px] flex items-center justify-center"
+              className=" hover:bg-transparent text-[#245236] hover:text-white duration-500 w-[48px] h-[48px] bg-[#89A51B] rounded-full mr-[10px] flex items-center justify-center"
             >
               <InstagramIcon
-                className=" text-[#245236]"
+                className=""
                 size={22}
                 strokeWidth={2}
               />
             </Link>
             <Link
-              to={"https://wa.me/+2348135846502"}
+              to={"https://wa.me/+2348024015795"}
               target="_blank"
-              className=" hover:bg-transparent duration-500 w-[48px] h-[48px] bg-[#89A51B] rounded-full mr-[10px] flex items-center justify-center"
+              className=" hover:bg-transparent text-[#245236] hover:text-white duration-500 w-[48px] h-[48px] bg-[#89A51B] rounded-full mr-[10px] flex items-center justify-center"
             >
               <WhatsappIcon
-                className=" text-[#245236]"
+                className=" "
                 size={22}
                 strokeWidth={2}
               />

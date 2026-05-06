@@ -65,7 +65,7 @@ const Navbar = () => {
               size={16}
               strokeWidth={2}
             />{" "}
-            +234 813 584 6502
+            +234 707 505 1036
           </h1>
 
           <h1 className=" capitalize text-white text-[16px]">Same day delivery available</h1>
@@ -107,6 +107,19 @@ const Navbar = () => {
               </Link>
 
               <Link
+                to={"/#shop"}
+                className="relative group text-[16px] text-[#245236]"
+                onClick={() =>
+                  document
+                    .getElementById("shop")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Shop
+                <span className="absolute left-1/2 bottom-0 w-0 h-[1px] bg-[#245236] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+              </Link>
+
+              <Link
                 to={"/#aboutus"}
                 className="relative group text-[16px] text-[#245236]"
                 onClick={() =>
@@ -133,21 +146,8 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to={"/#shop"}
-                className="relative group text-[16px] text-[#245236]"
-                onClick={() =>
-                  document
-                    .getElementById("shop")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Shop
-                <span className="absolute left-1/2 bottom-0 w-0 h-[1px] bg-[#245236] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-              </Link>
-
-              <Link
                 target="_blank"
-                to={"https://wa.me/+2348135846502"}
+                to={"https://wa.me/+2348024015795"}
                 className="relative group text-[16px] text-[#fff] duration-500 hover:bg-transparent h-full flex items-center justify-center bg-[#245236] hover:text-[#245236] hover:font-semibold rounded-full px-6"
               >
                 Chat With Us Now

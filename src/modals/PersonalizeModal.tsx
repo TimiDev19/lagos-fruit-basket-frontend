@@ -34,7 +34,7 @@ const PersonalizeModal = ({
 
         <Link
           target="_blank"
-          to={"https://wa.me/+2348135846502"}
+          to={"https://wa.me/+2348024015795"}
           className=" flex items-center justify-center text-center hover:bg-transparent duration-500 bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236]"
         >
            Chat with our Gift Curator on WhatsApp
