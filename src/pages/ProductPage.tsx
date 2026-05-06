@@ -237,7 +237,7 @@ const ProductPage: React.FC = () => {
         <div className=" max-sm:w-full w-[50%] h-full flex flex-col items-start justify-start max-sm:mb-[40px]">
           <h1 className=" w-full max-sm:text-[24px] text-[32px] mb-[10px] font-[500]">{product.name}</h1>
           <p className=" text-[14px] max-sm:text-[16px] font-[200] tracking-wide text-[#868C98] w-[90%] mb-[10px]">{product.description}</p>
-          <h1 className=" text-[24px] text-[#245236] lg:font-semibold">₦{product.price}</h1>
+          <h1 className=" text-[24px] text-[#245236] lg:font-semibold">₦{product.price.toLocaleString()}</h1>
 
           <button
             onClick={handleAddToCart}

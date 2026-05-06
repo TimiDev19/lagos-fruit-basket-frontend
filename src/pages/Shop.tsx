@@ -23,14 +23,14 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setIsLoading(true)
+        setIsLoading(true);
         const res = await fetch(
           "https://lagos-food-basket-backend.onrender.com/user"
         );
         const data = await res.json();
         console.log("Fetched data:", data); // 🔹 important
         setProducts(Array.isArray(data) ? data : []); // ✅ ensure it's an array
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (error) {
         console.error("Fetch error:", error);
         setProducts([]); // fallback to empty array
@@ -54,7 +54,10 @@ const Shop = () => {
 
   return (
     <>
-      <div id="" className=" w-full min-h-[100vh] px-[2.5%] pt-[150px] mb-[50px]">
+      <div
+        id=""
+        className=" w-full min-h-[100vh] px-[2.5%] pt-[150px] mb-[50px]"
+      >
         <div className=" w-full flex items-center justify-center mb-[5vh]">
           <h1 className=" text-[28px] text-[#0A0D14]">SHOP</h1>
           {/* <Link
@@ -66,15 +69,10 @@ const Shop = () => {
         </div>
 
         {isLoading ? (
-        <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
-            <div
-              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
-            >
+          <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
+            <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
               <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
-                <Link
-                  to={`#`}
-                  className=" cursor-pointer"
-                >
+                <Link to={`#`} className=" cursor-pointer">
                   <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
                 </Link>
               </div>
@@ -105,14 +103,9 @@ const Shop = () => {
               </div>
             </div>
 
-            <div
-              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
-            >
+            <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
               <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
-                <Link
-                  to={`#`}
-                  className=" cursor-pointer"
-                >
+                <Link to={`#`} className=" cursor-pointer">
                   <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
                 </Link>
               </div>
@@ -143,14 +136,9 @@ const Shop = () => {
               </div>
             </div>
 
-            <div
-              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
-            >
+            <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
               <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
-                <Link
-                  to={`#`}
-                  className=" cursor-pointer"
-                >
+                <Link to={`#`} className=" cursor-pointer">
                   <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
                 </Link>
               </div>
@@ -181,14 +169,9 @@ const Shop = () => {
               </div>
             </div>
 
-            <div
-              className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse"
-            >
+            <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
               <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
-                <Link
-                  to={`#`}
-                  className=" cursor-pointer"
-                >
+                <Link to={`#`} className=" cursor-pointer">
                   <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
                 </Link>
               </div>
@@ -218,78 +201,87 @@ const Shop = () => {
                 </div> */}
               </div>
             </div>
-        </div>
-      ) : (
-        <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
-          {products.map((product) => (
-            <div key={product._id} className=" max-w-[40vw] lg:max-w-[20vw] mb-[20px]">
-              <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
-                <Link
-                  to={`/product/${product._id}`}
-                  className=" cursor-pointer"
-                >
-                  <img
-                    src={product.avatar}
-                    alt={product.name}
-                    className="w-full h-full object-cover rounded-t-xl hover:h-[110%] duration-500 cursor-pointer"
-                    // onClick={() => {
-                    //     const params = new URLSearchParams({
-                    //         _id: product._id,
-                    //         name: product.name,
-                    //         description: product.description,
-                    //         price: product.price.toString(),
-                    //         avatar: product.avatar,
-                    //     });
-
-                    //     router.push(`/shop/${product._id}?${params}`)
-                    // }}
-                  />
-                </Link>
-              </div>
-
-              <div className=" w-full flex items-center justify-between">
-                <div>
+          </div>
+        ) : (
+          <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
+            {products.map((product) => (
+              <div
+                key={product._id}
+                className=" max-w-[40vw] lg:max-w-[20vw] mb-[20px]"
+              >
+                <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
                   <Link
                     to={`/product/${product._id}`}
-                    className=" text-[14px] lg:text-[16px] font-[500] text-black hover:underline duration-700 ease-in-out cursor-pointer"
-                    // onClick={() => {
-                    //     const params = new URLSearchParams({
-                    //         _id: product._id,
-                    //         name: product.name,
-                    //         description: product.description,
-                    //         price: product.price.toString(),
-                    //         avatar: product.avatar,
-                    //     });
-
-                    //     router.push(`/shop/${product._id}?${params}`)
-                    // }}
+                    className=" cursor-pointer"
                   >
-                    {product.name}
+                    <img
+                      src={product.avatar}
+                      alt={product.name}
+                      className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer rounded-t-xl"
+                      // onClick={() => {
+                      //     const params = new URLSearchParams({
+                      //         _id: product._id,
+                      //         name: product.name,
+                      //         description: product.description,
+                      //         price: product.price.toString(),
+                      //         avatar: product.avatar,
+                      //     });
+
+                      //     router.push(`/shop/${product._id}?${params}`)
+                      // }}
+                    />
                   </Link>
-                  <h1 className=" text-black font-[600] text-[18px] lg:text-[28px]">
-                    ₦{product.price.toLocaleString()}
-                  </h1>
                 </div>
 
-                <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
+                <div className=" w-full flex items-center justify-between">
+                  <div className=" w-full">
+                    <Link
+                      to={`/product/${product._id}`}
+                      className=" text-[16px] lg:text-[22px] font-[400] text-black hover:underline duration-700 ease-in-out cursor-pointer mb-2 block"
+                    >
+                      {product.name}
+                    </Link>
+
+                    <p className=" line-clamp-2 text-[#245236B2] text-[12px] mb-2">
+                      {product.description}
+                    </p>
+
+                    <h1 className=" text-black font-[400] text-[20px] lg:text-[28px] mb-2">
+                      ₦{product.price.toLocaleString()}
+                    </h1>
+
+                    <div
+                      onClick={() => handleAddToCart(product)}
+                      className=" cursor-pointer h-[24px] lg:h-[42px] hover:bg-transparent text-[#fff] w-full hover:text-[#245236] duration-500 bg-[#245236] rounded-xl flex text-[14px] font-[300] items-center justify-center"
+                    >
+                      {/* <ShoppingBag01Icon
+                    className=" "
                     size={22}
                     strokeWidth={1.5}
-                  />
-                </div>
-              </div>
+                  /> */}
+                      Add To Cart
+                    </div>
+                  </div>
 
-              {/* <h2 className="mt-2 font-semibold">{product.name}</h2>
-              <p className="text-sm">{product.description}</p>
-              <p className="font-bold">₦{product.price}</p> */}
-            </div>
-          ))}
-        </div>
-      )}
+                  {/* <div
+                onClick={() => handleAddToCart(product)}
+                className=" cursor-pointer h-[24px] lg:h-[42px] hover:bg-transparent w-[24px] text-[#EFF901] hover:text-[#245236] duration-500 lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
+              >
+                <ShoppingBag01Icon
+                  className=" "
+                  size={22}
+                  strokeWidth={1.5}
+                />
+              </div> */}
+                </div>
+
+                {/* <h2 className="mt-2 font-semibold">{product.name}</h2>
+            <p className="text-sm">{product.description}</p>
+            <p className="font-bold">₦{product.price}</p> */}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <Footer />
     </>
