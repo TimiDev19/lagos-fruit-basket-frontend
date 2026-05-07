@@ -40,82 +40,78 @@ const Landingpage = () => {
   }, []);
 
   return (
-    <div className="h-[100vh] w-[100vw] scroll-smooth overflow-y-scroll pt-[138px]">
-      {/* <div
+    <div className="h-[100vh] w-[100vw] scroll-smooth overflow-y-scroll">
+      <div
         id="hero"
-        className=" lg:h-[100vh] pt-[155px] w-full flex max-sm:flex-col items-center justify-between px-[5%] max-sm:mb-[10vh]"
+        className=" h-[90vh] max-sm:min-h-[100vh] w-[100vw] flex items-center justify-center pt-[138px]"
       >
-        <div className=" w-[45%] max-sm:w-full h-full flex items-start flex-col justify-center max-sm:mb-[30px]">
-          <div className=" flex items-center justify-center bg-[#EFF901] h-[32px] px-4 rounded-full text-[14px] text-[#245236] mb-[20px]">
-            Same Day Delivery Available
+        <div className=" w-[90%] hidden lg:block relative lg:h-[475px] bg-[#245236] rounded-[40px]">
+          <div className=" absolute w-full h-full flex items-center justify-end rounded-tr-[40px] p-0">
+            <div className=" h-full w-[419px] max-sm:hidden fruit-hero-bg rounded-tr-[40px]"></div>
           </div>
 
-          <h1 className=" text-[#245236] text-[60px] mb-[10px]">
-            Freshness Delivered in a Click!
+          <div className=" absolute w-[70%] max-sm:w-full h-full z-[10] flex items-center justify-start max-sm:justify-center pl-[10%]">
+            <div>
+              <h1 className=" text-white text-[60px] lg:font-[400] mb-[10px]">
+                Freshness Delivered <br /> in a{" "}
+                <span className=" text-[#EFF901]">Click!</span>
+              </h1>
+              <p className=" text-[16px] text-white font-[300] mb-[10px] w-[70%]">
+                Send more than a gift, send a feeling. From vibrant fruit
+                baskets to fresh juices and creamy parfaits, we hand-pick the
+                best of Nigeria’s harvest and deliver it to your door.
+              </p>
+              <div className=" w-full flex max-sm:flex-col max-sm:items-start items-center justify-start">
+                <Link
+                  to={"/shop"}
+                  className=" max-sm:mb-[20px] px-4 py-1 hover:bg-transparent text-[#245236] duration-500 hover:border hover:border-[#fff] bg-[#EFF901] h-[40px] flex items-center justify-center font-light rounded-full hover:text-white mr-[30px]"
+                >
+                  Shop Now
+                </Link>
+
+                <Link
+                  target="_blank"
+                  to={"https://wa.me/+2348024015795"}
+                  className=" px-4 py-1 bg-transparent hover:bg-[#EFF901] hover:text-[#245236] duration-500 border border-[#fff] hover:border-0 h-[40px] flex items-center justify-center font-light rounded-full text-[#fff] mr-[20px]"
+                >
+                  Chat On Whatsapp
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className=" lg:hidden bg-[#245236] py-[20px] pb-[0] px-[8px] rounded-[30px] w-[90%] flex flex-col items-center justify-center">
+          <h1 className=" text-white text-center text-[24px] font-[500] mb-[10px]">
+            Freshness Delivered <br /> in a{" "}
+            <span className=" text-[#EFF901]">Click!</span>
           </h1>
 
-          <p className=" text-[#868C98] text-[16px] mb-[20px]">
+          <p className=" text-center text-[16px] text-[#FFFFFFCC] leading-loose mb-[20px]">
             Send more than a gift, send a feeling. From vibrant fruit baskets to
             fresh juices and creamy parfaits, we hand-pick the best of Nigeria’s
             harvest and deliver it to your door.
           </p>
 
-          <div className=" w-full flex max-sm:flex-col max-sm:items-start items-center justify-start">
+          <div className=" w-full flex max-sm:flex-col max-sm:items-start items-center justify-start mb-[20px]">
             <Link
               to={"/shop"}
-              className=" max-sm:mb-[20px] px-4 py-1 hover:bg-transparent hover:text-[#245236] duration-500 hover:border hover:border-[#245236] bg-[#245236] h-[40px] flex items-center justify-center font-light rounded-full text-white mr-[30px]"
+              className=" max-sm:mb-[20px] w-full px-4 py-1 hover:bg-transparent text-[#245236] duration-500 hover:border hover:border-[#fff] bg-[#EFF901] h-[40px] flex items-center justify-center font-light rounded-full hover:text-white"
             >
-              Shop Baskets
+              Shop Now
             </Link>
 
             <Link
               target="_blank"
-              to={"https://wa.me/+2348135846502"}
-              className=" px-4 py-1 bg-transparent hover:bg-[#245236] hover:text-white duration-500 border border-[#245236] h-[40px] flex items-center justify-center font-light rounded-full text-[#245236] mr-[20px]"
+              to={"https://wa.me/+2348024015795"}
+              className=" px-4 py-1 w-full bg-transparent hover:bg-[#EFF901] hover:text-[#245236] duration-500 border border-[#fff] hover:border-0 h-[40px] flex items-center justify-center font-light rounded-full text-[#fff]"
             >
-              Customize Your Basket
+              Chat On Whatsapp
             </Link>
           </div>
-        </div>
 
-        <div className=" max-sm:w-[100%] w-[35%] h-full flex items-center justify-center">
-          <div className=" w-full h-[55vh] rounded-3xl hero-bg shadow-xl"></div>
-        </div>
-      </div> */}
-
-      <div id="hero" className=" w-[100vw] h-[531px] relative bg-[#245236]">
-        <div className=" absolute w-full h-full flex items-center justify-end">
-          <div className=" h-full w-[850px] max-sm:hidden fruit-hero-bg"></div>
-          <div className=" h-full w-[850px] lg:hidden mobile-fruit-hero-bg"></div>
-        </div>
-
-        <div className=" absolute w-[50%] max-sm:w-full h-full z-[10] flex items-center justify-start max-sm:justify-center pl-[10%]">
-          <div>
-            <h1 className=" text-white text-[60px] lg:font-thin mb-[10px]">
-              Freshness Delivered <br /> in a{" "}
-              <span className=" text-[#EFF901]">Click!</span>
-            </h1>
-            <p className=" text-[16px] text-white lg:font-thin mb-[10px]">
-              Send more than a gift, send a feeling. From vibrant fruit baskets
-              to fresh juices and creamy parfaits, we hand-pick the best of
-              Nigeria’s harvest and deliver it to your door.
-            </p>
-            <div className=" w-full flex max-sm:flex-col max-sm:items-start items-center justify-start">
-              <Link
-                to={"/shop"}
-                className=" max-sm:mb-[20px] px-4 py-1 hover:bg-transparent text-[#245236] duration-500 hover:border hover:border-[#fff] bg-[#EFF901] h-[40px] flex items-center justify-center font-light rounded-full hover:text-white mr-[30px]"
-              >
-                Shop Baskets
-              </Link>
-
-              <Link
-                target="_blank"
-                to={"https://wa.me/+2348024015795"}
-                className=" px-4 py-1 bg-transparent hover:bg-[#EFF901] hover:text-[#245236] duration-500 border border-[#fff] hover:border-0 h-[40px] flex items-center justify-center font-light rounded-full text-[#fff] mr-[20px]"
-              >
-                Chat On Whatsapp
-              </Link>
-            </div>
+          <div className="w-full h-[194px] flex items-center justify-end rounded-tr-[40px] p-0">
+            <div className=" h-full w-[194px] fruit-hero-bg rounded-tr-[40px]"></div>
           </div>
         </div>
       </div>
