@@ -163,7 +163,7 @@ const Landingpage = () => {
       <div className=" block  mb-[10vh]">
         <div className=" w-full px-[5%] min-h-[40vh] flex flex-col items-center justify-center">
           <div className=" w-[100%] h-full flex flex-col items-center justify-center max-sm:justify-start max-sm:mb-[30px]">
-            <h1 className=" text-[32px] text-[#245236] mb-[10px]">
+            <h1 className=" text-[32px] text-[#245236] mb-[10px] text-center">
               Trusted by Industry Leaders
             </h1>
 
