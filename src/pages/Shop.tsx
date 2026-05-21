@@ -24,16 +24,23 @@ const Shop = () => {
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
+
         const res = await fetch(
           "https://lagos-food-basket-backend.onrender.com/user"
         );
+
         const data = await res.json();
-        console.log("Fetched data:", data); // 🔹 important
-        setProducts(Array.isArray(data) ? data : []); // ✅ ensure it's an array
+
+        console.log("Fetched data:", data);
+
+        setProducts(
+          Array.isArray(data) ? data.sort((a, b) => a.price - b.price) : []
+        );
+
         setIsLoading(false);
       } catch (error) {
         console.error("Fetch error:", error);
-        setProducts([]); // fallback to empty array
+        setProducts([]);
       }
     };
 
