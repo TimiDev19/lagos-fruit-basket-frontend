@@ -34,10 +34,11 @@ body{
 
 .fruit-hero-bg {
   background-image: 
-    url('./assets/bleh-hero.png');
+    url('./assets/about.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 50%;
 }
 .mobile-fruit-hero-bg {
   background-image: linear-gradient(rgba(3, 6, 14, 0.4), rgba(3, 6, 17, 0.4)),
@@ -47,8 +48,8 @@ body{
   background-size: cover;
 }
 .about-lfb-bg {
-  background-image: linear-gradient(rgba(4, 9, 30, 0.4), rgba(4, 9, 30, 0.4)),
-    url('./assets/about.png');
+  background-image:
+    url('./assets/about.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
