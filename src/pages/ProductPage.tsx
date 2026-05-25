@@ -1,95 +1,3 @@
-// "use client";
-// import products from '@/helpers/products';
-// import { addToCart } from '@/store/audophileSlice';
-// import React, { useEffect, useState } from 'react'
-// import { useDispatch } from 'react-redux';
-// import { useParams } from 'react-router-dom';
-
-
-
-// type Product = {
-//     _id: string
-//     name: string
-//     price: number
-//     description: string
-//     avatar: string
-//     cloudinary_id: string
-// }
-
-// const ProductPage: React.FC = () => {
-//     const { id } = useParams<{ id: string }>();
-//     const [products, setProducts] = useState<Product[]>([])
-//     const dispatch = useDispatch()
-//     useEffect(() => {
-//         const fetchProducts = async () => {
-//             try {
-//                 const res = await fetch("https://lagos-food-basket-backend.onrender.com/user");
-//                 const data = await res.json();
-//                 console.log("Fetched data:", data); // 🔹 important
-//                 setProducts(Array.isArray(data) ? data : []); // ✅ ensure it's an array
-//             } catch (error) {
-//                 console.error("Fetch error:", error);
-//                 setProducts([]); // fallback to empty array
-//             }
-//         };
-
-//         fetchProducts();
-//     }, []);
-//     useEffect(() => {
-//         if (id) {
-//             // Convert id from string to number
-//             const productId = id;
-
-//             // Access the items array and use find to get the specific product
-//             const foundProduct = products.find((p) => p._id === productId);
-//             setProducts(foundProduct);
-//         }
-//     }, [id]);
-
-
-
-//     if (!product) {
-//         return <p>Product not found</p>;
-//     }
-
-//     const handleAddToCart = () => {
-//         const CartItem = {
-//             id: products._id,
-//             img: product.image,
-//             name: product.name,
-//             price: product.price,
-//             quantity: 1, // Start with a quantity of 1
-//         };
-
-//         // Dispatch the action to add the product to the cart
-//         dispatch(addToCart(CartItem));
-//     };
-
-//     return (
-//         <div className=' lg:h-[100vh] w-full pt-[120px] lg:pt-[180px] pb-8'>
-//             <div className=' w-[95%] m-auto flex flex-col lg:flex-row items-start justify-between mb-10'>
-//                 <img src={product.image} alt="" className=' w-full lg:w-[45%] border border-slate-300 mb-6' />
-//                 <div className=' w-full lg:w-[45%] text-left'>
-//                     <h1 className=' font-semibold text-3xl mb-4'>{product.name}</h1>
-//                     <p className=' text-xl mb-4'>{product.description}</p>
-//                     <h1 className=' text-green-700 font-semibold text-5xl mb-6'>
-//                         £ {product.price.toFixed(2)}
-//                     </h1>
-//                     <button
-//                         onClick={handleAddToCart}
-//                         className=' mt-5 px-11 text-center bg-green-600 text-white text-s py-4 uppercase duration-500 hover:bg-green-500'
-//                     >
-//                         + Add to cart
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default ProductPage
-
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { addToCart } from "@/store/audophileSlice";
@@ -267,17 +175,6 @@ const ProductPage: React.FC = () => {
                   src={product.avatar}
                   alt={product.name}
                   className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer rounded-t"
-                // onClick={() => {
-                //     const params = new URLSearchParams({
-                //         _id: product._id,
-                //         name: product.name,
-                //         description: product.description,
-                //         price: product.price.toString(),
-                //         avatar: product.avatar,
-                //     });
-
-                //     router.push(`/shop/${product._id}?${params}`)
-                // }}
                 />
               </div>
 
@@ -286,17 +183,6 @@ const ProductPage: React.FC = () => {
                   <Link
                     to={`/product/${product._id}`}
                     className=" text-[14px] lg:text-[16px] font-[500] text-black hover:underline duration-700 ease-in-out cursor-pointer"
-                  // onClick={() => {
-                  //     const params = new URLSearchParams({
-                  //         _id: product._id,
-                  //         name: product.name,
-                  //         description: product.description,
-                  //         price: product.price.toString(),
-                  //         avatar: product.avatar,
-                  //     });
-
-                  //     router.push(`/shop/${product._id}?${params}`)
-                  // }}
                   >{product.name}</Link>
                   <h1 className=" text-black font-[600] text-[18px] lg:text-[28px]">₦{product.price}</h1>
                 </div>
@@ -305,11 +191,6 @@ const ProductPage: React.FC = () => {
                   <ShoppingBag01Icon className=' text-[#EFF901]' size={22} strokeWidth={1.5} />
                 </div>
               </div>
-
-              {/* <h2 className="mt-2 font-semibold">{product.name}</h2>
-              <p className="text-sm">{product.description}</p>
-              <p className="font-bold">₦{product.price}</p> */}
-
             </div>
           ))}
         </div>
@@ -320,5 +201,3 @@ const ProductPage: React.FC = () => {
 };
 
 export default ProductPage;
-
-{/*  */ }

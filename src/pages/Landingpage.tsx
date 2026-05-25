@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
-import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
 import products from "../helpers/products";
-import { FadeReveal } from "@/components/animations/FadeReveal";
 import "../index.css";
-import Typewriter from "typewriter-effect";
 import ScrollReveal from "scrollreveal";
 import { useEffect, useState } from "react";
-import { ArrowRight01Icon, ShoppingBag01Icon } from "hugeicons-react";
 import Shop from "@/components/Shop";
 import Footer from "@/components/Footer";
 import PersonalizeModal from "@/modals/PersonalizeModal";
@@ -47,7 +43,7 @@ const Landingpage = () => {
       >
         <div className=" w-[90%] hidden lg:block relative lg:h-[475px] bg-[#245236] rounded-[40px]">
           <div className=" absolute w-full h-full flex items-center justify-end rounded-tr-[40px] p-0">
-            <div className=" h-full w-[419px] max-sm:hidden fruit-hero-bg rounded-tr-[40px]"></div>
+            <div className=" h-full w-[419px] max-sm:hidden fruit-hero-bg rounded-r-[40px]"></div>
           </div>
 
           <div className=" absolute w-[70%] max-sm:w-full h-full z-[10] flex items-center justify-start max-sm:justify-center pl-[10%]">
@@ -111,7 +107,7 @@ const Landingpage = () => {
           </div>
 
           <div className="w-full h-[194px] flex items-center justify-end rounded-tr-[40px] p-0">
-            <div className=" h-full w-[194px] fruit-hero-bg rounded-tr-[40px]"></div>
+            <div className=" h-full w-[194px] fruit-hero-bg rounded-full"></div>
           </div>
         </div>
       </div>
