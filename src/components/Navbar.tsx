@@ -31,6 +31,7 @@ import {
   Upload01Icon,
 } from "hugeicons-react";
 import { smoothScrollToSection } from "./SmoothScrollToSection";
+import { openSearch } from "@/store/searchSlice";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,9 +69,15 @@ const Navbar = () => {
             +234 707 505 1036
           </h1>
 
-          <h1 className=" capitalize text-white text-[16px]">Same day delivery available</h1>
+          <h1 className=" capitalize text-white text-[16px]">
+            Same day delivery available
+          </h1>
 
-          <Link to={"https://www.instagram.com/lagosfruitbasket/"} target="_blank" className=" hover:underline duration-500 text-[14px] text-[#EFF901] flex items-center justify-center">
+          <Link
+            to={"https://www.instagram.com/lagosfruitbasket/"}
+            target="_blank"
+            className=" hover:underline duration-500 text-[14px] text-[#EFF901] flex items-center justify-center"
+          >
             <InstagramIcon
               className=" text-[#EFF901] mr-2"
               size={18}
@@ -79,8 +86,6 @@ const Navbar = () => {
             @lagosfruitbasket
           </Link>
         </div>
-
-
 
         <div className=" w-full fixed border-b border-b-black/20">
           <div className="flex w-full h-[90px] items-center justify-between pxpx py-3 bg-white">
@@ -158,7 +163,16 @@ const Navbar = () => {
 
             <div className=" flex items-center justify-center">
               {/*  */}
-
+              <button
+                onClick={() => dispatch(openSearch())}
+                className="mr-[20px]"
+              >
+                <Search01Icon
+                  className=" text-[#868C98]"
+                  size={30}
+                  strokeWidth={0.5}
+                />
+              </button>
               <div
                 onClick={toogleCartHandler}
                 className="relative inline-flex items-center space-x-2 cursor-pointer"

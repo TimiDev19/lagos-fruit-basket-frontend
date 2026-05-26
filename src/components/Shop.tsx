@@ -20,48 +20,37 @@ const Shop = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
-  // useEffect(() => {
-  //     const fetchProducts = async () => {
-  //         try {
-  //             const res = await fetch("https://lagos-food-basket-backend.onrender.com/user");
-  //             const data = await res.json();
-  //             console.log("Fetched data:", data); // 🔹 important
-  //             setProducts(Array.isArray(data) ? data : []); // ✅ ensure it's an array
-  //         } catch (error) {
-  //             console.error("Fetch error:", error);
-  //             setProducts([]); // fallback to empty array
-  //         }
-  //     };
-
-  //     fetchProducts();
-  // }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
+  
         const res = await fetch(
           "https://lagos-food-basket-backend.onrender.com/user"
         );
         const data = await res.json();
-
+  
         const productArray = Array.isArray(data) ? data : [];
-
-        // Shuffle products
-        const shuffled = [...productArray].sort(() => 0.5 - Math.random());
-
-        // Take only 12
-        const randomProducts = shuffled.slice(0, 8);
-
-        setProducts(randomProducts);
+  
+        // Sort by price (cheapest → most expensive)
+        const sortedByPrice = [...productArray].sort(
+          (a, b) => a.price - b.price
+        );
+  
+        // Take only the 8 cheapest
+        const cheapestProducts = sortedByPrice.slice(0, 8);
+  
+        setProducts(cheapestProducts);
         setIsLoading(false);
       } catch (error) {
         console.error("Fetch error:", error);
         setProducts([]);
         setIsFailed(true);
+        setIsLoading(false);
       }
     };
-
+  
     fetchProducts();
   }, []);
 

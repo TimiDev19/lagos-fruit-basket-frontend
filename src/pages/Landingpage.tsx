@@ -115,7 +115,7 @@ const Landingpage = () => {
       {/* SHOP */}
       <Shop />
 
-      <section id="about" className=" w-full block pt-[150px] mb-[10vh]">
+      <section id="about" className=" w-full block pt-[150px] mb-[10vh] min-h-[100dvh]">
         <div className=" w-full lg:h-[70vh] flex max-sm:flex-col items-start justify-center max-sm:items-start px-[5%] space-x-[5%]">
           <div className=" max-sm:mb-[10vh] max-sm:w-full max-sm:h-[50vh] w-[40%] h-[70vh] flex items-start justify-center">
             <div className=" w-full h-full about-lfb-bg rounded-3xl"></div>
@@ -156,7 +156,7 @@ const Landingpage = () => {
         </div>
       </section>
 
-      <div className=" block  mb-[10vh]">
+      <div className=" block pt-[150px] mb-[10vh]">
         <div className=" w-full px-[5%] min-h-[40vh] flex flex-col items-center justify-center">
           <div className=" w-[100%] h-full flex flex-col items-center justify-center max-sm:justify-start max-sm:mb-[30px]">
             <h1 className=" text-[32px] text-[#245236] mb-[10px] text-center">

@@ -1,22 +1,24 @@
-import './App.css';
-import './../app/globals.css';
-import Navbar from './components/Navbar';
-import { Route } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Routes } from 'react-router-dom';
-import Landingpage from './pages/Landingpage';
-import Shop from './pages/Shop';
-import { FadeReveal } from './components/animations/FadeReveal';
-import ProductPage from './pages/ProductPage';
-import PaymentSucess from './pages/PaymentSucess';
-import PaymentFailure from './pages/PaymentFailure';
-import StickyButton from './components/StickyButton';
+import "./App.css";
+import "./../app/globals.css";
+import Navbar from "./components/Navbar";
+import { Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import Landingpage from "./pages/Landingpage";
+import Shop from "./pages/Shop";
+import { FadeReveal } from "./components/animations/FadeReveal";
+import ProductPage from "./pages/ProductPage";
+import PaymentSucess from "./pages/PaymentSucess";
+import PaymentFailure from "./pages/PaymentFailure";
+import StickyButton from "./components/StickyButton";
+import SearchModal from "./modals/SearchModal";
 
 function App() {
   return (
     <div className=" font-inter scroll-smooth">
       <BrowserRouter>
         <Navbar />
+        <SearchModal />
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/shop" element={<Shop />} />
@@ -45,7 +47,7 @@ function App() {
             }
           />
         </Routes>
-        <StickyButton/>
+        <StickyButton />
       </BrowserRouter>
     </div>
   );
