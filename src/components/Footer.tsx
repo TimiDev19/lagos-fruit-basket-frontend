@@ -58,7 +58,7 @@ const Footer = () => {
             <li>
               <Link
                 to={"/valentine"}
-                target="_blank"
+                // target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Valentine Baskets
@@ -72,7 +72,7 @@ const Footer = () => {
                 //     .getElementById("shop")
                 //     ?.scrollIntoView({ behavior: "smooth" })
                 // }
-                target="_blank"
+                // target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Christmas Baskets
@@ -86,7 +86,7 @@ const Footer = () => {
                 //     .getElementById("shop")
                 //     ?.scrollIntoView({ behavior: "smooth" })
                 // }
-                target="_blank"
+                // target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Ramadan Baskets
@@ -100,7 +100,7 @@ const Footer = () => {
                 //     .getElementById("shop")
                 //     ?.scrollIntoView({ behavior: "smooth" })
                 // }
-                target="_blank"
+                // target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Birthday Baskets
