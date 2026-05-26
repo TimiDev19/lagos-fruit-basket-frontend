@@ -12,6 +12,11 @@ import PaymentSucess from "./pages/PaymentSucess";
 import PaymentFailure from "./pages/PaymentFailure";
 import StickyButton from "./components/StickyButton";
 import SearchModal from "./modals/SearchModal";
+import ValentineBaskets from "./pages/ValentineBaskets";
+import ChristmasBaskets from "./pages/ChristmasBaskets";
+import RamadanBaskets from "./pages/RamadanBaskets";
+import BirthdayBaskets from "./pages/BirthdayBaskets";
+import CorporateBaskets from "./pages/CorporateBaskets";
 
 function App() {
   return (
@@ -35,6 +40,46 @@ function App() {
             element={
               <FadeReveal>
                 <PaymentSucess />
+              </FadeReveal>
+            }
+          />
+          <Route
+            path="/valentine"
+            element={
+              <FadeReveal>
+                <ValentineBaskets />
+              </FadeReveal>
+            }
+          />
+          <Route
+            path="/christmas"
+            element={
+              <FadeReveal>
+                <ChristmasBaskets />
+              </FadeReveal>
+            }
+          />
+          <Route
+            path="/ramadan"
+            element={
+              <FadeReveal>
+                <RamadanBaskets />
+              </FadeReveal>
+            }
+          />
+          <Route
+            path="/birthday"
+            element={
+              <FadeReveal>
+                <BirthdayBaskets />
+              </FadeReveal>
+            }
+          />
+          <Route
+            path="/corporate"
+            element={
+              <FadeReveal>
+                <CorporateBaskets />
               </FadeReveal>
             }
           />

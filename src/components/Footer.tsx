@@ -57,12 +57,8 @@ const Footer = () => {
           <ol>
             <li>
               <Link
-                to={""}
-                onClick={() =>
-                  document
-                    .getElementById("shop")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                to={"/valentine"}
+                target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Valentine Baskets
@@ -70,12 +66,13 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to={""}
-                onClick={() =>
-                  document
-                    .getElementById("shop")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                to={"/christmas"}
+                // onClick={() =>
+                //   document
+                //     .getElementById("shop")
+                //     ?.scrollIntoView({ behavior: "smooth" })
+                // }
+                target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Christmas Baskets
@@ -83,12 +80,27 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to={""}
-                onClick={() =>
-                  document
-                    .getElementById("shop")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                to={"/ramadan"}
+                // onClick={() =>
+                //   document
+                //     .getElementById("shop")
+                //     ?.scrollIntoView({ behavior: "smooth" })
+                // }
+                target="_blank"
+                className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
+              >
+                Ramadan Baskets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={"/birthday"}
+                // onClick={() =>
+                //   document
+                //     .getElementById("shop")
+                //     ?.scrollIntoView({ behavior: "smooth" })
+                // }
+                target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Birthday Baskets
@@ -96,12 +108,13 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to={""}
-                onClick={() =>
-                  document
-                    .getElementById("shop")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                to={"/corporate"}
+                // onClick={() =>
+                //   document
+                //     .getElementById("shop")
+                //     ?.scrollIntoView({ behavior: "smooth" })
+                // }
+                target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Corporate Baskets
