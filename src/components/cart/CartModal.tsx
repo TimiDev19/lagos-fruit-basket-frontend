@@ -342,7 +342,7 @@ const CartModal = () => {
 
       const res = await emailjs.send(
         'service_sr8c5ig',
-        'service_sr8c5ig',
+        'template_bxf1xd6',
         templateParams,
         'f1KDM7sAzYsmrrqXP'
       );
