@@ -341,10 +341,10 @@ const CartModal = () => {
       };
 
       const res = await emailjs.send(
-        'service_xpo4uhb',
-        'template_fxk86xg',
+        'service_sr8c5ig',
+        'service_sr8c5ig',
         templateParams,
-        'vniYYZ7cQTr3doimy'
+        'f1KDM7sAzYsmrrqXP'
       );
 
       if (res.status === 200) {
