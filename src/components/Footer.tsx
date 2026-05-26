@@ -114,7 +114,7 @@ const Footer = () => {
                 //     .getElementById("shop")
                 //     ?.scrollIntoView({ behavior: "smooth" })
                 // }
-                target="_blank"
+                // target="_blank"
                 className=" block hover:underline duration-500 text-[#FFFFFF99] font-[300] mb-3"
               >
                 Corporate Baskets
