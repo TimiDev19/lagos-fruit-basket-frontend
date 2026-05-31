@@ -3,37 +3,25 @@ const baskets = [
     id: 1,
     name: "Romantic Red Basket",
     price: "$65",
-    image: "/images/azima.png",
+    image: "/images/val1.jpg",
   },
   {
     id: 2,
     name: "Chocolate Love Basket",
     price: "$80",
-    image: "/images/azima.png",
+    image: "/images/val2.jpg",
   },
   {
     id: 3,
     name: "Luxury Rose Basket",
     price: "$120",
-    image: "/images/azima.png",
+    image: "/images/val3.jpg",
   },
   {
     id: 4,
     name: "Couple Surprise Basket",
     price: "$95",
-    image: "/images/azima.png",
-  },
-  {
-    id: 5,
-    name: "Teddy & Candy Basket",
-    price: "$70",
-    image: "/images/azima.png",
-  },
-  {
-    id: 6,
-    name: "Premium Valentine Basket",
-    price: "$150",
-    image: "/images/azima.png",
+    image: "/images/val4.jpg",
   },
 ];
 
