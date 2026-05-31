@@ -184,7 +184,7 @@ const ProductPage: React.FC = () => {
                     to={`/product/${product._id}`}
                     className=" text-[14px] lg:text-[16px] font-[500] text-black hover:underline duration-700 ease-in-out cursor-pointer"
                   >{product.name}</Link>
-                  <h1 className=" text-black font-[600] text-[18px] lg:text-[28px]">₦{product.price}</h1>
+                  <h1 className=" text-black font-[600] text-[18px] lg:text-[28px]">₦{product.price.toLocaleString()}</h1>
                 </div>
 
                 <div onClick={() => handleAddToCart} className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center">

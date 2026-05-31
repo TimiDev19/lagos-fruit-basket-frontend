@@ -2,13 +2,14 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import XIcon from "@mui/icons-material/X";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { smoothScrollToSection } from "./SmoothScrollToSection";
 import logo from "../assets/white-logo.png";
 import { Call02Icon, InstagramIcon, WhatsappIcon } from "hugeicons-react";
 import Copyright from "./Copyright";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className=" bg-[#245236] h-[50vh] w-[100vw] px-[5%] py-[5%] flex items-center justify-start max-sm:justify-between">
@@ -128,7 +129,7 @@ const Footer = () => {
           <ol>
             <li className=" text-[#FFFFFF99] font-[300] hover:underline duration-500 mb-3">
               <Link
-                to={""}
+                to={"/#about"}
                 onClick={() =>
                   document
                     .getElementById("about")
@@ -140,7 +141,7 @@ const Footer = () => {
             </li>
             <li className=" text-[#FFFFFF99] font-[300] hover:underline duration-500 mb-3">
               <Link
-                to={""}
+                to={"/#contact"}
                 onClick={() =>
                   document
                     .getElementById("contact")
