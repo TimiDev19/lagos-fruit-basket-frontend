@@ -115,7 +115,10 @@ const Landingpage = () => {
       {/* SHOP */}
       <Shop />
 
-      <section id="about" className=" w-full block pt-[150px] mb-[10vh] min-h-[100dvh]">
+      <section
+        id="about"
+        className=" w-full block pt-[150px] mb-[10vh] min-h-[100dvh]"
+      >
         <div className=" w-full lg:h-[70vh] flex max-sm:flex-col items-start justify-center max-sm:items-start px-[5%] space-x-[5%]">
           <div className=" max-sm:mb-[10vh] max-sm:w-full max-sm:h-[50vh] w-[40%] h-[70vh] flex items-start justify-center">
             <div className=" w-full h-full about-lfb-bg rounded-3xl"></div>
@@ -176,25 +179,11 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <CompanyLocationSection />
+      <div id="address">
+        <CompanyLocationSection />
+      </div>
 
-      {/* <div className=" w-[100vw] min-h-[50vh] flex flex-col items-center justify-center">
-        <h1 className=" text-[90px] font-[400] capitalize mb-[10px]">
-          Locate us
-        </h1>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126832.27312311927!2d3.287038259481555!3d6.583527651199229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8337173b21953857%3A0xed0526be8b11896d!2sLagos%20Fruit%20Basket%20(Fruit%20Hamper%20Company%20in%20Lagos%2C%20Nigeria)!5e0!3m2!1sen!2sng!4v1777814194530!5m2!1sen!2sng"
-          // width="600"
-          // height="450"
-          className=" w-full h-[80vh]"
-          // style="border:0;"
-          // allowfullscreen=""
-          loading="lazy"
-          // referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div> */}
-
-      <div id="contact" className=" min-h-[50vh] block pt-[150px] mb-[10vh]">
+      <div className=" min-h-[50vh] block pt-[150px] mb-[10vh]">
         <div className=" h-[50vh] w-[100vw] flex items-center justify-center">
           <div className=" w-[80%] h-full bg-[#245236] rounded-3xl flex flex-col items-center justify-center p-[20px]">
             <h1 className=" text-[32px] text-white mb-[20px] text-center">
@@ -206,14 +195,6 @@ const Landingpage = () => {
               special theme, our gift curator is ready to help you bring your
               vision to life.
             </p>
-            {/* <Link
-              target="_blank"
-              to={"https://wa.me/+2348135846502"}
-              className=" flex items-center justify-center text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"
-            >
-               Chat with our Gift Curator on WhatsApp
-            </Link> */}
-
             <button
               onClick={() => setPersonalizeOpen(true)}
               className=" flex items-center justify-center hover:text-[#eef901] hover:border-[#eef901] hover:bg-transparent hover:border duration-500 text-center bg-[#EFF901] h-[49px] px-[30px] rounded-full text-[14px] text-[#245236] mb-[20px]"

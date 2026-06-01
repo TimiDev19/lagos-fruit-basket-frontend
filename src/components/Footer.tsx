@@ -141,10 +141,10 @@ const Footer = () => {
             </li>
             <li className=" text-[#FFFFFF99] font-[300] hover:underline duration-500 mb-3">
               <Link
-                to={"/#contact"}
+                to={"/#address"}
                 onClick={() =>
                   document
-                    .getElementById("contact")
+                    .getElementById("address")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >
