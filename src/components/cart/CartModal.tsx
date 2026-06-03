@@ -760,7 +760,7 @@ const CartModal = () => {
       publicKey: PAYSTACK_KEY,
     });
 
-    startPayment(onSuccess, onClose);
+    startPayment({onSuccess, onClose});
   };
 
     return (
