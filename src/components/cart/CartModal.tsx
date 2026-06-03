@@ -9,7 +9,7 @@
 
 // emailjs.init("vniYYZ7cQTr3doimy");
 
-// const DELIVERY_FEES = {
+// const DELIVERY_FEES: Record<string, number> = {
 //   "": 0,
 //   "Lekki Phase 1": 5000,
 //   Ikate: 5000,
@@ -45,9 +45,7 @@
 //   "Iyana Ipaja": 6000,
 // };
 
-// // Items that require a different transport — multiplier applies to the base delivery fee.
-// // If multiple heavy items are in the cart, the highest multiplier wins.
-// const HEAVY_ITEM_MULTIPLIERS = {
+// const HEAVY_ITEM_MULTIPLIERS: Record<string, number> = {
 //   "Boyin Basket": 2,
 //   "Iyanu Basket": 2,
 //   "Sodiq Basket": 2,
@@ -68,8 +66,16 @@
 //   "Wandu Basket": 2,
 // };
 
-// const getDeliveryMultiplier = (cart) => {
-//   const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+// type CartItemType = {
+//   id: string | number;
+//   name: string;
+//   quantity: number;
+//   price: number;
+//   img: string;
+// };
+
+// const getDeliveryMultiplier = (cart: CartItemType[]): number => {
+//   const totalQuantity = cart.reduce((acc: number, item: CartItemType) => acc + item.quantity, 0);
 //   const quantityMultiplier = totalQuantity > 1 ? 2 : 1;
 
 //   let heavyMultiplier = 1;
@@ -95,38 +101,22 @@
 //   const [fulfillmentType, setFulfillmentType] = useState("");
 
 //   const subtotal = cart.reduce(
-//     (acc, item) => acc + item.price * item.quantity,
+//     (acc: number, item: CartItemType) => acc + item.price * item.quantity,
 //     0
 //   );
 
 //   const deliveryMultiplier = getDeliveryMultiplier(cart);
 //   const baseDeliveryFee =
-//     fulfillmentType === "delivery" ? DELIVERY_FEES[selectedLocation] ?? 0 : 0;
+//     fulfillmentType === "delivery" ? (DELIVERY_FEES[selectedLocation] ?? 0) : 0;
 //   const deliveryFee = baseDeliveryFee * deliveryMultiplier;
 //   const totalCost = subtotal + deliveryFee;
-
-//   // Label shown next to the delivery fee line
-//   const deliveryFeeLabel = (() => {
-//     if (!selectedLocation) return "";
-//     if (deliveryMultiplier === 3)
-//       return `${selectedLocation} · 3× (large item)`;
-//     if (deliveryMultiplier === 1.5)
-//       return `${selectedLocation} · 1.5× (bulky item)`;
-//     return selectedLocation;
-//   })();
 
 //   const sendOrder = async () => {
 //     if (cart.length === 0) {
 //       toast("Your cart is empty. Please add items before placing an order.", {
 //         duration: 4000,
 //         position: "top-center",
-//         style: {
-//           background: "red",
-//           color: "#fff",
-//           padding: "16px",
-//           borderRadius: "8px",
-//           fontSize: "16px",
-//         },
+//         style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
 //       });
 //       return;
 //     }
@@ -135,13 +125,7 @@
 //       toast("Please select delivery or pickup.", {
 //         duration: 4000,
 //         position: "top-center",
-//         style: {
-//           background: "red",
-//           color: "#fff",
-//           padding: "16px",
-//           borderRadius: "8px",
-//           fontSize: "16px",
-//         },
+//         style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
 //       });
 //       return;
 //     }
@@ -150,31 +134,16 @@
 //       toast("Please fill in all required fields.", {
 //         duration: 4000,
 //         position: "top-center",
-//         style: {
-//           background: "red",
-//           color: "#fff",
-//           padding: "16px",
-//           borderRadius: "8px",
-//           fontSize: "16px",
-//         },
+//         style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
 //       });
 //       return;
 //     }
 
-//     if (
-//       fulfillmentType === "delivery" &&
-//       (!selectedLocation || !customerAddress)
-//     ) {
+//     if (fulfillmentType === "delivery" && (!selectedLocation || !customerAddress)) {
 //       toast("Please select a location and enter your delivery address.", {
 //         duration: 4000,
 //         position: "top-center",
-//         style: {
-//           background: "red",
-//           color: "#fff",
-//           padding: "16px",
-//           borderRadius: "8px",
-//           fontSize: "16px",
-//         },
+//         style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
 //       });
 //       return;
 //     }
@@ -182,38 +151,28 @@
 //     setIsOrdering(true);
 
 //     try {
-//       const filteredCart = cart.map((item) => ({
+//       const filteredCart = cart.map((item: CartItemType) => ({
 //         name: item.name,
 //         quantity: item.quantity,
 //         price: item.price,
 //       }));
 
 //       const orderSummary = filteredCart
-//         .map(
-//           (item) =>
-//             `${item.name} x${item.quantity} - ₦${(
-//               item.price * item.quantity
-//             ).toFixed(2)}`
-//         )
+//         .map((item) => `${item.name} x${item.quantity} - ₦${(item.price * item.quantity).toFixed(2)}`)
 //         .join("\n");
 
 //       const templateParams = {
 //         to_email: "lagosfruitbasket@gmail.com",
 //         customer_email: customerEmail,
 //         customer_phone: customerPhone,
-//         fulfillment_type:
-//           fulfillmentType === "pickup"
-//             ? "Pickup"
-//             : `Delivery (${selectedLocation})`,
+//         fulfillment_type: fulfillmentType === "pickup" ? "Pickup" : `Delivery (${selectedLocation})`,
 //         customer_address:
 //           fulfillmentType === "pickup"
 //             ? "N/A — Customer will pick up"
 //             : `${customerAddress} (${selectedLocation})`,
 //         order_summary: orderSummary,
 //         delivery_fee: `₦${deliveryFee.toFixed(2)}${
-//           deliveryMultiplier > 1
-//             ? ` (${deliveryMultiplier}× surcharge for large/bulky item)`
-//             : ""
+//           deliveryMultiplier > 1 ? ` (${deliveryMultiplier}× surcharge)` : ""
 //         }`,
 //         total_amount: totalCost.toFixed(2),
 //       };
@@ -229,13 +188,7 @@
 //         toast("Order placed successfully!", {
 //           duration: 4000,
 //           position: "top-center",
-//           style: {
-//             background: "#4CAF50",
-//             color: "#fff",
-//             padding: "16px",
-//             borderRadius: "8px",
-//             fontSize: "16px",
-//           },
+//           style: { background: "#4CAF50", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
 //         });
 
 //         dispatch(emptyCart());
@@ -250,13 +203,7 @@
 //       toast("Failed to place order. Please try again.", {
 //         duration: 4000,
 //         position: "top-center",
-//         style: {
-//           background: "red",
-//           color: "#fff",
-//           padding: "16px",
-//           borderRadius: "8px",
-//           fontSize: "16px",
-//         },
+//         style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
 //       });
 //     } finally {
 //       setIsOrdering(false);
@@ -266,7 +213,7 @@
 //   return (
 //     <div className="bg-white px-8 py-8 rounded-xl flex flex-col gap-4 max-h-[90dvh] w-full overflow-y-auto">
 //       {/* Header */}
-//       <div className="flex justify-between shrink-0">
+//       <div className="flex justify-between">
 //         <p className="font-semibold text-[1.1rem] tracking-widest">{`CART (${cart.length})`}</p>
 //         <p
 //           onClick={() => dispatch(emptyCart())}
@@ -277,11 +224,11 @@
 //       </div>
 
 //       {/* Cart items */}
-//       <div className="flex-1 min-h-[150px] overflow-y-auto overscroll-contain border-b border-[#245236] pb-4">
+//       <div className="border-b border-[#245236] pb-4">
 //         {cart.length === 0 ? (
 //           <p className="mt-4 font-semibold italic">No Items In Cart 🤧</p>
 //         ) : (
-//           cart.map((crt, index) => (
+//           cart.map((crt: CartItemType, index: number) => (
 //             <CartItem
 //               key={index}
 //               id={crt.id}
@@ -294,31 +241,26 @@
 //         )}
 //       </div>
 
-//       {/* Heavy item notice */}
 //       {/* Heavy item / multi-item notice */}
 //       {fulfillmentType === "delivery" && deliveryMultiplier > 1 && (
 //         <div className="bg-amber-50 border border-amber-300 text-amber-800 text-[0.8rem] px-4 py-2 rounded">
 //           ⚠️{" "}
-//           {deliveryMultiplier === 3
+//           {deliveryMultiplier >= 3
 //             ? "Your cart contains a large item that requires a bigger vehicle."
-//             : deliveryMultiplier === 2
-//             ? "Multiple items in your cart require a larger delivery vehicle."
-//             : "Your cart contains a bulky item."}{" "}
+//             : "Multiple items in your cart require a larger delivery vehicle."}{" "}
 //           Delivery fee is increased.
 //         </div>
 //       )}
 
 //       {/* Subtotal */}
-//       <div className="flex justify-between items-center shrink-0">
+//       <div className="flex justify-between items-center">
 //         <p className="opacity-50 text-[1rem]">SUBTOTAL</p>
-//         <p className="font-semibold text-[1.1rem] tracking-wider">
-//           ₦ {subtotal.toFixed(2)}
-//         </p>
+//         <p className="font-semibold text-[1.1rem] tracking-wider">₦ {subtotal.toFixed(2)}</p>
 //       </div>
 
 //       {/* Delivery fee */}
 //       {fulfillmentType === "delivery" && selectedLocation && (
-//         <div className="flex justify-between items-center shrink-0 -mt-2">
+//         <div className="flex justify-between items-center -mt-2">
 //           <p className="opacity-50 text-[0.95rem]">DELIVERY</p>
 //           <p className="font-semibold text-[1rem] tracking-wider text-[#245236]">
 //             ₦ {deliveryFee.toFixed(2)}
@@ -327,15 +269,13 @@
 //       )}
 
 //       {/* Total */}
-//       <div className="flex justify-between items-center shrink-0 border-t border-[#245236] pt-3">
+//       <div className="flex justify-between items-center border-t border-[#245236] pt-3">
 //         <p className="font-semibold text-[1rem]">TOTAL</p>
-//         <p className="font-bold text-[1.2rem] tracking-wider">
-//           ₦ {totalCost.toFixed(2)}
-//         </p>
+//         <p className="font-bold text-[1.2rem] tracking-wider">₦ {totalCost.toFixed(2)}</p>
 //       </div>
 
 //       {/* Form fields */}
-//       <div className="flex flex-col gap-3 shrink-0">
+//       <div className="flex flex-col gap-3">
 //         <input
 //           type="email"
 //           placeholder="Enter your email"
@@ -362,10 +302,9 @@
 //               setSelectedLocation("");
 //             }}
 //             className={`py-3 text-[0.85rem] font-semibold tracking-wider uppercase border rounded duration-150
-//               ${
-//                 fulfillmentType === "delivery"
-//                   ? "bg-[#245236] text-white border-[#245236]"
-//                   : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
+//               ${fulfillmentType === "delivery"
+//                 ? "bg-[#245236] text-white border-[#245236]"
+//                 : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
 //               }`}
 //           >
 //             🚚 Delivery
@@ -378,10 +317,9 @@
 //               setSelectedLocation("");
 //             }}
 //             className={`py-3 text-[0.85rem] font-semibold tracking-wider uppercase border rounded duration-150
-//               ${
-//                 fulfillmentType === "pickup"
-//                   ? "bg-[#245236] text-white border-[#245236]"
-//                   : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
+//               ${fulfillmentType === "pickup"
+//                 ? "bg-[#245236] text-white border-[#245236]"
+//                 : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
 //               }`}
 //           >
 //             🏪 Pickup
@@ -405,9 +343,6 @@
 //                   return (
 //                     <option key={location} value={location}>
 //                       {location} — ₦{adjustedFee.toLocaleString()}
-//                       {/* {deliveryMultiplier > 1
-//                         ? ` (${deliveryMultiplier}×)`
-//                         : ""} */}
 //                     </option>
 //                   );
 //                 })}
@@ -425,21 +360,20 @@
 //         {/* Pickup note */}
 //         {fulfillmentType === "pickup" && (
 //           <p className="text-[0.85rem] text-[#245236] bg-[#245236]/10 px-4 py-3 rounded">
-//             You'll pick up your order at our store. We'll contact you on the
-//             number provided once it's ready.
+//             You'll pick up your order at our store. We'll contact you on the number provided once it's ready.
 //           </p>
 //         )}
 //       </div>
 
 //       {/* Checkout button */}
 //       {isOrdering ? (
-//         <button className="bg-[#245236]/50 w-full text-white text-[0.85rem] py-4 px-9 font-semibold tracking-wider uppercase shrink-0">
+//         <button className="bg-[#245236]/50 w-full text-white text-[0.85rem] py-4 px-9 font-semibold tracking-wider uppercase">
 //           <div className="animate-spin h-5 w-5 mx-auto border-2 border-white rounded-full border-t-transparent"></div>
 //         </button>
 //       ) : (
 //         <button
 //           onClick={sendOrder}
-//           className="bg-[#245236] hover:bg-[#245236]/70 w-full text-white text-[0.85rem] duration-150 py-4 px-9 font-semibold tracking-wider uppercase shrink-0"
+//           className="bg-[#245236] hover:bg-[#245236]/70 w-full text-white text-[0.85rem] duration-150 py-4 px-9 font-semibold tracking-wider uppercase"
 //         >
 //           Checkout
 //         </button>
@@ -450,13 +384,12 @@
 
 // export default CartModal;
 
-
 "use client";
 
 import emailjs from "@emailjs/browser";
 import CartItem from "./CartItem";
 import { useAppSelector, useAppDispatch } from "@/store/hooks/hooks";
-import { emptyCart } from "@/store/audophileSlice";
+import { emptyCart, toggleCart } from "@/store/audophileSlice";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
@@ -528,7 +461,10 @@ type CartItemType = {
 };
 
 const getDeliveryMultiplier = (cart: CartItemType[]): number => {
-  const totalQuantity = cart.reduce((acc: number, item: CartItemType) => acc + item.quantity, 0);
+  const totalQuantity = cart.reduce(
+    (acc: number, item: CartItemType) => acc + item.quantity,
+    0
+  );
   const quantityMultiplier = totalQuantity > 1 ? 2 : 1;
 
   let heavyMultiplier = 1;
@@ -560,7 +496,7 @@ const CartModal = () => {
 
   const deliveryMultiplier = getDeliveryMultiplier(cart);
   const baseDeliveryFee =
-    fulfillmentType === "delivery" ? (DELIVERY_FEES[selectedLocation] ?? 0) : 0;
+    fulfillmentType === "delivery" ? DELIVERY_FEES[selectedLocation] ?? 0 : 0;
   const deliveryFee = baseDeliveryFee * deliveryMultiplier;
   const totalCost = subtotal + deliveryFee;
 
@@ -569,7 +505,13 @@ const CartModal = () => {
       toast("Your cart is empty. Please add items before placing an order.", {
         duration: 4000,
         position: "top-center",
-        style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
+        style: {
+          background: "red",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "8px",
+          fontSize: "16px",
+        },
       });
       return;
     }
@@ -578,7 +520,13 @@ const CartModal = () => {
       toast("Please select delivery or pickup.", {
         duration: 4000,
         position: "top-center",
-        style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
+        style: {
+          background: "red",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "8px",
+          fontSize: "16px",
+        },
       });
       return;
     }
@@ -587,16 +535,31 @@ const CartModal = () => {
       toast("Please fill in all required fields.", {
         duration: 4000,
         position: "top-center",
-        style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
+        style: {
+          background: "red",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "8px",
+          fontSize: "16px",
+        },
       });
       return;
     }
 
-    if (fulfillmentType === "delivery" && (!selectedLocation || !customerAddress)) {
+    if (
+      fulfillmentType === "delivery" &&
+      (!selectedLocation || !customerAddress)
+    ) {
       toast("Please select a location and enter your delivery address.", {
         duration: 4000,
         position: "top-center",
-        style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
+        style: {
+          background: "red",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "8px",
+          fontSize: "16px",
+        },
       });
       return;
     }
@@ -611,14 +574,22 @@ const CartModal = () => {
       }));
 
       const orderSummary = filteredCart
-        .map((item) => `${item.name} x${item.quantity} - ₦${(item.price * item.quantity).toFixed(2)}`)
+        .map(
+          (item) =>
+            `${item.name} x${item.quantity} - ₦${(
+              item.price * item.quantity
+            ).toFixed(2)}`
+        )
         .join("\n");
 
       const templateParams = {
         to_email: "lagosfruitbasket@gmail.com",
         customer_email: customerEmail,
         customer_phone: customerPhone,
-        fulfillment_type: fulfillmentType === "pickup" ? "Pickup" : `Delivery (${selectedLocation})`,
+        fulfillment_type:
+          fulfillmentType === "pickup"
+            ? "Pickup"
+            : `Delivery (${selectedLocation})`,
         customer_address:
           fulfillmentType === "pickup"
             ? "N/A — Customer will pick up"
@@ -641,7 +612,13 @@ const CartModal = () => {
         toast("Order placed successfully!", {
           duration: 4000,
           position: "top-center",
-          style: { background: "#4CAF50", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
+          style: {
+            background: "#4CAF50",
+            color: "#fff",
+            padding: "16px",
+            borderRadius: "8px",
+            fontSize: "16px",
+          },
         });
 
         dispatch(emptyCart());
@@ -656,7 +633,13 @@ const CartModal = () => {
       toast("Failed to place order. Please try again.", {
         duration: 4000,
         position: "top-center",
-        style: { background: "red", color: "#fff", padding: "16px", borderRadius: "8px", fontSize: "16px" },
+        style: {
+          background: "red",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "8px",
+          fontSize: "16px",
+        },
       });
     } finally {
       setIsOrdering(false);
@@ -666,14 +649,25 @@ const CartModal = () => {
   return (
     <div className="bg-white px-8 py-8 rounded-xl flex flex-col gap-4 max-h-[90dvh] w-full overflow-y-auto">
       {/* Header */}
-      <div className="flex justify-between">
-        <p className="font-semibold text-[1.1rem] tracking-widest">{`CART (${cart.length})`}</p>
-        <p
-          onClick={() => dispatch(emptyCart())}
-          className="opacity-60 underline text-[0.95rem] cursor-pointer hover:opacity-100 duration-150"
+      <div className=" w-full flex items-end justify-end h-[20px]">
+        <button
+          onClick={() => dispatch(toggleCart(false))}
+          aria-label="Close cart"
+          className="text-[#245236] hover:opacity-60 duration-150 text-[1.4rem] leading-none font-light"
         >
-          Remove all
-        </p>
+          ✕
+        </button>
+      </div>
+      <div className="flex justify-between items-center">
+        <p className="font-semibold text-[1.1rem] tracking-widest">{`CART (${cart.length})`}</p>
+        <div className="flex items-center gap-3">
+          <p
+            onClick={() => dispatch(emptyCart())}
+            className="opacity-60 underline text-[0.95rem] cursor-pointer hover:opacity-100 duration-150"
+          >
+            Remove all
+          </p>
+        </div>
       </div>
 
       {/* Cart items */}
@@ -708,7 +702,9 @@ const CartModal = () => {
       {/* Subtotal */}
       <div className="flex justify-between items-center">
         <p className="opacity-50 text-[1rem]">SUBTOTAL</p>
-        <p className="font-semibold text-[1.1rem] tracking-wider">₦ {subtotal.toFixed(2)}</p>
+        <p className="font-semibold text-[1.1rem] tracking-wider">
+          ₦ {subtotal.toFixed(2)}
+        </p>
       </div>
 
       {/* Delivery fee */}
@@ -724,7 +720,9 @@ const CartModal = () => {
       {/* Total */}
       <div className="flex justify-between items-center border-t border-[#245236] pt-3">
         <p className="font-semibold text-[1rem]">TOTAL</p>
-        <p className="font-bold text-[1.2rem] tracking-wider">₦ {totalCost.toFixed(2)}</p>
+        <p className="font-bold text-[1.2rem] tracking-wider">
+          ₦ {totalCost.toFixed(2)}
+        </p>
       </div>
 
       {/* Form fields */}
@@ -755,9 +753,10 @@ const CartModal = () => {
               setSelectedLocation("");
             }}
             className={`py-3 text-[0.85rem] font-semibold tracking-wider uppercase border rounded duration-150
-              ${fulfillmentType === "delivery"
-                ? "bg-[#245236] text-white border-[#245236]"
-                : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
+              ${
+                fulfillmentType === "delivery"
+                  ? "bg-[#245236] text-white border-[#245236]"
+                  : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
               }`}
           >
             🚚 Delivery
@@ -770,9 +769,10 @@ const CartModal = () => {
               setSelectedLocation("");
             }}
             className={`py-3 text-[0.85rem] font-semibold tracking-wider uppercase border rounded duration-150
-              ${fulfillmentType === "pickup"
-                ? "bg-[#245236] text-white border-[#245236]"
-                : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
+              ${
+                fulfillmentType === "pickup"
+                  ? "bg-[#245236] text-white border-[#245236]"
+                  : "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10"
               }`}
           >
             🏪 Pickup
@@ -813,7 +813,8 @@ const CartModal = () => {
         {/* Pickup note */}
         {fulfillmentType === "pickup" && (
           <p className="text-[0.85rem] text-[#245236] bg-[#245236]/10 px-4 py-3 rounded">
-            You'll pick up your order at our store. We'll contact you on the number provided once it's ready.
+            You'll pick up your order at our store. We'll contact you on the
+            number provided once it's ready.
           </p>
         )}
       </div>
