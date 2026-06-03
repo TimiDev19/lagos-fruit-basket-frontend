@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
 
         <div className=" w-[20%] flex flex-col items-start justify-start text-[16px] h-full">
-          <h1 className=" text-[#fff] font-semibold mb-[20px]">Shop</h1>
+          <h1 className=" text-[#fff] font-semibold mb-[20px]">Gallery</h1>
           <ol>
             <li>
               <Link

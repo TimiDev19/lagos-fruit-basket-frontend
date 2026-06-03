@@ -34,7 +34,7 @@ body{
 
 .fruit-hero-bg {
   background-image: 
-    url('./assets/about.jpg');
+    url('/images/cor5.JPG');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,7 +48,7 @@ body{
 }
 .about-lfb-bg {
   background-image:
-    url('./assets/about.jpg');
+    url('/images/cor4.JPG');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

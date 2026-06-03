@@ -138,11 +138,11 @@ const Navbar = () => {
               </Link>
 
               <Link
-                to={"/#contact"}
+                to={"/#address"}
                 className="relative group text-[16px] text-[#245236]"
                 onClick={() =>
                   document
-                    .getElementById("contact")
+                    .getElementById("address")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >

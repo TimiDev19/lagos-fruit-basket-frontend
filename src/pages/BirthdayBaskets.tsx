@@ -1,41 +1,53 @@
 const baskets = [
-    {
-      id: 1,
-      name: "Romantic Red Basket",
-      price: "$65",
-      image: "/images/azima.png",
-    },
-    {
-      id: 2,
-      name: "Chocolate Love Basket",
-      price: "$80",
-      image: "/images/azima.png",
-    },
-    {
-      id: 3,
-      name: "Luxury Rose Basket",
-      price: "$120",
-      image: "/images/azima.png",
-    },
-    {
-      id: 4,
-      name: "Couple Surprise Basket",
-      price: "$95",
-      image: "/images/azima.png",
-    },
-    {
-      id: 5,
-      name: "Teddy & Candy Basket",
-      price: "$70",
-      image: "/images/azima.png",
-    },
-    {
-      id: 6,
-      name: "Premium Valentine Basket",
-      price: "$150",
-      image: "/images/azima.png",
-    },
-  ];
+  {
+    id: 1,
+    name: "Romantic Red Basket",
+    price: "$65",
+    image: "/images/bir1.JPG",
+  },
+  {
+    id: 2,
+    name: "Chocolate Love Basket",
+    price: "$80",
+    image: "/images/bir2.JPG",
+  },
+  {
+    id: 3,
+    name: "Luxury Rose Basket",
+    price: "$120",
+    image: "/images/bir3.JPG",
+  },
+  {
+    id: 4,
+    name: "Couple Surprise Basket",
+    price: "$95",
+    image: "/images/bir4.JPG",
+  },
+  {
+    id: 5,
+    name: "Teddy & Candy Basket",
+    price: "$70",
+    image: "/images/bir5.JPG",
+  },
+  {
+    id: 6,
+    name: "Teddy & Candy Basket",
+    price: "$70",
+    image: "/images/bir6.JPG",
+  },
+  {
+    id: 7,
+    name: "Teddy & Candy Basket",
+    price: "$70",
+    image: "/images/bir7.JPG",
+  },
+  {
+    id: 8,
+    name: "Teddy & Candy Basket",
+    price: "$70",
+    image: "/images/bir8.JPG",
+  },
+];
   
   import Footer from "@/components/Footer";
   import { ArrowLeft01Icon, LinkBackwardIcon } from "hugeicons-react";
