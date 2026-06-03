@@ -33,22 +33,14 @@ const Footer = () => {
               target="_blank"
               className=" hover:bg-transparent text-[#245236] hover:text-white duration-500 w-[48px] h-[48px] bg-[#89A51B] rounded-full mr-[10px] flex items-center justify-center"
             >
-              <InstagramIcon
-                className=""
-                size={22}
-                strokeWidth={2}
-              />
+              <InstagramIcon className="" size={22} strokeWidth={2} />
             </Link>
             <Link
               to={"https://wa.me/+2348024015795"}
               target="_blank"
               className=" hover:bg-transparent text-[#245236] hover:text-white duration-500 w-[48px] h-[48px] bg-[#89A51B] rounded-full mr-[10px] flex items-center justify-center"
             >
-              <WhatsappIcon
-                className=" "
-                size={22}
-                strokeWidth={2}
-              />
+              <WhatsappIcon className=" " size={22} strokeWidth={2} />
             </Link>
           </div>
         </div>
@@ -149,6 +141,48 @@ const Footer = () => {
                 }
               >
                 Contact
+              </Link>
+            </li>
+          </ol>
+        </div>
+
+        <div className=" w-[20%] flex flex-col items-start justify-start text-[16px] h-full">
+          <h1 className=" text-[#fff] font-semibold mb-[20px]">Policies</h1>
+          <ol>
+            <li className=" text-[#FFFFFF99] font-[300] hover:underline duration-500 mb-3">
+              <Link
+                to={"/#about"}
+                onClick={() =>
+                  document
+                    .getElementById("about")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Returns & Refunds Policy
+              </Link>
+            </li>
+            <li className=" text-[#FFFFFF99] font-[300] hover:underline duration-500 mb-3">
+              <Link
+                to={"/#address"}
+                onClick={() =>
+                  document
+                    .getElementById("address")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Shipping & Delivery Policies
+              </Link>
+            </li>
+            <li className=" text-[#FFFFFF99] font-[300] hover:underline duration-500 mb-3">
+              <Link
+                to={"/#address"}
+                onClick={() =>
+                  document
+                    .getElementById("address")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Privacy Policy
               </Link>
             </li>
           </ol>
