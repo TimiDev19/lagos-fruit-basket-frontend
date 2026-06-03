@@ -6,6 +6,7 @@ import { useAppSelector, useAppDispatch } from "@/store/hooks/hooks";
 import { emptyCart, toggleCart } from "@/store/audophileSlice";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 emailjs.init("vniYYZ7cQTr3doimy");
 
@@ -443,25 +444,50 @@ const CartModal = () => {
         {/* Pickup note */}
         {fulfillmentType === "pickup" && (
           <p className="text-[0.85rem] text-[#245236] bg-[#245236]/10 px-4 py-3 rounded">
-            You'll pick up your order at our store. We'll contact you on the
-            number provided once it's ready.
+            Store Pickup Available <br />
+            Prefer to pick up your order? Visit us at 38 Olonode Street, Yaba,
+            Lagos. <br /> <br />
+            To arrange your pickup time and finalize payment, please chat with
+            our sales representative. <br />
+            👉 Chat with us on WhatsApp
           </p>
         )}
       </div>
 
-      {/* Checkout button */}
-      {isOrdering ? (
-        <button className="bg-[#245236]/50 w-full text-white text-[0.85rem] py-4 px-9 font-semibold tracking-wider uppercase">
-          <div className="animate-spin h-5 w-5 mx-auto border-2 border-white rounded-full border-t-transparent"></div>
-        </button>
+      {fulfillmentType === "pickup" ? (
+        <>
+          {isOrdering ? (
+            <button className="bg-[#245236]/50 w-full text-white text-[0.85rem] py-4 px-9 font-semibold tracking-wider uppercase">
+              <div className="animate-spin h-5 w-5 mx-auto border-2 border-white rounded-full border-t-transparent"></div>
+            </button>
+          ) : (
+            <Link
+              to={"https://wa.me/+2348024015795"}
+              target="_blank"
+              className="bg-[#245236] hover:bg-[#245236]/70 w-full text-white text-[0.85rem] duration-150 py-4 px-9 font-semibold tracking-wider uppercase"
+            >
+              Chat With Us on Whatsapp
+            </Link>
+          )}
+        </>
       ) : (
-        <button
-          onClick={sendOrder}
-          className="bg-[#245236] hover:bg-[#245236]/70 w-full text-white text-[0.85rem] duration-150 py-4 px-9 font-semibold tracking-wider uppercase"
-        >
-          Checkout
-        </button>
+        <>
+          {isOrdering ? (
+            <button className="bg-[#245236]/50 w-full text-white text-[0.85rem] py-4 px-9 font-semibold tracking-wider uppercase">
+              <div className="animate-spin h-5 w-5 mx-auto border-2 border-white rounded-full border-t-transparent"></div>
+            </button>
+          ) : (
+            <button
+              onClick={sendOrder}
+              className="bg-[#245236] hover:bg-[#245236]/70 w-full text-white text-[0.85rem] duration-150 py-4 px-9 font-semibold tracking-wider uppercase"
+            >
+              Checkout
+            </button>
+          )}
+        </>
       )}
+
+      {/* Checkout button */}
     </div>
   );
 };

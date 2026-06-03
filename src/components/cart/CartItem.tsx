@@ -1,6 +1,27 @@
-import { useState } from 'react';
-import { updateCart, removeItem } from '@/store/audophileSlice';
-import { useAppDispatch } from '@/store/hooks/hooks';
+import { useState } from "react";
+import { updateCart, removeItem } from "@/store/audophileSlice";
+import { useAppDispatch } from "@/store/hooks/hooks";
+
+const HEAVY_ITEM_MULTIPLIERS: Record<string, number> = {
+  "Boyin Basket": 2,
+  "Iyanu Basket": 2,
+  "Sodiq Basket": 2,
+  "The Mubarak Basket": 2,
+  "The Halima MK basket": 2,
+  "The Olaide Basket": 2,
+  "Big Mo Basket": 2,
+  "The Imran Basket": 2,
+  "The Odunayo Basket": 2,
+  "Rukayat Basket": 2,
+  "The Kaosarat Basket": 2,
+  "The Labake Basket": 2,
+  "The Azima Basket": 2,
+  "The Barakat Basket": 2,
+  "Big Boy Jay Basket": 2,
+  "Mutty Basket": 2,
+  "The Ayyan Basket": 2,
+  "Wandu Basket": 2,
+};
 
 const CartItem = ({
   id,
@@ -45,7 +66,7 @@ const CartItem = ({
         </div>
         <div className="flex flex-col">
           <p className="font-semibold text-[1rem] tracking-wide items-start">
-            {name}
+            {name} {name in HEAVY_ITEM_MULTIPLIERS ? "🚚" : "🏍️"}
           </p>
           <p className="font-semibold text-[1rem] opacity-50">{`₦ ${price.toLocaleString()}`}</p>
         </div>
