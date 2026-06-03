@@ -1,5 +1,5 @@
 "use client";
-
+import { usePaystackPayment } from "react-paystack";
 import emailjs from "@emailjs/browser";
 import CartItem from "./CartItem";
 import { useAppSelector, useAppDispatch } from "@/store/hooks/hooks";
@@ -9,7 +9,8 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 emailjs.init("vniYYZ7cQTr3doimy");
-
+const PAYSTACK_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
+const BACKEND_URL = "https://lagos-fruit-basket-paystack.onrender.com";
 const DELIVERY_FEES: Record<string, number> = {
   "": 0,
   "Lekki Phase 1": 5000,
@@ -115,22 +116,153 @@ const CartModal = () => {
   const deliveryFee = baseDeliveryFee * deliveryMultiplier;
   const totalCost = subtotal + deliveryFee;
 
-  const sendOrder = async () => {
-    if (cart.length === 0) {
-      toast("Your cart is empty. Please add items before placing an order.", {
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: customerEmail,
+    amount: Math.round(totalCost * 100), // Kobo
+    publicKey: PAYSTACK_KEY,
+  };
+
+  const initializePayment = usePaystackPayment(config);
+
+  const sendOrderEmail = async () => {
+    const filteredCart = cart.map((item: CartItemType) => ({
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+    }));
+  
+    const orderSummary = filteredCart
+      .map(
+        (item) =>
+          `${item.name} x${item.quantity} - ₦${(
+            item.price * item.quantity
+          ).toFixed(2)}`
+      )
+      .join("\n");
+  
+    const templateParams = {
+      to_email: "lagosfruitbasket@gmail.com",
+      customer_email: customerEmail,
+      customer_phone: customerPhone,
+      fulfillment_type:
+        fulfillmentType === "pickup"
+          ? "Pickup"
+          : `Delivery (${selectedLocation})`,
+      customer_address:
+        fulfillmentType === "pickup"
+          ? "N/A — Customer will pick up"
+          : `${customerAddress} (${selectedLocation})`,
+      order_summary: orderSummary,
+      delivery_fee: `₦${deliveryFee.toFixed(2)}${
+        deliveryMultiplier > 1
+          ? ` (${deliveryMultiplier}× surcharge)`
+          : ""
+      }`,
+      total_amount: totalCost.toFixed(2),
+    };
+  
+    return emailjs.send(
+      "service_sr8c5ig",
+      "template_bxf1xd6",
+      templateParams,
+      "f1KDM7sAzYsmrrqXP"
+    );
+  };
+
+  const onSuccess = async (reference: any) => {
+    try {
+      setIsOrdering(true);
+  
+      // 1. Send reference to backend for verification
+      const res = await fetch(
+        `${BACKEND_URL}/api/payment/verify`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            reference: reference.reference,
+          }),
+        }
+      );
+  
+      const data = await res.json();
+  
+      // 2. Check if payment is valid
+      if (!data.success) {
+        toast("Payment verification failed", {
+          duration: 4000,
+          position: "top-center",
+          style: {
+            background: "red",
+            color: "#fff",
+          },
+        });
+        return;
+      }
+  
+      // 3. ONLY NOW send email
+      await sendOrderEmail();
+  
+      toast("Payment successful!", {
         duration: 4000,
         position: "top-center",
         style: {
-          background: "red",
+          background: "#4CAF50",
           color: "#fff",
-          padding: "16px",
-          borderRadius: "8px",
-          fontSize: "16px",
         },
       });
+  
+      // 4. Clear cart
+      dispatch(emptyCart());
+  
+      setCustomerEmail("");
+      setCustomerPhone("");
+      setCustomerAddress("");
+      setSelectedLocation("");
+      setFulfillmentType("");
+    } catch (error) {
+      console.error(error);
+  
+      toast("Something went wrong during payment verification", {
+        style: {
+          background: "red",
+          color: "#fff",
+        },
+      });
+    } finally {
+      setIsOrdering(false);
+    }
+  };
+
+  const onClose = () => {
+    toast("Payment cancelled", {
+      duration: 3000,
+      position: "top-center",
+    });
+  };
+
+  const sendOrder = async () => {
+    if (cart.length === 0) {
+      toast(
+        "Your cart is empty. Please add items before placing an order.",
+        {
+          duration: 4000,
+          position: "top-center",
+          style: {
+            background: "red",
+            color: "#fff",
+            padding: "16px",
+            borderRadius: "8px",
+            fontSize: "16px",
+          },
+        }
+      );
       return;
     }
-
+  
     if (!fulfillmentType) {
       toast("Please select delivery or pickup.", {
         duration: 4000,
@@ -145,7 +277,7 @@ const CartModal = () => {
       });
       return;
     }
-
+  
     if (!customerEmail || !customerPhone) {
       toast("Please fill in all required fields.", {
         duration: 4000,
@@ -160,105 +292,29 @@ const CartModal = () => {
       });
       return;
     }
-
+  
     if (
       fulfillmentType === "delivery" &&
       (!selectedLocation || !customerAddress)
     ) {
-      toast("Please select a location and enter your delivery address.", {
-        duration: 4000,
-        position: "top-center",
-        style: {
-          background: "red",
-          color: "#fff",
-          padding: "16px",
-          borderRadius: "8px",
-          fontSize: "16px",
-        },
-      });
-      return;
-    }
-
-    setIsOrdering(true);
-
-    try {
-      const filteredCart = cart.map((item: CartItemType) => ({
-        name: item.name,
-        quantity: item.quantity,
-        price: item.price,
-      }));
-
-      const orderSummary = filteredCart
-        .map(
-          (item) =>
-            `${item.name} x${item.quantity} - ₦${(
-              item.price * item.quantity
-            ).toFixed(2)}`
-        )
-        .join("\n");
-
-      const templateParams = {
-        to_email: "lagosfruitbasket@gmail.com",
-        customer_email: customerEmail,
-        customer_phone: customerPhone,
-        fulfillment_type:
-          fulfillmentType === "pickup"
-            ? "Pickup"
-            : `Delivery (${selectedLocation})`,
-        customer_address:
-          fulfillmentType === "pickup"
-            ? "N/A — Customer will pick up"
-            : `${customerAddress} (${selectedLocation})`,
-        order_summary: orderSummary,
-        delivery_fee: `₦${deliveryFee.toFixed(2)}${
-          deliveryMultiplier > 1 ? ` (${deliveryMultiplier}× surcharge)` : ""
-        }`,
-        total_amount: totalCost.toFixed(2),
-      };
-
-      const res = await emailjs.send(
-        "service_sr8c5ig",
-        "template_bxf1xd6",
-        templateParams,
-        "f1KDM7sAzYsmrrqXP"
-      );
-
-      if (res.status === 200) {
-        toast("Order placed successfully!", {
+      toast(
+        "Please select a location and enter your delivery address.",
+        {
           duration: 4000,
           position: "top-center",
           style: {
-            background: "#4CAF50",
+            background: "red",
             color: "#fff",
             padding: "16px",
             borderRadius: "8px",
             fontSize: "16px",
           },
-        });
-
-        dispatch(emptyCart());
-        setCustomerEmail("");
-        setCustomerPhone("");
-        setCustomerAddress("");
-        setSelectedLocation("");
-        setFulfillmentType("");
-      }
-    } catch (error) {
-      console.error("Failed to send order:", error);
-      toast("Failed to place order. Please try again.", {
-        duration: 4000,
-        position: "top-center",
-        style: {
-          background: "red",
-          color: "#fff",
-          padding: "16px",
-          borderRadius: "8px",
-          fontSize: "16px",
-        },
-      });
-    } finally {
-      setIsOrdering(false);
+        }
+      );
+      return;
     }
+  
+    initializePayment({onSuccess, onClose});
   };
 
   return (
