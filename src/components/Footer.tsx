@@ -7,11 +7,14 @@ const Footer = () => {
   return (
     <>
       <div className="bg-[#245236] w-full px-[5%] py-12 flex flex-wrap gap-10 items-start justify-between">
-
         {/* Brand column */}
         <div className="flex flex-col items-start justify-start w-full sm:w-[42%] lg:w-[26%]">
           <Link to={"/"} className="mb-5">
-            <img src={logo} className="h-[48px]" alt="Lagos Fruit Basket logo" />
+            <img
+              src={logo}
+              className="h-[48px]"
+              alt="Lagos Fruit Basket logo"
+            />
           </Link>
 
           <p className="text-[#FFFFFF99] text-[15px] leading-relaxed mb-6">
@@ -41,10 +44,11 @@ const Footer = () => {
 
         {/* Three link columns — wrap into 3-across on mobile, inline on larger */}
         <div className="w-full sm:w-auto flex flex-row flex-wrap gap-8 sm:gap-10 lg:gap-14">
-
           {/* Gallery */}
           <div className="flex flex-col min-w-[130px]">
-            <h2 className="text-white font-semibold text-[15px] mb-4 tracking-wide">Gallery</h2>
+            <h2 className="text-white font-semibold text-[15px] mb-4 tracking-wide">
+              Gallery
+            </h2>
             <ol className="flex flex-col gap-2">
               {[
                 { label: "Valentine Baskets", to: "/valentine" },
@@ -56,6 +60,7 @@ const Footer = () => {
                 <li key={to}>
                   <Link
                     to={to}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-[#FFFFFF99] text-[14px] font-light hover:text-white hover:underline duration-300"
                   >
                     {label}
@@ -67,13 +72,17 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex flex-col min-w-[100px]">
-            <h2 className="text-white font-semibold text-[15px] mb-4 tracking-wide">Links</h2>
+            <h2 className="text-white font-semibold text-[15px] mb-4 tracking-wide">
+              Links
+            </h2>
             <ol className="flex flex-col gap-2">
               <li>
                 <Link
                   to={"/#about"}
                   onClick={() =>
-                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
+                    document
+                      .getElementById("about")
+                      ?.scrollIntoView({ behavior: "smooth" })
                   }
                   className="text-[#FFFFFF99] text-[14px] font-light hover:text-white hover:underline duration-300"
                 >
@@ -84,7 +93,9 @@ const Footer = () => {
                 <Link
                   to={"/#address"}
                   onClick={() =>
-                    document.getElementById("address")?.scrollIntoView({ behavior: "smooth" })
+                    document
+                      .getElementById("address")
+                      ?.scrollIntoView({ behavior: "smooth" })
                   }
                   className="text-[#FFFFFF99] text-[14px] font-light hover:text-white hover:underline duration-300"
                 >
@@ -96,14 +107,14 @@ const Footer = () => {
 
           {/* Policies */}
           <div className="flex flex-col min-w-[160px]">
-            <h2 className="text-white font-semibold text-[15px] mb-4 tracking-wide">Policies</h2>
+            <h2 className="text-white font-semibold text-[15px] mb-4 tracking-wide">
+              Policies
+            </h2>
             <ol className="flex flex-col gap-2">
               <li>
                 <Link
-                  to={"/#about"}
-                  onClick={() =>
-                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
-                  }
+                  to={"/returnsandrefundspolicy"}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-[#FFFFFF99] text-[14px] font-light hover:text-white hover:underline duration-300"
                 >
                   Returns & Refunds Policy
@@ -111,10 +122,8 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to={"/#address"}
-                  onClick={() =>
-                    document.getElementById("address")?.scrollIntoView({ behavior: "smooth" })
-                  }
+                  to={"/shippinganddelivery"}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-[#FFFFFF99] text-[14px] font-light hover:text-white hover:underline duration-300"
                 >
                   Shipping & Delivery Policy
@@ -122,10 +131,8 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to={"/#address"}
-                  onClick={() =>
-                    document.getElementById("address")?.scrollIntoView({ behavior: "smooth" })
-                  }
+                  to={"/privacypolicy"}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-[#FFFFFF99] text-[14px] font-light hover:text-white hover:underline duration-300"
                 >
                   Privacy Policy
@@ -133,7 +140,6 @@ const Footer = () => {
               </li>
             </ol>
           </div>
-
         </div>
       </div>
       <Copyright />
