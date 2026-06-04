@@ -498,7 +498,7 @@ const CartModal = () => {
         </div>
       )}
 
-      {fulfillmentType === "delivery" && (
+      {/* {fulfillmentType === "delivery" && (
         <div
           className={`text-[0.8rem] px-4 py-2 rounded font-bold border ${
             isAfterSameDayCutoff
@@ -510,7 +510,7 @@ const CartModal = () => {
             ? "Same-day delivery is closed for today because it is past 2pm (WAT). Please choose tomorrow or a later date."
             : "Same-day delivery is still available until 2pm (WAT) today."}
         </div>
-      )}
+      )} */}
 
       {fulfillmentType === "delivery" && deliveryMultiplier > 1 && (
         <div className="bg-amber-50 border border-amber-300 text-amber-800 text-[0.8rem] px-4 py-2 rounded">
@@ -620,6 +620,20 @@ const CartModal = () => {
             🏪 Pickup
           </button>
         </div>
+
+        {fulfillmentType === "delivery" && (
+          <div
+            className={`text-[0.8rem] px-4 py-2 rounded font-bold border ${
+              isAfterSameDayCutoff
+                ? "bg-black/10 border-black/40 text-black"
+                : "bg-[#245236]/10 border-[#245236] text-[#245236]"
+            }`}
+          >
+            {isAfterSameDayCutoff
+              ? "Same-day delivery is closed for today because it is past 2pm (WAT). Please choose tomorrow or a later date."
+              : "Same-day delivery is still available until 2pm (WAT) today."}
+          </div>
+        )}
 
         {fulfillmentType === "delivery" && (
           <>
