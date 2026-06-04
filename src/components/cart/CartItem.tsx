@@ -20,7 +20,7 @@ const HEAVY_ITEM_MULTIPLIERS: Record<string, number> = {
   "Big Boy Jay Basket": 2,
   "Mutty Basket": 2,
   "The Ayyan Basket": 2,
-  "Wandu Basket": 2,
+  "The Hadiza Usman basket": 2,
 };
 
 const CartItem = ({
