@@ -22,6 +22,7 @@ import ReturnsAndRefunds from "./pages/ReturnsAndRefunds";
 import ShippingAndDelivery from "./pages/ShippingAndDelivery";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ScrollToTop from "./components/ScrollToTop";
+import OrderProcessing from "./pages/OrderProcessing";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/orderConfirmed" element={<OrderConfirmed />} />
+          <Route path="/orderProcessing" element={<OrderProcessing />} />
           <Route
             path="/returnsandrefundspolicy"
             element={<ReturnsAndRefunds />}

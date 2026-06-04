@@ -1,85 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const OrderConfirmed = () => {
+const OrderProcessing = () => {
   return (
-    <div className=" min-h-[100vh] flex items-center justify-center pt-[138px]">
+    <div className="min-h-[100vh] flex items-center justify-center pt-[138px] px-4 bg-[#f7faf6]">
       <div className="w-full max-w-2xl bg-white rounded-3xl shadow-lg p-8 md:p-12 text-center">
-        {/* Success Icon */}
-        <div className="w-24 h-24 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-12 h-12 text-green-600"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
+        {/* Processing Icon */}
+        <div className="w-24 h-24 mx-auto rounded-full bg-amber-100 flex items-center justify-center mb-6 relative">
+          <div className="w-14 h-14 rounded-full border-4 border-amber-300 border-t-[#245236] animate-spin"></div>
+          <div className="absolute w-4 h-4 rounded-full bg-[#245236]"></div>
         </div>
 
         {/* Heading */}
         <h1 className="text-3xl md:text-4xl font-bold text-[#245236] mb-4">
-          Order Confirmed!
+          Order Processing
         </h1>
 
         {/* Message */}
         <p className="text-gray-600 text-lg leading-relaxed mb-8">
-          ​Thank you for shopping with us. <br /> ​Your payment went through perfectly.
-          We’ve sent a summary of your order to your email, and we are already
-          getting started on your delivery. ​Sit back and relax, your order will
-          arrive right on schedule according to your delivery date timeline.
+          Thank you for your order. <br />
+          We have received your payment and your order is now being reviewed by
+          our team. Once everything is confirmed, we will begin preparing your
+          basket and contact you with any important updates.
         </p>
 
         {/* Order Info Card */}
         <div className="bg-[#245236]/5 border border-[#245236]/10 rounded-2xl p-6 text-left mb-8">
           <h2 className="font-semibold text-[#245236] mb-4">
-            What happens next?
+            What is happening now?
           </h2>
 
           <div className="space-y-4 text-gray-700">
             <div className="flex gap-3">
               <span className="font-bold text-[#245236]">1.</span>
               <p>
-                A confirmation email has been sent to the email address provided
-                during checkout.
+                Your order details have been sent to our team for confirmation.
               </p>
             </div>
 
             <div className="flex gap-3">
               <span className="font-bold text-[#245236]">2.</span>
               <p>
-                Our team will review and prepare your order for delivery or
-                pickup.
+                We are checking your selected delivery date, delivery location,
+                and order items.
               </p>
             </div>
 
             <div className="flex gap-3">
               <span className="font-bold text-[#245236]">3.</span>
               <p>
-                You will be contacted shortly with updates regarding your order.
+                You will receive an update once your order moves from processing
+                to preparation.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Support */}
+        {/* Status Notice */}
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
           <p className="text-sm text-amber-800">
-            Need help with your order?{" "}
-            <a
-              href="https://wa.me/2348024015795"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold underline"
-            >
-              Contact us on WhatsApp
-            </a>
+            Please keep your phone nearby. We may contact you through call,
+            email, or WhatsApp if we need to confirm any order details.
           </p>
         </div>
 
@@ -106,4 +87,4 @@ const OrderConfirmed = () => {
   );
 };
 
-export default OrderConfirmed;
+export default OrderProcessing;
