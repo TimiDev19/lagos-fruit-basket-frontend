@@ -1190,8 +1190,8 @@ const CartModal = () => {
           }`}
         >
           {isAfterSameDayCutoff
-            ? "Same-day delivery is closed for today because it is past 2pm WAT. Please choose tomorrow or a later date."
-            : "Same-day delivery is still available until 2pm WAT today."}
+            ? "Same-day delivery is closed for today because it is past 2pm (WAT). Please choose tomorrow or a later date."
+            : "Same-day delivery is still available until 2pm (WAT) today."}
         </div>
       )}
 
