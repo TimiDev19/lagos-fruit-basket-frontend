@@ -602,7 +602,7 @@ const CartModal = () => {
             </select>
 
             <textarea
-              placeholder="Enter your delivery address"
+              placeholder="Enter your DETAILED delivery address and landmarks"
               value={customerAddress}
               onChange={(e) => setCustomerAddress(e.target.value)}
               className="border border-gray-300 p-3 rounded outline-none min-h-[100px]"
