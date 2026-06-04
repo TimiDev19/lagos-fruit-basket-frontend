@@ -75,12 +75,12 @@ const Shop = () => {
         <h1 className=" text-[16px] text-[#245236] font-bold uppercase">
           explore our collection
         </h1>
-        <Link
+        {/* <Link
           to={"/shop"}
           className=" text-[14px] text-white hover:text-[#245236] bg-[#245236] rounded-full hover:bg-transparent px-4 py-1 ease-in-out duration-500"
         >
           View all
-        </Link>
+        </Link> */}
       </div>
       {isLoading ? (
         <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
@@ -136,17 +136,6 @@ const Shop = () => {
                   ₦product.price
                 </h1>
               </div>
-
-              {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
             </div>
           </div>
 
@@ -232,17 +221,6 @@ const Shop = () => {
                     src={product.avatar}
                     alt={product.name}
                     className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer rounded-t-xl"
-                    // onClick={() => {
-                    //     const params = new URLSearchParams({
-                    //         _id: product._id,
-                    //         name: product.name,
-                    //         description: product.description,
-                    //         price: product.price.toString(),
-                    //         avatar: product.avatar,
-                    //     });
-
-                    //     router.push(`/shop/${product._id}?${params}`)
-                    // }}
                   />
                 </Link>
               </div>
@@ -268,38 +246,18 @@ const Shop = () => {
                     onClick={() => handleAddToCart(product)}
                     className=" cursor-pointer h-[24px] lg:h-[42px] hover:bg-transparent text-[#fff] w-full hover:text-[#245236] duration-500 bg-[#245236] rounded-xl flex text-[14px] font-[300] items-center justify-center"
                   >
-                    {/* <ShoppingBag01Icon
-                      className=" "
-                      size={22}
-                      strokeWidth={1.5}
-                    /> */}
-                    Add To Cart
+                    + Add To Cart
                   </div>
                 </div>
-
-                {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] hover:bg-transparent w-[24px] text-[#EFF901] hover:text-[#245236] duration-500 lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" "
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
               </div>
-
-              {/* <h2 className="mt-2 font-semibold">{product.name}</h2>
-              <p className="text-sm">{product.description}</p>
-              <p className="font-bold">₦{product.price}</p> */}
             </div>
           ))}
         </div>
       )}
-      <div className=" lg:hidden w-full flex items-center justify-center mt-[20px]">
+      <div className="w-full flex items-center justify-center mt-[20px]">
         <Link
           to={"/shop"}
-          className=" text-[20px] text-white hover:text-[#245236] bg-[#245236] rounded-[10px] flex items-center justify-center hover:bg-transparent px-[30px] py-1 ease-in-out duration-500 h-[50px]"
+          className=" text-[14px] text-white hover:text-[#245236] bg-[#245236] rounded-[10px] flex items-center justify-center hover:bg-transparent px-[30px] py-1 ease-in-out duration-500 h-[42px]"
         >
           View all
         </Link>

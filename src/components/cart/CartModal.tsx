@@ -9,7 +9,7 @@
 // import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
-// emailjs.init("vniYYZ7cQTr3doimy");
+// emailjs.init("VgtFaHOnkCYbiwjQM");
 // const PAYSTACK_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 // const BACKEND_URL = "https://lagos-fruit-basket-paystack.onrender.com";
 // const DELIVERY_FEES: Record<string, number> = {
@@ -97,7 +97,6 @@
 //   return Math.max(heavyMultiplier, quantityMultiplier);
 // };
 
-// // Returns tomorrow's date as YYYY-MM-DD for the min date attribute
 // const getTomorrowDate = (): string => {
 //   const tomorrow = new Date();
 //   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -117,6 +116,7 @@
 //   const [selectedLocation, setSelectedLocation] = useState("");
 //   const [fulfillmentType, setFulfillmentType] = useState("");
 //   const [preferredDeliveryDate, setPreferredDeliveryDate] = useState("");
+//   const [preferredDeliveryTime, setPreferredDeliveryTime] = useState("");
 
 //   const subtotal = cart.reduce(
 //     (acc: number, item: CartItemType) => acc + item.price * item.quantity,
@@ -138,13 +138,13 @@
 //   const config = {
 //     reference: new Date().getTime().toString(),
 //     email: customerEmail,
-//     amount: Math.round(totalCost * 100), // Kobo
+//     amount: Math.round(totalCost * 100),
 //     publicKey: PAYSTACK_KEY,
 //   };
 
 //   const initializePayment = usePaystackPayment(config);
 
-//   const sendOrderEmail = async () => {
+//   const buildTemplateParams = () => {
 //     const filteredCart = cart.map((item: CartItemType) => ({
 //       name: item.name,
 //       quantity: item.quantity,
@@ -160,7 +160,7 @@
 //       )
 //       .join("\n");
 
-//     const templateParams = {
+//     return {
 //       to_email: "lagosfruitbasket@gmail.com",
 //       customer_email: customerEmail,
 //       customer_phone: customerPhone,
@@ -177,53 +177,11 @@
 //         fulfillmentType === "delivery" && preferredDeliveryDate
 //           ? preferredDeliveryDate
 //           : "N/A",
-//       order_summary: orderSummary,
-//       delivery_fee: `₦${deliveryFee.toFixed(2)}${
-//         deliveryMultiplier > 1 ? ` (${deliveryMultiplier}× surcharge)` : ""
-//       }`,
-//       total_amount: totalCost.toFixed(2),
-//     };
-
-//     return emailjs.send(
-//       "service_sr8c5ig",
-//       "template_bxf1xd6",
-//       templateParams,
-//       "f1KDM7sAzYsmrrqXP"
-//     );
-//   };
-
-//   const sendConfirmationEmail = async () => {
-//     const filteredCart = cart.map((item: CartItemType) => ({
-//       name: item.name,
-//       quantity: item.quantity,
-//       price: item.price,
-//     }));
-
-//     const orderSummary = filteredCart
-//       .map(
-//         (item) =>
-//           `${item.name} x${item.quantity} - ₦${(
-//             item.price * item.quantity
-//           ).toFixed(2)}`
-//       )
-//       .join("\n");
-
-//     const templateParams = {
-//       to_email: "lagosfruitbasket@gmail.com",
-//       customer_email: customerEmail,
-//       customer_phone: customerPhone,
-//       customer_whatsapp: customerWhatsapp || "Not provided",
-//       fulfillment_type:
-//         fulfillmentType === "pickup"
-//           ? "Pickup"
-//           : `Delivery (${selectedLocation})`,
-//       customer_address:
-//         fulfillmentType === "pickup"
-//           ? "N/A — Customer will pick up"
-//           : `${customerAddress} (${selectedLocation})`,
-//       preferred_delivery_date:
-//         fulfillmentType === "delivery" && preferredDeliveryDate
-//           ? preferredDeliveryDate
+//       preferred_delivery_time:
+//         fulfillmentType === "delivery" && preferredDeliveryTime
+//           ? preferredDeliveryTime === "morning"
+//             ? "Morning (Before 12pm)"
+//             : "Afternoon (12pm – 5pm)"
 //           : "N/A",
 //       order_summary: orderSummary,
 //       delivery_fee: `₦${deliveryFee.toFixed(2)}${
@@ -231,58 +189,53 @@
 //       }`,
 //       total_amount: totalCost.toFixed(2),
 //     };
-
-//     return emailjs.send(
-//       "service_sr8c5ig",
-//       "template_6gwuwqr",
-//       templateParams,
-//       "f1KDM7sAzYsmrrqXP"
-//     );
 //   };
+
+//   const sendOrderEmail = async () =>
+//     emailjs.send(
+//       "service_0fmq306",
+//       "template_v5ek0ik",
+//       buildTemplateParams(),
+//       "VgtFaHOnkCYbiwjQM"
+//     );
+
+//   const sendConfirmationEmail = async () =>
+//     emailjs.send(
+//       "service_0fmq306",
+//       "template_gc7tw8j",
+//       buildTemplateParams(),
+//       "VgtFaHOnkCYbiwjQM"
+//     );
 
 //   const onSuccess = async (reference: any) => {
 //     try {
 //       setIsOrdering(true);
 
-//       // 1. Send reference to backend for verification
 //       const res = await fetch(`${BACKEND_URL}/api/payment/verify`, {
 //         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           reference: reference.reference,
-//         }),
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ reference: reference.reference }),
 //       });
 
 //       const data = await res.json();
 
-//       // 2. Check if payment is valid
 //       if (!data.success) {
 //         toast("Payment verification failed", {
 //           duration: 4000,
 //           position: "top-center",
-//           style: {
-//             background: "red",
-//             color: "#fff",
-//           },
+//           style: { background: "red", color: "#fff" },
 //         });
 //         return;
 //       }
 
-//       // 3. ONLY NOW send email
 //       await sendOrderEmail();
 
 //       toast("Payment successful!", {
 //         duration: 4000,
 //         position: "top-center",
-//         style: {
-//           background: "#4CAF50",
-//           color: "#fff",
-//         },
+//         style: { background: "#4CAF50", color: "#fff" },
 //       });
 
-//       // 4. Clear cart and reset state
 //       dispatch(emptyCart());
 //       sendConfirmationEmail();
 //       dispatch(toggleCart(false));
@@ -295,14 +248,11 @@
 //       setSelectedLocation("");
 //       setFulfillmentType("");
 //       setPreferredDeliveryDate("");
+//       setPreferredDeliveryTime("");
 //     } catch (error) {
 //       console.error(error);
-
 //       toast("Something went wrong during payment verification", {
-//         style: {
-//           background: "red",
-//           color: "#fff",
-//         },
+//         style: { background: "red", color: "#fff" },
 //       });
 //     } finally {
 //       setIsOrdering(false);
@@ -310,10 +260,7 @@
 //   };
 
 //   const onClose = () => {
-//     toast("Payment cancelled", {
-//       duration: 3000,
-//       position: "top-center",
-//     });
+//     toast("Payment cancelled", { duration: 3000, position: "top-center" });
 //   };
 
 //   const sendOrder = async () => {
@@ -332,7 +279,6 @@
 //       return;
 //     }
 
-//     // 10-basket cap check
 //     if (totalBasketQuantity > BASKET_LIMIT) {
 //       toast(
 //         `You can only order up to ${BASKET_LIMIT} baskets per checkout. Please reduce your quantity.`,
@@ -414,13 +360,34 @@
 //       return;
 //     }
 
+//     if (fulfillmentType === "delivery" && !preferredDeliveryTime) {
+//       toast("Please select your preferred delivery time.", {
+//         duration: 4000,
+//         position: "top-center",
+//         style: {
+//           background: "red",
+//           color: "#fff",
+//           padding: "16px",
+//           borderRadius: "8px",
+//           fontSize: "16px",
+//         },
+//       });
+//       return;
+//     }
+
 //     initializePayment({ onSuccess, onClose });
 //   };
+
+//   const timeToggleBase =
+//     "flex-1 py-3 text-[0.85rem] font-semibold tracking-wider uppercase border rounded duration-150";
+//   const timeToggleActive = "bg-[#245236] text-white border-[#245236]";
+//   const timeToggleInactive =
+//     "bg-white text-[#245236] border-[#245236] hover:bg-[#245236]/10";
 
 //   return (
 //     <div className="bg-white px-8 py-8 rounded-xl flex flex-col gap-4 max-h-[90dvh] w-full overflow-y-auto">
 //       {/* Header */}
-//       <div className=" w-full flex items-end justify-end h-[20px]">
+//       <div className="w-full flex items-end justify-end h-[20px]">
 //         <button
 //           onClick={() => dispatch(toggleCart(false))}
 //           aria-label="Close cart"
@@ -550,6 +517,7 @@
 //               setCustomerAddress("");
 //               setSelectedLocation("");
 //               setPreferredDeliveryDate("");
+//               setPreferredDeliveryTime("");
 //             }}
 //             className={`py-3 text-[0.85rem] font-semibold tracking-wider uppercase border rounded duration-150
 //               ${
@@ -567,6 +535,7 @@
 //               setCustomerAddress("");
 //               setSelectedLocation("");
 //               setPreferredDeliveryDate("");
+//               setPreferredDeliveryTime("");
 //             }}
 //             className={`py-3 text-[0.85rem] font-semibold tracking-wider uppercase border rounded duration-150
 //               ${
@@ -620,6 +589,43 @@
 //                 onChange={(e) => setPreferredDeliveryDate(e.target.value)}
 //                 className="border border-gray-300 p-3 rounded outline-none bg-white text-gray-700"
 //               />
+//             </div>
+
+//             {/* Preferred delivery time */}
+//             <div className="flex flex-col gap-1">
+//               <label className="text-[0.8rem] text-gray-500 font-medium tracking-wide uppercase">
+//                 Preferred Delivery Time
+//               </label>
+//               <div className="flex gap-2">
+//                 <button
+//                   type="button"
+//                   onClick={() => setPreferredDeliveryTime("morning")}
+//                   className={`${timeToggleBase} ${
+//                     preferredDeliveryTime === "morning"
+//                       ? timeToggleActive
+//                       : timeToggleInactive
+//                   }`}
+//                 >
+//                   🌤 Morning
+//                   <span className="block text-[0.7rem] font-normal normal-case tracking-normal mt-0.5 opacity-80">
+//                     Before 12pm
+//                   </span>
+//                 </button>
+//                 <button
+//                   type="button"
+//                   onClick={() => setPreferredDeliveryTime("afternoon")}
+//                   className={`${timeToggleBase} ${
+//                     preferredDeliveryTime === "afternoon"
+//                       ? timeToggleActive
+//                       : timeToggleInactive
+//                   }`}
+//                 >
+//                   ☀️ Afternoon
+//                   <span className="block text-[0.7rem] font-normal normal-case tracking-normal mt-0.5 opacity-80">
+//                     12pm – 4pm
+//                   </span>
+//                 </button>
+//               </div>
 //             </div>
 //           </>
 //         )}
@@ -681,14 +687,15 @@ import emailjs from "@emailjs/browser";
 import CartItem from "./CartItem";
 import { useAppSelector, useAppDispatch } from "@/store/hooks/hooks";
 import { emptyCart, toggleCart } from "@/store/audophileSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-emailjs.init("vniYYZ7cQTr3doimy");
+emailjs.init("VgtFaHOnkCYbiwjQM");
 const PAYSTACK_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 const BACKEND_URL = "https://lagos-fruit-basket-paystack.onrender.com";
+
 const DELIVERY_FEES: Record<string, number> = {
   "": 0,
   "Lekki Phase 1": 5000,
@@ -747,6 +754,7 @@ const HEAVY_ITEM_MULTIPLIERS: Record<string, number> = {
 };
 
 const BASKET_LIMIT = 10;
+const SAME_DAY_DELIVERY_CUTOFF_HOUR = 14;
 
 type CartItemType = {
   id: string | number;
@@ -755,6 +763,38 @@ type CartItemType = {
   price: number;
   img: string;
 };
+
+const getWatDateParts = (date = new Date()) => {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Africa/Lagos",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(date);
+
+  const getPart = (type: string) =>
+    parts.find((part) => part.type === type)?.value ?? "";
+
+  return {
+    year: Number(getPart("year")),
+    month: Number(getPart("month")),
+    day: Number(getPart("day")),
+    hour: Number(getPart("hour")),
+    dateString: `${getPart("year")}-${getPart("month")}-${getPart("day")}`,
+  };
+};
+
+const getWatDateAfterDays = (days: number): string => {
+  const { year, month, day } = getWatDateParts();
+  const targetDate = new Date(Date.UTC(year, month - 1, day + days));
+
+  return targetDate.toISOString().split("T")[0];
+};
+
+const isPastSameDayDeliveryCutoff = (): boolean =>
+  getWatDateParts().hour >= SAME_DAY_DELIVERY_CUTOFF_HOUR;
 
 const getDeliveryMultiplier = (cart: CartItemType[]): number => {
   const totalQuantity = cart.reduce(
@@ -774,12 +814,6 @@ const getDeliveryMultiplier = (cart: CartItemType[]): number => {
   return Math.max(heavyMultiplier, quantityMultiplier);
 };
 
-const getTomorrowDate = (): string => {
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  return tomorrow.toISOString().split("T")[0];
-};
-
 const CartModal = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -794,6 +828,19 @@ const CartModal = () => {
   const [fulfillmentType, setFulfillmentType] = useState("");
   const [preferredDeliveryDate, setPreferredDeliveryDate] = useState("");
   const [preferredDeliveryTime, setPreferredDeliveryTime] = useState("");
+  const [isAfterSameDayCutoff, setIsAfterSameDayCutoff] = useState(
+    isPastSameDayDeliveryCutoff
+  );
+
+  useEffect(() => {
+    const updateCutoffStatus = () =>
+      setIsAfterSameDayCutoff(isPastSameDayDeliveryCutoff());
+
+    updateCutoffStatus();
+    const intervalId = window.setInterval(updateCutoffStatus, 60_000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   const subtotal = cart.reduce(
     (acc: number, item: CartItemType) => acc + item.price * item.quantity,
@@ -811,6 +858,10 @@ const CartModal = () => {
     fulfillmentType === "delivery" ? DELIVERY_FEES[selectedLocation] ?? 0 : 0;
   const deliveryFee = baseDeliveryFee * deliveryMultiplier;
   const totalCost = subtotal + deliveryFee;
+
+  const minimumDeliveryDate = isAfterSameDayCutoff
+    ? getWatDateAfterDays(1)
+    : getWatDateParts().dateString;
 
   const config = {
     reference: new Date().getTime().toString(),
@@ -870,18 +921,18 @@ const CartModal = () => {
 
   const sendOrderEmail = async () =>
     emailjs.send(
-      "service_sr8c5ig",
-      "template_bxf1xd6",
+      "service_0fmq306",
+      "template_v5ek0ik",
       buildTemplateParams(),
-      "f1KDM7sAzYsmrrqXP"
+      "VgtFaHOnkCYbiwjQM"
     );
 
   const sendConfirmationEmail = async () =>
     emailjs.send(
-      "service_sr8c5ig",
-      "template_6gwuwqr",
+      "service_0fmq306",
+      "template_gc7tw8j",
       buildTemplateParams(),
-      "f1KDM7sAzYsmrrqXP"
+      "VgtFaHOnkCYbiwjQM"
     );
 
   const onSuccess = async (reference: any) => {
@@ -1037,6 +1088,27 @@ const CartModal = () => {
       return;
     }
 
+    if (
+      fulfillmentType === "delivery" &&
+      preferredDeliveryDate < minimumDeliveryDate
+    ) {
+      toast(
+        "Same-day delivery is no longer available after 2pm WAT. Please choose tomorrow or a later date.",
+        {
+          duration: 5000,
+          position: "top-center",
+          style: {
+            background: "red",
+            color: "#fff",
+            padding: "16px",
+            borderRadius: "8px",
+            fontSize: "16px",
+          },
+        }
+      );
+      return;
+    }
+
     if (fulfillmentType === "delivery" && !preferredDeliveryTime) {
       toast("Please select your preferred delivery time.", {
         duration: 4000,
@@ -1063,7 +1135,6 @@ const CartModal = () => {
 
   return (
     <div className="bg-white px-8 py-8 rounded-xl flex flex-col gap-4 max-h-[90dvh] w-full overflow-y-auto">
-      {/* Header */}
       <div className="w-full flex items-end justify-end h-[20px]">
         <button
           onClick={() => dispatch(toggleCart(false))}
@@ -1073,6 +1144,7 @@ const CartModal = () => {
           ✕
         </button>
       </div>
+
       <div className="flex justify-between items-center">
         <p className="font-semibold text-[1.1rem] tracking-widest">{`CART (${cart.length})`}</p>
         <div className="flex items-center gap-3">
@@ -1085,7 +1157,6 @@ const CartModal = () => {
         </div>
       </div>
 
-      {/* Cart items */}
       <div className="border-b border-[#245236] pb-4">
         {cart.length === 0 ? (
           <p className="mt-4 font-semibold italic">No Items In Cart 🤧</p>
@@ -1103,7 +1174,6 @@ const CartModal = () => {
         )}
       </div>
 
-      {/* 10-basket limit warning */}
       {isAtLimit && (
         <div className="bg-red-50 border border-red-300 text-red-700 text-[0.8rem] px-4 py-2 rounded">
           ⛔ You've reached the maximum of {BASKET_LIMIT} baskets per checkout.
@@ -1111,7 +1181,20 @@ const CartModal = () => {
         </div>
       )}
 
-      {/* Heavy item / multi-item notice */}
+      {fulfillmentType === "delivery" && (
+        <div
+          className={`text-[0.8rem] px-4 py-2 rounded font-bold border ${
+            isAfterSameDayCutoff
+              ? "bg-red-50 border-red-300 text-red-700"
+              : "bg-[#245236]/10 border-[#245236] text-[#245236]"
+          }`}
+        >
+          {isAfterSameDayCutoff
+            ? "Same-day delivery is closed for today because it is past 2pm WAT. Please choose tomorrow or a later date."
+            : "Same-day delivery is still available until 2pm WAT today."}
+        </div>
+      )}
+
       {fulfillmentType === "delivery" && deliveryMultiplier > 1 && (
         <div className="bg-amber-50 border border-amber-300 text-amber-800 text-[0.8rem] px-4 py-2 rounded">
           ⚠️{" "}
@@ -1128,7 +1211,6 @@ const CartModal = () => {
         </div>
       )}
 
-      {/* Subtotal */}
       <div className="flex justify-between items-center">
         <p className="opacity-50 text-[1rem]">SUBTOTAL</p>
         <p className="font-semibold text-[1.1rem] tracking-wider">
@@ -1136,7 +1218,6 @@ const CartModal = () => {
         </p>
       </div>
 
-      {/* Delivery fee */}
       {fulfillmentType === "delivery" && selectedLocation && (
         <div className="flex justify-between items-center -mt-2">
           <p className="opacity-50 text-[0.95rem]">DELIVERY</p>
@@ -1146,7 +1227,6 @@ const CartModal = () => {
         </div>
       )}
 
-      {/* Total */}
       <div className="flex justify-between items-center border-t border-[#245236] pt-3">
         <p className="font-semibold text-[1rem]">TOTAL</p>
         <p className="font-bold text-[1.2rem] tracking-wider">
@@ -1154,7 +1234,6 @@ const CartModal = () => {
         </p>
       </div>
 
-      {/* Form fields */}
       <div className="flex flex-col gap-3">
         <input
           type="email"
@@ -1185,7 +1264,6 @@ const CartModal = () => {
           </span>
         </div>
 
-        {/* Delivery / Pickup toggle */}
         <div className="grid grid-cols-2 gap-2">
           <button
             type="button"
@@ -1205,6 +1283,7 @@ const CartModal = () => {
           >
             🚚 Delivery
           </button>
+
           <button
             type="button"
             onClick={() => {
@@ -1225,7 +1304,6 @@ const CartModal = () => {
           </button>
         </div>
 
-        {/* Delivery-only fields */}
         {fulfillmentType === "delivery" && (
           <>
             <select
@@ -1254,7 +1332,6 @@ const CartModal = () => {
               className="border border-gray-300 p-3 rounded outline-none min-h-[100px]"
             />
 
-            {/* Preferred delivery date */}
             <div className="flex flex-col gap-1">
               <label className="text-[0.8rem] text-gray-500 font-medium tracking-wide uppercase">
                 Preferred Delivery Date
@@ -1262,13 +1339,12 @@ const CartModal = () => {
               <input
                 type="date"
                 value={preferredDeliveryDate}
-                min={getTomorrowDate()}
+                min={minimumDeliveryDate}
                 onChange={(e) => setPreferredDeliveryDate(e.target.value)}
                 className="border border-gray-300 p-3 rounded outline-none bg-white text-gray-700"
               />
             </div>
 
-            {/* Preferred delivery time */}
             <div className="flex flex-col gap-1">
               <label className="text-[0.8rem] text-gray-500 font-medium tracking-wide uppercase">
                 Preferred Delivery Time
@@ -1288,6 +1364,7 @@ const CartModal = () => {
                     Before 12pm
                   </span>
                 </button>
+
                 <button
                   type="button"
                   onClick={() => setPreferredDeliveryTime("afternoon")}
@@ -1307,7 +1384,6 @@ const CartModal = () => {
           </>
         )}
 
-        {/* Pickup note */}
         {fulfillmentType === "pickup" && (
           <p className="text-[0.85rem] text-[#245236] bg-[#245236]/10 px-4 py-3 rounded">
             Store Pickup Available <br />
