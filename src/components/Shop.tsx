@@ -25,22 +25,22 @@ const Shop = () => {
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
-  
+
         const res = await fetch(
           "https://lagos-food-basket-backend.onrender.com/user"
         );
         const data = await res.json();
-  
+
         const productArray = Array.isArray(data) ? data : [];
-  
+
         // Sort by price (cheapest → most expensive)
         const sortedByPrice = [...productArray].sort(
           (a, b) => a.price - b.price
         );
-  
+
         // Take only the 8 cheapest
         const cheapestProducts = sortedByPrice.slice(0, 8);
-  
+
         setProducts(cheapestProducts);
         setIsLoading(false);
       } catch (error) {
@@ -50,7 +50,7 @@ const Shop = () => {
         setIsLoading(false);
       }
     };
-  
+
     fetchProducts();
   }, []);
 
@@ -256,7 +256,9 @@ const Shop = () => {
                     {product.name}
                   </Link>
 
-                  <p className=" line-clamp-2 text-[#245236B2] text-[12px] mb-2">{product.description}</p>
+                  <p className=" line-clamp-2 text-[#245236B2] text-[12px] mb-2">
+                    {product.description}
+                  </p>
 
                   <h1 className=" text-black font-[400] text-[20px] lg:text-[28px] mb-2">
                     ₦{product.price.toLocaleString()}
@@ -294,6 +296,14 @@ const Shop = () => {
           ))}
         </div>
       )}
+      <div className=" lg:hidden w-full flex items-center justify-center mt-[20px]">
+        <Link
+          to={"/shop"}
+          className=" text-[20px] text-white hover:text-[#245236] bg-[#245236] rounded-[10px] flex items-center justify-center hover:bg-transparent px-[30px] py-1 ease-in-out duration-500 h-[50px]"
+        >
+          View all
+        </Link>
+      </div>
     </div>
   );
 };
