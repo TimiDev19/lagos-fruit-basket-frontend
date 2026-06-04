@@ -17,6 +17,7 @@ import ChristmasBaskets from "./pages/ChristmasBaskets";
 import RamadanBaskets from "./pages/RamadanBaskets";
 import BirthdayBaskets from "./pages/BirthdayBaskets";
 import CorporateBaskets from "./pages/CorporateBaskets";
+import OrderConfirmed from "./pages/OrderConfirmed";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <SearchModal />
         <Routes>
           <Route path="/" element={<Landingpage />} />
+          <Route path="/orderConfirmed" element={<OrderConfirmed />} />
           <Route path="/shop" element={<Shop />} />
           <Route
             path="/product/:id"

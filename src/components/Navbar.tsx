@@ -91,7 +91,14 @@ const Navbar = () => {
           <div className="flex w-full h-[90px] items-center justify-between pxpx py-3 bg-white">
             <div>
               <h1 className=" font-semibold text-xl flex items-center justify-center ">
-                <Link to={"/"}>
+                <Link
+                  to={"/"}
+                  onClick={() =>
+                    document
+                      .getElementById("hero")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
                   <img src={logo} className=" mr-[10px]" />
                 </Link>
               </h1>
