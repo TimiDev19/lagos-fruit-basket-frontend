@@ -70,16 +70,6 @@ export default function CompanyLocationSection() {
                 <p className="mt-1 font-medium text-[#EFF901]">+234 707 505 1036</p>
               </div>
             </div>
-
-            {/* <div className="flex flex-wrap gap-4 pt-2">
-              <button className="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#EFF901] to-[#EFF901] hover:opacity-90 transition-all duration-300 font-medium shadow-lg shadow-cyan-500/20">
-                Get Directions
-              </button>
-
-              <button className="px-6 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 font-medium">
-                Contact Us
-              </button>
-            </div> */}
           </div>
         </div>
 

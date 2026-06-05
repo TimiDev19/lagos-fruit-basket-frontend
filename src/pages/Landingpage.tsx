@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import products from "../helpers/products";
 import "../index.css";
 import ScrollReveal from "scrollreveal";
 import { useEffect, useState } from "react";
@@ -11,14 +10,7 @@ import CompanyLocationSection from "@/components/CompanyLocationSection";
 
 const Landingpage = () => {
   const [personaliseOpen, setPersonalizeOpen] = useState(false);
-  const bestSellingProducts = products.items.filter((item) => {
-    return item.featured === "yes";
-  });
-
-  const featuredProducts = products.items.filter((item) => {
-    return item.bestSeller === "yes";
-  });
-
+  
   useEffect(() => {
     ScrollReveal().reveal(".reveal-bottom", {
       duration: 1500,
@@ -148,13 +140,6 @@ const Landingpage = () => {
               everything in between our baskets carry not just fruit, but
               feeling.
             </p>
-
-            {/* <Link
-              to={""}
-              className=" h-[40px] bg-[#245236] flex items-center justify-center px-[30px] text-white rounded-full font-[300]"
-            >
-              Read More
-            </Link> */}
           </div>
         </div>
       </section>

@@ -75,12 +75,6 @@ const Shop = () => {
         <h1 className=" text-[16px] text-[#245236] font-bold uppercase">
           explore our collection
         </h1>
-        {/* <Link
-          to={"/shop"}
-          className=" text-[14px] text-white hover:text-[#245236] bg-[#245236] rounded-full hover:bg-transparent px-4 py-1 ease-in-out duration-500"
-        >
-          View all
-        </Link> */}
       </div>
       {isLoading ? (
         <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
@@ -103,17 +97,6 @@ const Shop = () => {
                   ₦product.price
                 </h1>
               </div>
-
-              {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
             </div>
           </div>
 
@@ -158,17 +141,6 @@ const Shop = () => {
                   ₦product.price
                 </h1>
               </div>
-
-              {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
             </div>
           </div>
 
@@ -191,17 +163,6 @@ const Shop = () => {
                   ₦product.price
                 </h1>
               </div>
-
-              {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
             </div>
           </div>
         </div>

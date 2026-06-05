@@ -103,23 +103,6 @@ const CorporateBaskets = () => {
                     className="w-full h-[400px] object-cover group-hover:scale-110 transition duration-500"
                   />
                 </div>
-
-                {/* Content */}
-                {/* <div className="p-5">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-bold text-gray-800">
-                      {basket.name}
-                    </h2>
-  
-                    <span className="text-red-500 font-semibold">
-                      {basket.price}
-                    </span>
-                  </div>
-  
-                  <button className="mt-5 w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-xl font-medium transition">
-                    View Basket
-                  </button>
-                </div> */}
               </div>
             ))}
           </div>

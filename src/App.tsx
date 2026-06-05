@@ -8,8 +8,6 @@ import Landingpage from "./pages/Landingpage";
 import Shop from "./pages/Shop";
 import { FadeReveal } from "./components/animations/FadeReveal";
 import ProductPage from "./pages/ProductPage";
-import PaymentSucess from "./pages/PaymentSucess";
-import PaymentFailure from "./pages/PaymentFailure";
 import StickyButton from "./components/StickyButton";
 import SearchModal from "./modals/SearchModal";
 import ValentineBaskets from "./pages/ValentineBaskets";
@@ -54,14 +52,6 @@ function App() {
             }
           />
           <Route
-            path="/paymentSuccess"
-            element={
-              <FadeReveal>
-                <PaymentSucess />
-              </FadeReveal>
-            }
-          />
-          <Route
             path="/valentine"
             element={
               <FadeReveal>
@@ -98,14 +88,6 @@ function App() {
             element={
               <FadeReveal>
                 <CorporateBaskets />
-              </FadeReveal>
-            }
-          />
-          <Route
-            path="/paymentFailure"
-            element={
-              <FadeReveal>
-                <PaymentFailure />
               </FadeReveal>
             }
           />

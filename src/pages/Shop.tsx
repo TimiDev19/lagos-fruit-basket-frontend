@@ -67,12 +67,6 @@ const Shop = () => {
       >
         <div className=" w-full flex items-center justify-center mb-[5vh]">
           <h1 className=" text-[28px] text-[#0A0D14]">SHOP</h1>
-          {/* <Link
-                    to={""}
-                    className=" text-[14px] text-[#245236] font-semibold"
-                >
-                    View all
-                </Link> */}
         </div>
 
         {isLoading ? (
@@ -96,17 +90,6 @@ const Shop = () => {
                     ₦product.price
                   </h1>
                 </div>
-
-                {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
               </div>
             </div>
 
@@ -129,17 +112,6 @@ const Shop = () => {
                     ₦product.price.toLocaleString()
                   </h1>
                 </div>
-
-                {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
               </div>
             </div>
 
@@ -162,17 +134,6 @@ const Shop = () => {
                     ₦product.price.toLocaleString()
                   </h1>
                 </div>
-
-                {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
               </div>
             </div>
 
@@ -195,17 +156,6 @@ const Shop = () => {
                     ₦product.price.toLocaleString()
                   </h1>
                 </div>
-
-                {/* <div
-                  onClick={() => handleAddToCart(product)}
-                  className=" cursor-pointer h-[24px] lg:h-[42px] w-[24px] lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-                >
-                  <ShoppingBag01Icon
-                    className=" text-[#EFF901]"
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                </div> */}
               </div>
             </div>
           </div>
@@ -225,17 +175,6 @@ const Shop = () => {
                       src={product.avatar}
                       alt={product.name}
                       className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer rounded-t-xl"
-                      // onClick={() => {
-                      //     const params = new URLSearchParams({
-                      //         _id: product._id,
-                      //         name: product.name,
-                      //         description: product.description,
-                      //         price: product.price.toString(),
-                      //         avatar: product.avatar,
-                      //     });
-
-                      //     router.push(`/shop/${product._id}?${params}`)
-                      // }}
                     />
                   </Link>
                 </div>
@@ -261,30 +200,10 @@ const Shop = () => {
                       onClick={() => handleAddToCart(product)}
                       className=" cursor-pointer h-[24px] lg:h-[42px] hover:bg-transparent text-[#fff] w-full hover:text-[#245236] duration-500 bg-[#245236] rounded-xl flex text-[14px] font-[300] items-center justify-center"
                     >
-                      {/* <ShoppingBag01Icon
-                    className=" "
-                    size={22}
-                    strokeWidth={1.5}
-                  /> */}
                       Add To Cart
                     </div>
                   </div>
-
-                  {/* <div
-                onClick={() => handleAddToCart(product)}
-                className=" cursor-pointer h-[24px] lg:h-[42px] hover:bg-transparent w-[24px] text-[#EFF901] hover:text-[#245236] duration-500 lg:w-[42px] bg-[#245236] rounded-full flex items-center justify-center"
-              >
-                <ShoppingBag01Icon
-                  className=" "
-                  size={22}
-                  strokeWidth={1.5}
-                />
-              </div> */}
                 </div>
-
-                {/* <h2 className="mt-2 font-semibold">{product.name}</h2>
-            <p className="text-sm">{product.description}</p>
-            <p className="font-bold">₦{product.price}</p> */}
               </div>
             ))}
           </div>

@@ -43,52 +43,7 @@ const PersonalizeModal = ({
         >
            Design Yours via WhatsApp
         </Link>
-
-        {/* <div className=' mt-8 flex flex-col space-y-3'>
-                    <label htmlFor="" className=' text-sm dark:text-white text-gray-500'>Board Columns</label>
-                    {
-                        newColumns.map((column, index) => (
-                            <div key={index} className=' flex items-center w-full'>
-                                <input type="text" className=' bg-transparent flex-grow px-4 py-2 roundedmb
-                             text-sm border border-gray-600 outline-none focus:outline-[#735fc7]'  value={column.name}
-                                    onChange={(e) => {
-                                        onChange(column.id, e.target.value)
-                                    }}
-                                />
-
-                                <div className='cursor-pointer text-gray-500 m-4' onClick={() => {
-                                    onDelete(column.id)
-                                }}>
-                                    <DeleteOutlineOutlinedIcon />
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div> */}
-
-        <div>
-          {/* <button className=' w-full items-center hover:opacity-75 dark:text-[#635fc7] mt-2 dark:bg-white text-[#635fc7] bg-slate-200 py-2 rounded-full'
-                        onClick={() => {
-                            setNewColumns((state) => [
-                                ...state,
-                                { name: '', task: [], id: uuidv4() },
-                            ])
-                        }}>
-                        + Add new column
-                    </button> */}
-
-          {/* <button className=' w-full items-center hover:opacity-75 dark:text-white dark:bg-[#635fc7] mt-8 relative text-white bg-[#635fc7] py-2 rounded-full'
-                        onClick={
-                            () => {
-                                const isValid = validate()
-                                if (isValid === true) onSubmit(type)
-                                setBoardModalOpen(false);
-                                setIsTheBoardModalOpen(false);
-                            }
-                        }>
-                        {type === 'add' ? 'Create New Board' : 'Save Changes'}
-                    </button> */}
-        </div>
+        <div></div>
       </div>
     </div>
   );

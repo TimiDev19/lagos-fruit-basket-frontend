@@ -1,15 +1,5 @@
-import { useMemo, useState } from "react";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/store/hooks/hooks";
 import {
@@ -18,23 +8,16 @@ import {
   toggleAuthModal,
 } from "@/store/audophileSlice";
 import Cart from "./cart/Cart";
-import cartimg from "@/assets/cart.svg";
 import logo from "../assets/logo.png";
-import { Search } from "lucide-react";
-import products from "@/helpers/products";
 import {
-  Alert02Icon,
   Call02Icon,
   InstagramIcon,
   Search01Icon,
   ShoppingBag01Icon,
-  Upload01Icon,
 } from "hugeicons-react";
-import { smoothScrollToSection } from "./SmoothScrollToSection";
 import { openSearch } from "@/store/searchSlice";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cartIsShowing = useAppSelector((state) => state.appState.cartIsVisible);
   const dispatch = useDispatch();
   const toogleCartHandler = () => {
@@ -44,17 +27,6 @@ const Navbar = () => {
     console.log(cartIsShowing);
   };
   const totalItems = useAppSelector((state) => state.appState.cart.length);
-
-  const [searchInput, setSearchInput] = useState("");
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const filteredProducts = useMemo(() => {
-    return products.items
-      .filter((item) =>
-        item.name.toLowerCase().includes(searchInput.toLowerCase())
-      )
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, [searchInput, products.items]);
 
   return (
     <>
@@ -164,12 +136,9 @@ const Navbar = () => {
               >
                 Chat With Us Now
               </Link>
-
-              {/* SEARCH BAR */}
             </div>
 
             <div className=" flex items-center justify-center">
-              {/*  */}
               <button
                 onClick={() => dispatch(openSearch())}
                 className="mr-[20px]"

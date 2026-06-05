@@ -94,44 +94,7 @@ const InfiniteCarousel = () => {
         />
       </AnimatePresence>
 
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none" />
-
-      {/* Indicators */}
-      {/* <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`
-                            transition-all duration-300 rounded-full
-                            ${
-                              currentIndex === index
-                                ? "w-8 h-2 bg-black"
-                                : "w-2 h-2 bg-black/30"
-                            }
-                        `}
-          />
-        ))}
-      </div> */}
-      {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full px-4 flex justify-center">
-        <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-white/70 backdrop-blur-md px-3 py-2 shadow-sm max-w-full overflow-x-auto">
-          {images.map((_, index) => (
-            <div
-              key={index}
-              className={`
-                    flex-shrink-0
-                    rounded-full
-                    transition-all duration-300
-                    ${
-                      currentIndex === index
-                        ? "w-6 sm:w-8 h-2 bg-black"
-                        : "w-2 h-2 bg-black/30"
-                    }
-                `}
-            />
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 };
