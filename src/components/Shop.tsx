@@ -78,7 +78,7 @@ const Shop = () => {
       </div>
       {isLoading ? (
         <div className=" w-full grid grid-cols-2 lg:grid-cols-4">
-          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
+          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse mb-[10px]">
             <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
               <Link to={`#`} className=" cursor-pointer">
                 <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
@@ -100,7 +100,7 @@ const Shop = () => {
             </div>
           </div>
 
-          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
+          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse mb-[10px]">
             <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
               <Link to={`#`} className=" cursor-pointer">
                 <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
@@ -116,13 +116,13 @@ const Shop = () => {
                   product.name
                 </Link>
                 <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
-                  ₦product.price
+                  ₦product.price.toLocaleString()
                 </h1>
               </div>
             </div>
           </div>
 
-          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
+          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse mb-[10px]">
             <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
               <Link to={`#`} className=" cursor-pointer">
                 <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
@@ -138,13 +138,13 @@ const Shop = () => {
                   product.name
                 </Link>
                 <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
-                  ₦product.price
+                  ₦product.price.toLocaleString()
                 </h1>
               </div>
             </div>
           </div>
 
-          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse">
+          <div className=" max-w-[40vw] lg:max-w-[20vw] bg-[#245236]/50 animate-pulse mb-[10px]">
             <div className="w-[172px] lg:w-[286px] h-[192px] lg:h-[320px] cursor-pointer overflow-hidden mb-[10px]">
               <Link to={`#`} className=" cursor-pointer">
                 <div className="w-full h-full object-cover hover:h-[110%] duration-500 cursor-pointer bg-transparent"></div>
@@ -160,7 +160,7 @@ const Shop = () => {
                   product.name
                 </Link>
                 <h1 className=" text-transparent font-[600] text-[18px] lg:text-[28px]">
-                  ₦product.price
+                  ₦product.price.toLocaleString()
                 </h1>
               </div>
             </div>
