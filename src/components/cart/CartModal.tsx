@@ -653,26 +653,26 @@ const CartModal = () => {
             <div className="relative">
               <input
                 type="tel"
-                placeholder="Recipient's WhatsApp number"
+                placeholder="Recipient's WhatsApp number (optional)"
                 value={recipientWhatsapp}
                 onChange={(e) => setRecipientWhatsapp(e.target.value)}
                 className="border border-gray-300 p-3 rounded outline-none w-full bg-white"
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[0.75rem] pointer-events-none">
+              {/* <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[0.75rem] pointer-events-none">
                 optional
-              </span>
+              </span> */}
             </div>
             <div className="relative">
               <input
                 type="email"
-                placeholder="Recipient's email address"
+                placeholder="Recipient's email address (optional)"
                 value={recipientEmail}
                 onChange={(e) => setRecipientEmail(e.target.value)}
                 className="border border-gray-300 p-3 rounded outline-none w-full bg-white"
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[0.75rem] pointer-events-none">
+              {/* <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[0.75rem] pointer-events-none">
                 optional
-              </span>
+              </span> */}
             </div>
             <p className="text-[0.75rem] text-gray-500">
               We'll use these details to coordinate delivery with the recipient.
