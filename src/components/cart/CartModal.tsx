@@ -15,6 +15,7 @@ const BACKEND_URL = "https://lagos-fruit-basket-paystack.onrender.com";
 
 const DELIVERY_FEES: Record<string, number> = {
   "": 0,
+  "test": 1,
   "Lekki Phase 1": 5000,
   Ikate: 5000,
   "Lagos island": 4000,
