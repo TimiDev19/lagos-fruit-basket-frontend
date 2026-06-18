@@ -282,11 +282,57 @@ const CartModal = () => {
     setRecipientEmail("");
   };
 
+  // const onSuccess = async (reference: any) => {
+  //   try {
+  //     setIsOrdering(true);
+  //     dispatch(toggleCart(false));
+  //     navigate("/orderProcessing");
+  //     const res = await fetch(`${BACKEND_URL}/api/payment/verify`, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ reference: reference.reference }),
+  //     });
+
+  //     const data = await res.json();
+
+  //     if (!data.success) {
+  //       toast("Payment verification failed", {
+  //         duration: 4000,
+  //         position: "top-center",
+  //         style: { background: "red", color: "#fff" },
+  //       });
+  //       return;
+  //     }
+
+  //     await sendOrderEmail();
+
+  //     toast("Payment successful!", {
+  //       duration: 4000,
+  //       position: "top-center",
+  //       style: { background: "#4CAF50", color: "#fff" },
+  //     });
+
+  //     dispatch(emptyCart());
+  //     await sendConfirmationEmail();
+  //     navigate("/orderConfirmed");
+
+  //     resetForm();
+  //   } catch (error) {
+  //     console.error(error);
+  //     toast("Something went wrong during payment verification", {
+  //       style: { background: "red", color: "#fff" },
+  //     });
+  //   } finally {
+  //     setIsOrdering(false);
+  //   }
+  // };
+
   const onSuccess = async (reference: any) => {
     try {
       setIsOrdering(true);
       dispatch(toggleCart(false));
-      navigate("/orderProcessing");
+      // ✅ Removed navigate() from here
+
       const res = await fetch(`${BACKEND_URL}/api/payment/verify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -304,7 +350,8 @@ const CartModal = () => {
         return;
       }
 
-      await sendOrderEmail();
+      await sendOrderEmail();        // ✅ Runs safely now
+      await sendConfirmationEmail(); // ✅ Runs safely now
 
       toast("Payment successful!", {
         duration: 4000,
@@ -313,10 +360,8 @@ const CartModal = () => {
       });
 
       dispatch(emptyCart());
-      sendConfirmationEmail();
-      navigate("/orderConfirmed");
-
       resetForm();
+      navigate("/orderConfirmed");   // ✅ Navigate last, after all work is done
     } catch (error) {
       console.error(error);
       toast("Something went wrong during payment verification", {
