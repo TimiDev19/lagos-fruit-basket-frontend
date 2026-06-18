@@ -250,22 +250,6 @@ const CartModal = () => {
     };
   };
 
-  const sendOrderEmail = async () =>
-    emailjs.send(
-      "service_0fmq306",
-      "template_v5ek0ik",
-      buildTemplateParams(),
-      "VgtFaHOnkCYbiwjQM"
-    );
-
-  const sendConfirmationEmail = async () =>
-    emailjs.send(
-      "service_0fmq306",
-      "template_gc7tw8j",
-      buildTemplateParams(),
-      "VgtFaHOnkCYbiwjQM"
-    );
-
   const resetForm = () => {
     setCustomerEmail("");
     setCustomerPhone("");
@@ -282,56 +266,14 @@ const CartModal = () => {
     setRecipientEmail("");
   };
 
-  // const onSuccess = async (reference: any) => {
-  //   try {
-  //     setIsOrdering(true);
-  //     dispatch(toggleCart(false));
-  //     navigate("/orderProcessing");
-  //     const res = await fetch(`${BACKEND_URL}/api/payment/verify`, {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({ reference: reference.reference }),
-  //     });
-
-  //     const data = await res.json();
-
-  //     if (!data.success) {
-  //       toast("Payment verification failed", {
-  //         duration: 4000,
-  //         position: "top-center",
-  //         style: { background: "red", color: "#fff" },
-  //       });
-  //       return;
-  //     }
-
-  //     await sendOrderEmail();
-
-  //     toast("Payment successful!", {
-  //       duration: 4000,
-  //       position: "top-center",
-  //       style: { background: "#4CAF50", color: "#fff" },
-  //     });
-
-  //     dispatch(emptyCart());
-  //     await sendConfirmationEmail();
-  //     navigate("/orderConfirmed");
-
-  //     resetForm();
-  //   } catch (error) {
-  //     console.error(error);
-  //     toast("Something went wrong during payment verification", {
-  //       style: { background: "red", color: "#fff" },
-  //     });
-  //   } finally {
-  //     setIsOrdering(false);
-  //   }
-  // };
-
   const onSuccess = async (reference: any) => {
     try {
       setIsOrdering(true);
+
+      // ✅ Snapshot params BEFORE any dispatches wipe cart/form state
+      const emailParams = buildTemplateParams();
+
       dispatch(toggleCart(false));
-      // ✅ Removed navigate() from here
 
       const res = await fetch(`${BACKEND_URL}/api/payment/verify`, {
         method: "POST",
@@ -350,8 +292,19 @@ const CartModal = () => {
         return;
       }
 
-      await sendOrderEmail();        // ✅ Runs safely now
-      await sendConfirmationEmail(); // ✅ Runs safely now
+      // ✅ Both emails use the snapshot — cart state doesn't matter anymore
+      await emailjs.send(
+        "service_0fmq306",
+        "template_v5ek0ik",
+        emailParams,
+        "VgtFaHOnkCYbiwjQM"
+      );
+      await emailjs.send(
+        "service_0fmq306",
+        "template_gc7tw8j",
+        emailParams,
+        "VgtFaHOnkCYbiwjQM"
+      );
 
       toast("Payment successful!", {
         duration: 4000,
@@ -359,9 +312,12 @@ const CartModal = () => {
         style: { background: "#4CAF50", color: "#fff" },
       });
 
+      // ✅ Safe to wipe state now — emails are already sent
       dispatch(emptyCart());
       resetForm();
-      navigate("/orderConfirmed");   // ✅ Navigate last, after all work is done
+
+      // ✅ Navigate absolutely last
+      navigate("/orderConfirmed");
     } catch (error) {
       console.error(error);
       toast("Something went wrong during payment verification", {
@@ -704,9 +660,6 @@ const CartModal = () => {
                 onChange={(e) => setRecipientWhatsapp(e.target.value)}
                 className="border border-gray-300 p-3 rounded outline-none w-full bg-white"
               />
-              {/* <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[0.75rem] pointer-events-none">
-                optional
-              </span> */}
             </div>
             <div className="relative">
               <input
@@ -716,9 +669,6 @@ const CartModal = () => {
                 onChange={(e) => setRecipientEmail(e.target.value)}
                 className="border border-gray-300 p-3 rounded outline-none w-full bg-white"
               />
-              {/* <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[0.75rem] pointer-events-none">
-                optional
-              </span> */}
             </div>
             <p className="text-[0.75rem] text-gray-500">
               We'll use these details to coordinate delivery with the recipient.
