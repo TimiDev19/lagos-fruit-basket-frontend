@@ -275,22 +275,22 @@ const CartModal = () => {
 
       dispatch(toggleCart(false));
 
-      const res = await fetch(`${BACKEND_URL}/api/payment/verify`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reference: reference.reference }),
-      });
+      // const res = await fetch(`${BACKEND_URL}/api/payment/verify`, {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ reference: reference.reference }),
+      // });
 
-      const data = await res.json();
+      // const data = await res.json();
 
-      if (!data.success) {
-        toast("Payment verification failed", {
-          duration: 4000,
-          position: "top-center",
-          style: { background: "red", color: "#fff" },
-        });
-        return;
-      }
+      // if (!data.success) {
+      //   toast("Payment verification failed", {
+      //     duration: 4000,
+      //     position: "top-center",
+      //     style: { background: "red", color: "#fff" },
+      //   });
+      //   return;
+      // }
 
       // ✅ Both emails use the snapshot — cart state doesn't matter anymore
       await emailjs.send(
