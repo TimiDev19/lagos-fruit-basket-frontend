@@ -888,7 +888,7 @@ const BACKEND_URL = "https://lagos-fruit-basket-paystack.onrender.com";
 
 const DELIVERY_FEES: Record<string, number> = {
   "": 0,
-  "test": 1,
+  "test": 100,
   "Lekki Phase 1": 5000,
   Ikate: 5000,
   "Lagos island": 4000,
@@ -1229,12 +1229,12 @@ const CartModal = () => {
       // }
 
       // ✅ Both emails use the snapshot — cart state doesn't matter anymore
-      await emailjs.send(
-        "service_0fmq306",
-        "template_v5ek0ik",
-        emailParams,
-        "VgtFaHOnkCYbiwjQM"
-      );
+      // await emailjs.send(
+      //   "service_0fmq306",
+      //   "template_v5ek0ik",
+      //   emailParams,
+      //   "VgtFaHOnkCYbiwjQM"
+      // );
       await emailjs.send(
         "service_0fmq306",
         "template_gc7tw8j",
@@ -1418,6 +1418,19 @@ const CartModal = () => {
         },
       });
       return;
+    }
+
+    try {
+      const emailParams = buildTemplateParams();
+      await emailjs.send(
+        "service_0fmq306",
+        "template_v5ek0ik",
+        emailParams,
+        "VgtFaHOnkCYbiwjQM"
+      );
+    } catch (error) {
+      console.error("Failed to send payment-started email:", error);
+      // Don't block checkout if this notification fails — payment can still proceed
     }
 
     initializePayment({ onSuccess, onClose });
