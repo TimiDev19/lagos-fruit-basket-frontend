@@ -21,6 +21,7 @@ const DELIVERY_FEES: Record<string, number> = {
   "Lagos island": 4000,
   Ikoyi: 4000,
   Oniru: 4000,
+  "Victoria Island": 4000,
   Ikota: 7000,
   Chevron: 7000,
   Ajah: 8000,
